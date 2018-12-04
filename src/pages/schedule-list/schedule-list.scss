@@ -13,7 +13,7 @@ page-schedule-list {
     }
     ion-list{
         .item{
-            background: orange;
+            background: color($colors, primary);
         }
     }
 }
