@@ -1,11 +1,36 @@
 <ion-header>
 
     <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
-    <ion-title><h1>sechedule</h1></ion-title>
+    <ion-title><h1>Lalaland Studio</h1></ion-title>
     <button ion-button><ion-icon name="search"></ion-icon></button>
   
   </ion-header>
 
 <ion-content padding>
-
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-only (click) ="prevMonth()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col>{{year}} / {{(month+1)}}</ion-col>
+    <ion-col>
+      <button ion-button icon-only (click) ="nextMonth()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>일</ion-col>
+    <ion-col>월</ion-col>
+    <ion-col>화</ion-col>
+    <ion-col>수</ion-col>
+    <ion-col>목</ion-col>
+    <ion-col>금</ion-col>
+    <ion-col>토</ion-col>
+  </ion-row>
+  <ion-row class="calendar-row">
+    <ion-col *ngFor="let date of empty_arr"></ion-col>
+    <ion-col *ngFor="let date of date_arr, let i = index;">{{i+1}}</ion-col>
+  </ion-row>
 </ion-content>

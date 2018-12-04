@@ -10,4 +10,4 @@ import { SchedulePage } from './schedule';
     IonicPageModule.forChild(SchedulePage),
   ],
 })
-export class SchedulePageModule {}
+export class ScheduleModule {}

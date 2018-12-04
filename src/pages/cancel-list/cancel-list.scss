@@ -1,3 +1,33 @@
 page-cancel-list {
-
+    .label{
+        display: flex;
+        justify-items: center;
+        line-height: 2rem;
+        .time{
+            position: relative;
+            &::after{
+                position: absolute;
+                right: -13px;
+                bottom: 8px;
+                content: '';
+                border-right: .4rem solid color($colors, dark);
+                height: 60%;
+            }
+            div:nth-child(2){
+                font-size: 1.5rem;
+                color: color($colors, gray);
+            }
+        }
+        .item-content{
+            flex: 1;
+            margin-left: 2.5rem;
+            div{
+                flex: 1;
+            }
+            div:nth-child(2){
+                font-size: 1.5rem;
+                color: color($colors, gray);
+            }
+        }
+    }
 }

@@ -1,3 +1,40 @@
 page-schedule-reservation {
+    ion-list-header{
+        .label{
+            font-size: 1.4rem; 
+        }
+    }
+    .label{
+        display: flex;
+        justify-items: center;
+        line-height: 2rem;
+        .time{
+            position: relative;
+           
+            div:nth-child(2){
+                font-size: 1.5rem;
+                color: color($colors, gray);
+            }
+            .floor{
+                flex : 1;
 
+            }
+            .manager{
+                flex: 1;
+                text-align: center;
+
+            }
+            .item-content{
+                flex: 1;
+                margin-left: 2.5rem;
+                div{
+                    flex: 1;
+                }
+                div:nth-child(2){
+                    font-size: 1.5rem;
+                    color: color($colors, gray);
+                }
+            }
+        }
+    }
 }

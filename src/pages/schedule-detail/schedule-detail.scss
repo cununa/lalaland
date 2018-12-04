@@ -1,3 +1,11 @@
 page-schedule-detail {
-
+    .label{
+        display: flex;
+        div{
+            flex: 1
+        }
+        .right{
+            flex: 2;
+        }
+    }
 }

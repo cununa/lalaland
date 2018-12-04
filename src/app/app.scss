@@ -1,3 +1,7 @@
+body{
+    font-size: 10px
+}
+
 ion-header{
     display: flex;
     ion-title{
@@ -11,7 +15,7 @@ ion-header{
         background: none !important;
         box-shadow: none !important;
         ion-icon{
-            color: red;
+            color:  color($colors, primary);
         }
     }
 }
@@ -23,26 +27,57 @@ ion-content{
     .scroll-content{
         padding: 0 !important;
     }
+    .normal-btn{
+        width: 90%;
+        margin: 1rem auto;
+        border-radius: unset;;
+        background: color($colors, primary);
+        color: #ffffff;
+    }
     ion-list{
         width: 100%;
+        padding:0 0 1rem 0;
+        border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
-            background: orange !important;
+            background: color($colors, gray) !important;
+            font-size: 1.6rem !important;
+            font-weight: bold;
+        }
+        .normal-btn{
+            overflow: visible;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            z-index: -1;
+            border-radius: none;
         }
     }
+   ul,ol{
+       margin: 0;
+   }
 }
 //ion-content
 
 ion-footer{
     display: flex;
-    background: black;
+    background: color($colors, dark);
     bottom: 0;
+    padding: 0 1.5rem;
     button{
-        background: red !important;
-        color: #ffffff;
+        background: color($colors, primary) !important;
+        color: color($colors, secondary)
     }
+
     .normal-btn{
         width: 90%;
-        margin: 2rem auto;
+        margin: 1rem auto;
+        border-radius: unset;;
+        &.btn-margin{
+            padding: 0 1rem;
+            width: 80%;
+            margin: 1rem .2rem;
+        }
     }
     &:before{
         background-image: none !important;

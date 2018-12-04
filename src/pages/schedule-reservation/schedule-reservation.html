@@ -1,7 +1,7 @@
 <ion-header>
 
     <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
-    <ion-title><h1>schedule-reservation</h1></ion-title>
+    <ion-title><h1>일정예약</h1></ion-title>
     <button ion-button><ion-icon name="search"></ion-icon></button>
   
   </ion-header>
@@ -13,8 +13,30 @@
       일정 정보
     </ion-list-header>
       <ion-item>제목</ion-item>
-      <ion-item>층수</ion-item>
-      <ion-item>Blade Runner</ion-item>
+      <ion-item class="">
+        <div class="floor">
+          층수
+          <select name="floor" id="selctFloor">
+            <option value="m3">m3</option>
+            <option value="ls">ls</option>
+            <option value="llt">llt</option>
+          </select>
+        </div>
+        <div class="manager">
+          담당 <span>구자영</span>
+        </div>
+      </ion-item>
+      <ion-item>
+          <div class="time">
+              <div>2018. 11. 22.</div>
+              <div>2018. 11. 22</div>
+          </div>
+          <div class="item-content">
+              <div>오전 12:00</div> 
+              <div>오전 12:00</div>
+          </div>
+      </ion-item>
+      <ion-item></ion-item>
     <ion-list-header>
       예약자 정보
     </ion-list-header>

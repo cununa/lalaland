@@ -2,7 +2,15 @@ page-customer-note {
     ion-label{
         display: flex;
         div:first-child{
+            flex: 3;
+        }
+        div:nth-child(2){
+            flex: 1;        
+            text-align: right;
+        }
+        div:last-child{
             flex: 1;
+            text-align: right;
         }
     }
 }
