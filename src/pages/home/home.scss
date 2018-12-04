@@ -1,0 +1,14 @@
+page-home {
+    .col {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calendar-row {
+        .col {
+            flex: 0 0 14.28571%;
+            width: 14.28571%;
+            max-width: 14.28571%;
+        }
+    }
+}

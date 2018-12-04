@@ -1,0 +1,8 @@
+page-customer-list {
+    ion-label{
+        display: flex !important;
+        div:first-child{
+            flex: 1;
+        }
+    }
+}
