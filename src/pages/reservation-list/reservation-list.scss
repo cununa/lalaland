@@ -10,7 +10,7 @@ page-reservation-list {
                 right: -13px;
                 bottom: 8px;
                 content: '';
-                border-right: .4rem solid black;
+                border-right: .4rem solid color($colors,danger);
                 height: 60%;
             }
             div:nth-child(2){

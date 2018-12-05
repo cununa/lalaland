@@ -2,7 +2,7 @@ page-cancel-list {
     .label{
         display: flex;
         justify-items: center;
-        line-height: 2rem;
+        line-height: 2.4rem;
         .time{
             position: relative;
             &::after{
@@ -10,12 +10,12 @@ page-cancel-list {
                 right: -13px;
                 bottom: 8px;
                 content: '';
-                border-right: .4rem solid color($colors, dark);
+                border-right: .4rem solid color($colors, danger);
                 height: 60%;
             }
             div:nth-child(2){
                 font-size: 1.5rem;
-                color: color($colors, gray);
+                color: color($colors, third);
             }
         }
         .item-content{
@@ -26,7 +26,7 @@ page-cancel-list {
             }
             div:nth-child(2){
                 font-size: 1.5rem;
-                color: color($colors, gray);
+                color: color($colors, third);
             }
         }
     }

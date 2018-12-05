@@ -8,4 +8,12 @@ page-schedule-detail {
             flex: 2;
         }
     }
+    .black{
+        background: color($colors, dark) !important;
+        color: color($colors, secondary);
+    }
+    .deposit{
+        color: red;
+        font-weight: bold;
+    }
 }
