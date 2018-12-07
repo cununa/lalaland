@@ -7,11 +7,12 @@ page-schedule-list {
     }
     text-align: center;
     .date{
-        padding: .6rem 0;
+        padding: .9rem 0;
         background: color($colors, primary);
         font: 1rem;
         font-weight: $font-weight-bold;
         ion-col{
+            padding: 0;
             &:first-child{
                 color: red;
             }
@@ -21,10 +22,11 @@ page-schedule-list {
         }
     }
     .date-number{
-        font-size: $font-size-l;
+        font-size: $font-size-n;
+        
         border-bottom: 1px solid color($colors, danger);
         .col{
-            margin-bottom: 1rem;
+            padding: 1.1rem;
         }
     }
     ion-list{
