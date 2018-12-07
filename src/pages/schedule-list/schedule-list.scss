@@ -7,8 +7,8 @@ page-schedule-list {
     }
     text-align: center;
     .date{
+        padding: .6rem 0;
         background: color($colors, primary);
-        padding: 1rem 0;
         font: 1rem;
         font-weight: $font-weight-bold;
         ion-col{
@@ -71,10 +71,11 @@ page-schedule-list {
                 .text-area{
                     flex: 1;
                     h4{
-                        padding-bottom: 2rem;
+                        padding:0 1rem 2rem 2rem;
                         color : color($colors , danger);
                         font-size: $font-size-n !important;
                         font-weight: $font-weight-regular !important;
+                        text-align: left;
                     }
                     button{
                         position: absolute;
