@@ -7,13 +7,22 @@ page-schedule-list {
     }
     text-align: center;
     .date{
+        background: color($colors, primary);
         padding: 1rem 0;
         font: 1rem;
-        background: color($colors,secondary)
+        font-weight: $font-weight-bold;
+        ion-col{
+            &:first-child{
+                color: red;
+            }
+            &:last-child{
+                color: gray;
+            }
+        }
     }
     .date-number{
         font-size: $font-size-l;
-        // border-top: 1px solid color($colors, third);
+        border-bottom: 1px solid color($colors, danger);
         .col{
             margin-bottom: 1rem;
         }
@@ -43,7 +52,12 @@ page-schedule-list {
             .a  { grid-area:  a ;}
             .b  { grid-area:  b }
             .c   { grid-area: c }
-            .d { grid-area:   d}
+            .d { grid-area:   d;  
+                border: 1px solid color($colors , gray) !important;
+                button{
+                    background: color($colors,gray) !important; 
+                }
+            } 
             .box{
                 margin: 1rem;
                 background: color($colors, primary);
