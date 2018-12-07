@@ -3,8 +3,19 @@ page-customer-list {
     ion-label{
         padding: 1rem;
         display: flex !important;
-        div:first-child{
-            flex: 1;
+        div{
+            &:first-child{
+                flex: 8;
+            }
+            &:last-child{
+                display: flex;
+                flex: 2;
+                ion-icon{
+                    flex : 5;
+                    text-align: center;
+                }
+            }
+            
         }
     }
     .input-wrapper{

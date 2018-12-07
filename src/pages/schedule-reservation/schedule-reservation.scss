@@ -1,9 +1,12 @@
 page-schedule-reservation {
     ion-list-header{
         .label{
-            font-size: $font-size-xs; 
+            font-size: $font-size-n;
+            
         }
     }
+   
+   ion-item{
     .label{
         display: flex;
         justify-items: center;
@@ -45,4 +48,6 @@ page-schedule-reservation {
             }
         }
     }
+   }
+    
 }
