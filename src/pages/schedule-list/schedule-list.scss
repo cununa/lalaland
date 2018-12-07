@@ -52,20 +52,44 @@ page-schedule-list {
                 align-items: center;
                 align-content: center; 
                 position: relative;
+                background: color($colors, secondary);
+                border: 1px solid color($colors , danger);
                 .text-area{
                     flex: 1;
+                    h4{
+                        padding-bottom: 2rem;
+                        color : color($colors , danger);
+                        font-size: $font-size-n !important;
+                        font-weight: $font-weight-regular !important;
+                    }
                     button{
                         position: absolute;
                         bottom: 0;
                         left: 0;
+                        display: flex;
+                        padding: 0;
+                        span{
+                            ion-icon{
+                                font-size: $font-size-n;
+                            }
+                            &:first-child{
+                                flex: 3;
+                                text-align: left;
+                                padding-left: 1rem;
+                                font-size: $font-size-l;
+                                font-weight: $font-weight-extra-bold;
+                            }
+                            &:nth-child(2){
+                                flex: 1;
+                                
+                            }
+                        }
                     }
                 }
             }
     }
 
-    h3{
-        margin: 1rem !important;
-    }
+    
   
     
     /* try to resize the screen */

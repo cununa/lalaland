@@ -1,4 +1,34 @@
 page-schedule-detail {
+    ion-content{
+        .normal-btn{
+            cursor: pointer;
+            margin: auto;
+        }
+    }
+    .deposit-btn{
+        margin: auto;
+        text-align: center;
+    }
+    ion-list-header{
+        .input-wrapper{
+            ion-label{
+                font-weight: $font-weight-bold;
+                color: color($colors, dark)
+            }
+        }
+    }
+    ion-footer{
+        border-top: 1px solid color($colors, danger) !important; 
+        button{
+            &:hover{
+                background: color($colors ,danger);
+            }
+        }
+        button:first-child{
+            border-right: 1px solid color($colors, danger); 
+        }
+    }
+    
     .label{
         display: flex;
         div{
@@ -15,5 +45,14 @@ page-schedule-detail {
     .deposit{
         color: red;
         font-weight: bold;
+    }
+    .right{
+        font-weight: $font-weight-bold;
+        div:first-child{
+            font-weight: $font-weight-bold;
+        }
+        div:nth-child(2){
+            font-weight: $font-weight-regular;
+        }
     }
 }
