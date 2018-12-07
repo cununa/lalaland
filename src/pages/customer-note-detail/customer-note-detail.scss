@@ -1,5 +1,41 @@
 page-customer-note-detail {
-    .item{
-        border-bottom: .1rem solid black !important;
+    ion-header{
+        border-bottom: 1px solid color($colors, danger)  !important;
     }
+    ion-footer{
+        border-top: 1px solid color($colors, danger) !important; 
+        button{
+            &:hover{
+                background: color($colors ,danger);
+            }
+        }
+        button:first-child{
+            border-right: 1px solid color($colors, danger); 
+        }
+    }
+  .note-detail{
+      padding-left: 1.6rem;
+  }
+  ion-content{
+      position: relative;
+  }
+  .content-footer{
+      width: 100%;
+      border-top: 1px solid color($colors, gray);
+      border-bottom: 1px solid color($colors, gray);
+      display: flex;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: $font-size-n;
+      div{
+          padding: .5rem 1rem;
+          flex: 1
+      }
+      div:nth-child(2){
+        padding: .5rem 1rem;
+        text-align: right;
+        color :color( $colors , danger);
+      }
+  }
 }

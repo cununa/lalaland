@@ -1,17 +1,24 @@
+
+// init
 body{
     font-size: 10px
 }
 
+.header::after{
+    background: none;
+}
+// init end
+
 ion-header{
     display: flex;
-    border: unset !important;
+    border-bottom:  .1rem solid color($colors, danger);
     ion-title{
         text-align: center;
     }
     h1{
         margin: 0;
         color: color($colors, dark);
-        font-size : 1.8rem;
+        font-size : $font-size-n;
         font-weight: bold;
     }
     button{
@@ -27,30 +34,45 @@ ion-header{
 
 
 ion-content{
+    .container{
+        padding: 1.6rem;
+        width: 100%;
+        height: 100%;
+    }
+    // init
+    ul,ol{
+        margin: 0;
+        padding-left: 2rem;
+    }
     padding: 0 !important;
     .scroll-content{
         padding: 0 !important;
     }
-    .normal-btn{
-        width: 90%;
-        margin: 1rem auto;
-        border-radius: unset;;
-        background: color($colors, danger);
-        color: #ffffff;
-    }
-    .item-inner{
-        border: unset !important;
+    .list-header-md{
+        margin-bottom: 0;
     }
     .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
         border: unset !important;
     }
+    // 
+    .normal-btn{
+        width: 90%;
+        margin: 1rem auto;
+        border-radius: unset;;
+        
+    }
+    
+    .item-inner{
+        border: unset !important;
+    }
+    
     ion-list{
         width: 100%;
         padding:0 0 1rem 0;
         // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
             background: color($colors, primary) !important;
-            font-size: 1.6rem !important;
+            font-size: $font-size-s !important;
             font-weight: bold;
             border: unset !important;
         }
@@ -64,10 +86,7 @@ ion-content{
             border-radius: none;
         }
     }
-   ul,ol{
-       margin: 0;
-       padding-left: 2rem;
-   }
+  
 }
 //ion-content
 
@@ -75,15 +94,28 @@ ion-footer{
     display: flex;
     background: color($colors, secondary);
     bottom: 0;
-    padding: 0 1.5rem;
+    // padding: 0 1.5rem;
+    .button-md:hover:not(.disable-hover){
+        background: color($colors ,danger);
+    }
+    button{
+        
+        border-top: .1rem solid color($colors, danger);
+        &:hover:not(.disable-hover){
+            background: color($colors ,danger);
+        }
+    }
     .normal-btn{
-        width: 90%;
-        margin: 1rem auto;
+        width: 100%;
+        height: 100%;
+        padding: 1rem 0;
+        margin: 0;
         border-radius: unset;;
         &.btn-margin{
             padding: 0 1rem;
             margin: 1rem .2rem;
         }
+        .button-inner{padding: 1rem 0;}
     }
     &:before{
         background-image: none !important;
@@ -92,6 +124,7 @@ ion-footer{
 // ion-footer
 .ion-ios-call-outline{
     color: red;
+    
 }
 
 // 버튼 모양

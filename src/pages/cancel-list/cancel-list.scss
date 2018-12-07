@@ -10,11 +10,11 @@ page-cancel-list {
                 right: -13px;
                 bottom: 8px;
                 content: '';
-                border-right: .4rem solid color($colors, danger);
+                border-right: .4rem solid color($colors,  gray);
                 height: 60%;
             }
             div:nth-child(2){
-                font-size: 1.5rem;
+                font-size: $font-size-s;
                 color: color($colors, third);
             }
         }
@@ -25,7 +25,7 @@ page-cancel-list {
                 flex: 1;
             }
             div:nth-child(2){
-                font-size: 1.5rem;
+                font-size: $font-size-s;
                 color: color($colors, third);
             }
         }

@@ -13,6 +13,8 @@ $app-direction: ltr;
 
 
 @import "ionic.globals";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800&subset=korean');
+
 
 
 // Shared Variables
@@ -42,6 +44,17 @@ $colors: (
   dark:       #222
   
 );
+$font-size-xs : 1.3rem ;
+$font-size-s: 1.6rem;
+$font-size-n: 1.8rem;
+$font-size-l: 2rem;
+$font-size-xl : 2.6rem;
+$font-size-base: $font-size-n;
+
+$font-family-md-base: 'Nanum Myeongjo', serif !default;
+$font-weight-regular : 400;
+$font-weight-bold : 700;
+$font-weight-extra-bold : 800;
 
 
 // App iOS Variables

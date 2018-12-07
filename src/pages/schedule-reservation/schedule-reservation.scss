@@ -1,39 +1,47 @@
 page-schedule-reservation {
     ion-list-header{
         .label{
-            font-size: 1.4rem; 
+            font-size: $font-size-xs; 
         }
     }
     .label{
         display: flex;
         justify-items: center;
         line-height: 2rem;
+        .floor{
+            flex : 1;
+            #selctFloor{
+                border: unset;
+                font-weight: $font-weight-bold;
+                outline: unset;
+                option{
+                    border: unset;
+                }
+            }
+        }
+        .manager{
+            flex: 1;
+            span{
+                font-weight: $font-weight-bold;
+            }
+        }
         .time{
             position: relative;
-           
+           flex: 1;
             div:nth-child(2){
-                font-size: 1.5rem;
+                font-size: $font-size-s;
                 color: color($colors, gray);
             }
-            .floor{
-                flex : 1;
-
-            }
-            .manager{
+            
+        }
+        .item-content{
+            flex: 1;
+            div{
                 flex: 1;
-                text-align: center;
-
             }
-            .item-content{
-                flex: 1;
-                margin-left: 2.5rem;
-                div{
-                    flex: 1;
-                }
-                div:nth-child(2){
-                    font-size: 1.5rem;
-                    color: color($colors, gray);
-                }
+            div:nth-child(2){
+                font-size: $font-size-s;
+                color: color($colors, gray);
             }
         }
     }

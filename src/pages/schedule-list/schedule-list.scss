@@ -1,4 +1,10 @@
 page-schedule-list {
+    .normal-btn{
+        width: 100%;
+       
+        margin: 0;
+        outline: none;
+    }
     text-align: center;
     .date{
         padding: 1rem 0;
@@ -6,7 +12,7 @@ page-schedule-list {
         background: color($colors,secondary)
     }
     .date-number{
-        font-size: 2rem;
+        font-size: $font-size-l;
         // border-top: 1px solid color($colors, third);
         .col{
             margin-bottom: 1rem;
@@ -17,4 +23,50 @@ page-schedule-list {
             background: color($colors, primary);
         }
     }
+
+    /* Our Grid Code */
+    .app-layout {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        // max-width: 100%;
+        // max-height: 100%;
+        grid-template-columns : repeat(2, 50%);
+        grid-template-rows: repeat(2, 35%);
+        margin: 5rem auto;
+        grid-template-areas: 
+            "a b"
+            "c d";
+            @media screen and (max-width: 540px) {
+                margin: auto;
+            }
+            .a  { grid-area:  a ;}
+            .b  { grid-area:  b }
+            .c   { grid-area: c }
+            .d { grid-area:   d}
+            .box{
+                margin: 1rem;
+                background: color($colors, primary);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center; 
+                position: relative;
+                .text-area{
+                    flex: 1;
+                    button{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+            }
+    }
+
+    h3{
+        margin: 1rem !important;
+    }
+  
+    
+    /* try to resize the screen */
 }
