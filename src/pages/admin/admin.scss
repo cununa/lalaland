@@ -1,0 +1,42 @@
+page-admin {
+    ion-header{
+        border: unset;
+        background-image: unset;
+        .toolbar-background-ios{
+            background: unset;
+            border: none !important;
+        }
+        
+    }
+    .container{
+        text-align: center;
+        ion-row{
+            ion-col{
+                img{
+                    max-width: 50rem;
+                    width: 50%;
+                    padding: 8rem 0 5rem 0;
+                    @media screen and (max-width : 320px){
+                        padding: 5rem 0 ;
+                    }
+                }
+            }
+        }
+        div{
+            padding: 3rem 0;
+            color: #f49ac1;
+            input{
+                border: unset;
+                padding-left:1rem; 
+                
+                color: color($colors,danger);
+                &::placeholder{
+                    color: color($colors,danger);
+                }
+            }
+            @media screen and (max-width : 320px){
+                padding:0 0 5rem 0;
+            }
+        }
+    }
+}
