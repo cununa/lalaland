@@ -16,12 +16,19 @@ page-main {
                     max-width: 50rem;
                     width: 50%;
                     padding: 8rem 0;
+                    @media screen and (max-width : 320px){
+                        padding: 5rem 0 ;
+                    }
                 }
             }
         }
         div{
             padding: 5rem 0;
-            color: #f49ac1
+            color: #f49ac1;
+            font-weight: $font-weight-regular;
+            @media screen and (max-width : 320px){
+                padding:0 0 5rem 0;
+            }
         }
     }
 }
