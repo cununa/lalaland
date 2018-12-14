@@ -1,0 +1,5 @@
+<div class="slide-zoom">
+  <ng-content></ng-content>
+  <ng-content select="video"></ng-content>
+  <div *ngIf="video && !is_video_play" class="cover" (click)="videoPlay()"></div>
+</div>

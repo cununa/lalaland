@@ -1,16 +1,23 @@
 page-customer-history {
-    ion-list-header{
+   
+   
         .label{
-            font-size: $font-size-s;
-        }
-    }
-        .label{
+            display: flex;
+            ion-icon{
+                font-size: $font-size-xl;
+            }
             div{
                 &:first-child{
-                    font-size: $font-size-l;
-                    font-weight: $font-weight-bold;
+                    font-size: $font-size-s;
+                    font-weight: $font-weight-medium;
+                    flex: 9;
                 }
             }
+            .icon{
+                padding-top: .5rem;
+              
+            }
+            
         }
     ion-footer{
         border-top: 1px solid color($colors, danger) !important; 

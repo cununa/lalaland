@@ -1,11 +1,12 @@
 <ion-header>
 
-    <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
-    <ion-title><h1>Space size</h1></ion-title>
+    <button ion-button><ion-icon name="arrow-back"menuToggle></ion-icon></button>
+    <ion-title><h1 lang="en">Space size</h1></ion-title>
     <button ion-button><ion-icon name="search"></ion-icon></button>
   
   </ion-header>
 
-<ion-content padding>
+<ion-content padding #content>
   <img src="" alt="">
 </ion-content>
+<menu [content]="content"></menu>

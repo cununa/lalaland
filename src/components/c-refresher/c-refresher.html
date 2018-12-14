@@ -1,0 +1,6 @@
+<!-- <div class="refresher-dropdown" [class.loading]="is_loading"></div> -->
+<div class="icon-container" #iconContainer [@openClose]="is_loading ? 'loading' : is_dragging ? 'dragging' : 'closed'">
+  <div class="icon-box" #iconBox>
+    <ion-icon name="ios-refresh" [class.rotate]="is_loading"></ion-icon>
+  </div>
+</div>

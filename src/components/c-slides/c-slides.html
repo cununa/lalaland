@@ -1,0 +1,6 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper" #wrapperRef>
+    <ng-content select="slide"></ng-content>
+  </div>
+  <div *ngIf="pager" #pagerRef class="swiper-pagination"></div>
+</div>

@@ -1,132 +1,105 @@
 page-rental-rate {
     
-    .container{
+   .ion-ios-menu{
+       color: color($colors,danger)
+   }
+    .list-ios{
+        margin: 0;
+    }
+    ul{
         padding: 2rem;
-    }
-    
-    h2{
-        color : color($colors ,danger);
-        font-size : $font-size-l;
-    }
-    .info-title{
-        display: flex;
-        font-weight: $font-weight-bold;
+       
+        list-style-type: none;
         font-size: $font-size-xs;
-        border-top: .2rem solid color($colors, gray);
-        
-        padding: 1rem 0;
-        div:first-child{
-            flex: 2;
-        }
-        div:nth-child(2){
-            flex: 2;
-        }
-        div:last-child{
-            flex: 6;
-        }
     }
-    .grid{
-        display: grid;
-        height: 100%;
-        grid-template-columns: repeat(9 ,1fr);
-        grid-auto-rows: (100px,auto);
-        grid-template-areas: 
-        "a a a i  i   i   i  i   i"
-        "b b b i  i   i   i  i   i"
-        "c c c i  i   i   i  i   i"
-        "d d d i  i   i   i  i   i"
-        "e e e i  i   i   i  i   i"
-        "f f f i  i   i   i  i   i"
-        "g g g i  i   i   i  i   i"
-        "h h h i  i   i   i  i   i"
-        ;
-        margin: auto;
-        @media screen and (max-width:414px) {
-            padding: 0;
-        }
-    }
-    .a,.b,.c,.d,.e,.f,.g,.h{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border: .3rem solid color($colors,gray);
-        border-left: unset;
-        border-bottom: unset;
-        position: relative;
-        z-index: -1;
-        div:first-child{
-            border: 1px solid color($colors, dark);
-            background: color($colors ,primary);
-            flex: 1;
-            padding: .5rem .5rem;
-            span{
-                font-size: $font-size-xl;
+    ion-list{
+        ion-list-header{
+            text-align: center;
+            border-top: 1px solid color($colors,danger) !important;
+            .label{
+                font-size: $font-size-l;
+                font-weight: $font-weight-bold;
             }
         }
-        div:last-child{
-            flex: 1;
-            font-size:$font-size-l;
-            font-weight: $font-weight-bold;
-            color: color($colors, danger)
-        }
     }
-    .i{
-        position: relative;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        line-height: 6rem;
-        font-size: $font-size-n;
-        padding: 5rem;
-        border: .3rem solid color($colors,danger);
-        border: .3rem solid color($colors,danger);
-        border-right: unset;
-        font-weight: $font-weight-bold;
-        border-left: unset;
-        strong{
-            color: color($colors, danger)
-        }
-        @media screen and (max-width:910px) {
-            line-height: 5rem;
-            font-size: $font-size-s;
-            padding: 1rem;
-        }
-        @media screen and (max-width:414px) {
-            line-height: 1.6rem;
-            font-size: $font-size-xs;
-            padding: 1rem;
-        }
+    .app-layout {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        // max-width: 100%;
+        // max-height: 100%;
+        grid-template-columns : repeat(3, 33.3%);
+        grid-template-rows: repeat(1, 100%);
+        margin: 5rem auto;
+        grid-template-areas: 
+            "a b c";
+            @media screen and (max-width: 540px) {
+                margin: auto;
+            }
+            .a  { grid-area:  a ;}
+            .b  { grid-area:  b }
+            .c   { grid-area: c }
+            .box{
+                margin: 1rem .5rem ;
+                background: color($colors, primary);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center; 
+                position: relative;
+                background: color($colors, secondary);
+                border: 1px solid color($colors , danger);
+                .text-area{
+                    flex: 1;
+                    h4{
+                        padding:0rem 0 0rem 0rem;
+                        color : color($colors , danger);
+                        font-size: $font-size-xs !important;
+                        font-weight: $font-weight-regular !important;
+                        text-align: center;
+                    }
+                    button{
+                        width: 100%;
+                        // position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        display: flex;
+                        padding: 0;
+                        margin: 0;
+                        .button-inner{
+                            padding: .5rem 0 .7rem;
+                        }
+                        span{
+                            ion-icon{
+                                font-size: $font-size-n;
+                            }
+                            &:first-child{
+                                flex: 1;
+                                text-align: center;
+                                // padding-left: .5rem;
+                                font-size: $font-size-xs;
+                                font-weight: $font-weight-extra-bold;
+                            }
+                            
+                        }
+                    }
+                    .price{
+                        border-top: .1px solid color($colors ,primary);
+                        width: 85%;
+                        margin: auto;
+                        padding: 1rem 0;
+                        text-align: center;
+                        color: color($colors, dark);
+                        font-size: $font-size-xs;
+                        span{
+                            font-size: $font-size-s;
+                            font-weight: $font-weight-bold;
+                        }
+                     }
+                }
+             
+            }
     }
-    .a{grid-area: a;
-        border-top:.3rem solid color($colors,danger);
-        }
-    .b{
-        grid-area: b
-    }
-    .c{
-        grid-area: c
-    }
-    .d{
-        grid-area: d
-    }
-    .e{
-        grid-area: e
-    }
-    .f{
-        grid-area: f
-    }
-    .g{
-        grid-area: g
-    }
-    .h{
-        grid-area: h;
-        
-        border-bottom: .3rem solid color($colors,danger);
-    }
-    .i{
-        grid-area: i
-    }
+
 
 }

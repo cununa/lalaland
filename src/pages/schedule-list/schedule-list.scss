@@ -103,6 +103,11 @@ page-schedule-list {
                         }
                     }
                 }
+                &:last-child{
+                    h4{
+                        color: color($colors,gray)
+                    }
+                }
             }
     }
 

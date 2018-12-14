@@ -11,4 +11,27 @@ page-schedule {
             max-width: 14.28571%;
         }
     }
+    .date{
+        padding: .9rem 0;
+        
+        font: 1rem;
+        font-weight: $font-weight-bold;
+        ion-col{
+            padding: 0;
+            &:first-child{
+                color: color($colors, danger);
+            }
+            &:last-child{
+                color: gray;
+            }
+        }
+    }
+    .month{
+        color: color($colors,danger);
+        padding: 1rem;
+    }
+   
+    .list-ios{
+        margin: 0;
+    }
 }

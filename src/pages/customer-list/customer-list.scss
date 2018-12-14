@@ -1,24 +1,30 @@
 page-customer-list {
    
     ion-label{
-        padding: 1rem;
+        padding: .2rem .5rem;
         display: flex !important;
         div{
             &:first-child{
+                flex: 1;
+                ion-icon{
+                    font-size: $font-size-xl;
+                }
+            }
+            &:nth-child(2){
                 flex: 8;
             }
             &:last-child{
                 display: flex;
-                flex: 2;
+                flex: 1;
                 ion-icon{
-                    flex : 5;
+                    flex : 1;
                     text-align: center;
                 }
             }
             
         }
     }
-    .input-wrapper{
-        border-bottom: .11rem solid color($colors, third)
-    }
+    // .input-wrapper{
+    //     border-bottom: .11rem solid color($colors, third)
+    // }
 }

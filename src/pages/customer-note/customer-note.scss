@@ -1,19 +1,24 @@
 page-customer-note {
     ion-label{
         display: flex;
+        padding: .5rem 0;
         div:first-child{
-            flex: 3;
+            flex: 1;
+            color: color($colors,third);
         }
         div:nth-child(2){
-            flex: 1;        
-            text-align: right;
+            flex: 3;        
+            text-align: left;
+            font-weight: $font-weight-medium;
         }
         div:last-child{
             flex: 1;
             text-align: right;
+            color: color($colors,third);
+
         }
     }
-    .item-inner{
-        border-bottom: .01rem solid color($colors, third) !important;
-    }
+    // .item-inner{
+    //     border-bottom: .01rem solid color($colors, third) !important;
+    // }
 }

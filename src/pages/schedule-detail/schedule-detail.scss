@@ -9,14 +9,7 @@ page-schedule-detail {
         margin: auto;
         text-align: center;
     }
-    ion-list-header{
-        .input-wrapper{
-            ion-label{
-                font-weight: $font-weight-bold;
-                color: color($colors, dark)
-            }
-        }
-    }
+   
     ion-footer{
         border-top: 1px solid color($colors, danger) !important; 
         button{
@@ -31,7 +24,7 @@ page-schedule-detail {
     
     .label{
         display: flex;
-        div{
+        div:first-child{
             flex: 1
         }
         .right{
@@ -43,16 +36,62 @@ page-schedule-detail {
         color: color($colors, secondary);
     }
     .deposit{
-        color: red;
+        color: color($colors,danger);
         font-weight: bold;
     }
-    .right{
+  
+    ion-item{
+        div{
+            display: flex;
+            font-weight: $font-weight-medium;
+            span{
+                color: color($colors , third);
+                padding-right: 1rem;
+                font-weight: inherit;
+            }
+        }
+    }
+    .img-line{
+        display: flex;
+        font-weight: $font-weight-medium;
+        div{
+            flex-direction: column;
+            display: flex;
+            color: color($colors, third);
+            justify-content: center;
+            font-weight: inherit;
+            strong{
+                font-size: $font-size-l;
+                color: color($colors, dark);
+                padding: .5rem 0;
+            }
+        }
+    }
+    .box{
+        width: 10rem;
+        height: 10rem;
+        background: color($colors, danger);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: color($colors, secondary);
+      h3{
         font-weight: $font-weight-bold;
-        div:first-child{
-            font-weight: $font-weight-bold;
+        font-size: $font-size-xl;
+      }
+    }
+    .first-item{
+        .label{
+            padding: 1rem 0 2rem;
+            font-weight: $font-weight-medium;
+            border-bottom: 1px solid color($colors, third)
         }
-        div:nth-child(2){
-            font-weight: $font-weight-regular;
-        }
+    }
+    ion-icon{
+        font-size: $font-size-xl;
+    }
+    img{
+        width: 2rem;
+        height: 2rem;
     }
 }

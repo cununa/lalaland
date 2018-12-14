@@ -1,14 +1,19 @@
 page-admin {
-    ion-header{
-        border: unset;
-        background-image: unset;
-        .toolbar-background-ios{
-            background: unset;
-            border: none !important;
-        }
-        
+    .ion-page{
+        background: color($colors,danger);
     }
+  
+    // ion-header{
+    //     border: unset;
+    //     background-image: unset;
+    //     .toolbar-background-ios{
+    //         background: unset;
+    //         border: none !important;
+    //     }
+        
+    // }
     .container{
+        background: color($colors,danger);
         text-align: center;
         ion-row{
             ion-col{
@@ -24,13 +29,13 @@ page-admin {
         }
         div{
             padding: 3rem 0;
-            color: #f49ac1;
+            color: color($colors,primary);
             font-weight: $font-weight-regular;
             input{
                 border: unset;
                 padding-left:1rem; 
-                
                 color: color($colors,danger);
+                opacity: .8;
                 &::placeholder{
                     color: color($colors,danger);
                 }

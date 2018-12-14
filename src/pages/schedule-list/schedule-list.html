@@ -1,13 +1,13 @@
 <ion-header>
 
-  <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
+  <button ion-button><ion-icon name="arrow-back" menuToggle></ion-icon></button>
   <ion-title><h1>11월 23일</h1></ion-title>
   <button ion-button><ion-icon name="search"></ion-icon></button>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding #content>
  
 
     <ion-row class="date">
@@ -28,82 +28,50 @@
       <ion-col>6</ion-col>
       <ion-col>7</ion-col>
     </ion-row>
-    <!-- <ion-list>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/imgs/logo.png">
-        </ion-thumbnail>
-        <h2>LS</h2>
-        <p>스튜디오</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/imgs/logo.png">
-        </ion-thumbnail>
-        <h2>LLT</h2>
-        <p>스튜디오</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/imgs/logo.png">
-        </ion-thumbnail>
-        <h2>LS</h2>
-        <p>스튜디오</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/imgs/logo.png">
-        </ion-thumbnail>
-        <h2>LLT</h2>
-        <p>스튜디오</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-    </ion-list> -->
+
     <div class="container">
     <div class='app-layout'>
         <div class='box a'>
           <div class="text-area">
-            <h4>LALALAND STUDIO</h4>
+            <h4 lang="en">LALALAND STUDIO</h4>
             <button ion-button class="normal-btn danger-btn" >
-              <span>LS</span>
+              <span lang="en">LS</span>
                 <span><ion-icon name="arrow-forward"></ion-icon></span>
             </button>
           </div>
         </div>
         <div class='box b'>
             <div class="text-area">
-                <h4>LALALAND LOOPTOP</h4>
+                <h4 lang="en">LALALAND LOOPTOP</h4>
                 <button ion-button class="normal-btn danger-btn" >
-                  <span>LLT</span>
+                  <span lang="en">LLT</span>
                   <span><ion-icon name="arrow-forward"></ion-icon></span>
                 </button>
               </div>
         </div>
         <div class='box c'>
             <div class="text-area">
-                <h4>SHAKESPEARE VACATION</h4>
+                <h4 lang="en">SHAKESPEARE VACATION</h4>
                 <button ion-button class="normal-btn danger-btn" >
-                  <span>SV</span>
+                  <span lang="en">SV</span>
                   <span><ion-icon name="arrow-forward"></ion-icon></span>
                 </button>
               </div>
         </div>
         <div class='box d'>
             <div class="text-area">
-                <h4>COMMING SOON</h4>
+                <h4 lang="en">COMMING SOON</h4>
                 <button ion-button class="normal-btn danger-btn" >
                   <span> </span>
                   <span><ion-icon name=""> </ion-icon></span>
                 </button>
               </div>
         </div>
-      </div>
+    </div>
   </div>
   </ion-content>
 
 <ion-footer>
     <button ion-button class="normal-btn dark-btn">예약하기</button>
 </ion-footer>
+<menu [content]="content"></menu>

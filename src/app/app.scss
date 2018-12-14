@@ -3,13 +3,27 @@
 body{
     font-size: 10px;
     font-family: 'Noto Sans KR', sans-serif;
-
+    div,p,span,h1,h2,h3,h4 {
+        &:lang(en){
+            font-family: 'Noto Sans', sans-serif;
+        }
+    }
 }
 ion-app.md{
     font-family: 'Noto Sans KR', sans-serif;
+    div,p,span,h1,h2,h3,h4 {
+        &:lang(en){
+            font-family: 'Noto Sans', sans-serif;
+        }
+    }
 }
 ion-app.ios{
     font-family: 'Noto Sans KR', sans-serif;
+    div,p,span,h1,h2,h3,h4 {
+        &:lang(en){
+            font-family: 'Noto Sans', sans-serif;
+        }
+    }
 }
 .header::after{
     background: none;
@@ -18,13 +32,14 @@ ion-app.ios{
 
 ion-header{
     display: flex;
-    border-bottom:  .1rem solid color($colors, danger);
+    background: color($colors,danger);
+    // background: color($colors,secondary);
     ion-title{
         text-align: center;
     }
     h1{
         margin: 0;
-        color: color($colors, dark);
+        color:color($colors,primary);
         font-size : $font-size-n;
         font-weight: bold;
     }
@@ -32,8 +47,15 @@ ion-header{
         border: 0;
         background: none !important;
         box-shadow: none !important;
+        &:first-child{
+            ion-icon{
+                color:color($colors,primary);
+                font-size: $font-size-xl;
+            }
+        }
         ion-icon{
-            color:  color($colors, danger);
+            color:color($colors,primary);
+            font-size: $font-size-xl;
         }
     }
 }
@@ -59,7 +81,7 @@ ion-content{
         margin-bottom: 0;
     }
     .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
-        border: unset !important;
+        border: unset ;
     }
     // 
     .normal-btn{
@@ -84,8 +106,9 @@ ion-content{
         ion-list-header{
             background: color($colors, primary) !important;
             font-size: $font-size-s !important;
-            font-weight: bold;
+            font-weight: $font-weight-medium;
             border: unset !important;
+            color : color($colors,danger) !important;
         }
        
     }
@@ -161,4 +184,48 @@ ion-footer{
 .dark-btn{
     background: color($colors , dark);
     color: color($colors, secondary)
+}
+
+
+
+// menu
+.profile{
+    padding: 7rem 0 2rem;;
+
+    margin: auto;
+    text-align: center;
+    .card-img{
+        margin: auto;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        background: color($colors,danger);
+    }
+}
+.close-btn{
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: $font-size-xl;
+}
+.menu-top-m{
+
+    p{
+        margin: 2rem 0 0 0 ;
+    }
+    button{
+        padding: .5rem 0 ;
+        display: flex;
+        padding-left: 2rem;
+        span{
+            &:first-child{
+                flex: 7;
+            }
+            &:last-child{
+                flex: 3;
+                padding-left: .5rem;
+                color: color($colors,danger)
+            }
+        }
+    } 
 }

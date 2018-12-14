@@ -1,10 +1,5 @@
 page-customer-note-detail {
-    ion-list-header{
-        .label{
-            font-size: $font-size-s;
-            
-        }
-    }
+    
     ion-footer{
         border-top: 1px solid color($colors, danger) !important; 
         button{
@@ -18,13 +13,14 @@ page-customer-note-detail {
     }
   .note-detail{
       padding-left: 1.6rem;
+      font-size: $font-size-s;
   }
   ion-content{
       position: relative;
   }
   .content-footer{
       width: 100%;
-      border-top: 1px solid color($colors, gray);
+    //   border-top: 1px solid color($colors, gray);
       border-bottom: 1px solid color($colors, gray);
       display: flex;
       position: absolute;
@@ -40,5 +36,19 @@ page-customer-note-detail {
         text-align: right;
         color :color( $colors , danger);
       }
+  }
+  .title{
+      text-align: center;
+      font-size: $font-size-l;
+      font-weight: $font-weight-bold;
+      padding: 1rem 0 ;
+      border-bottom: 1px solid color($colors, primary) !important
+  }
+  .ion-ios-create-outline{
+      color: color($colors,danger);
+      font-size: $font-size-xl;
+  }
+  .ion-ios-chatboxes-outline{
+    font-size: $font-size-xl;
   }
 }

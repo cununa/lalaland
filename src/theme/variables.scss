@@ -14,6 +14,7 @@ $app-direction: ltr;
 
 @import "ionic.globals";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 
 // Shared Variables
@@ -51,7 +52,9 @@ $font-size-xl : 2.6rem;
 $font-size-base: $font-size-n;
 
 $font-family-md-base: 'Nanum Myeongjo', serif !default;
+$font-weight-thin: 300;
 $font-weight-regular : 400;
+$font-weight-medium : 500;
 $font-weight-bold : 700;
 $font-weight-extra-bold : 800;
 

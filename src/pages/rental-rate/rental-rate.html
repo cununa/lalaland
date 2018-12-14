@@ -1,14 +1,14 @@
 <ion-header>
-  <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
-  <ion-title><h1>Rental Rate & Regulation</h1></ion-title>
+  <button ion-button><ion-icon name="ios-menu" menuToggle></ion-icon></button>
+  <ion-title><h1 lang="en">Rental Rate & Regulation</h1></ion-title>
   <button ion-button><ion-icon name="search"></ion-icon></button>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content #content>
   
   <div>
-    <div class="container">
+    <!-- <div class="container">
       <h2>동영상 광고 촬영 렌탈</h2>
       <div class="info-title">
         <div>렌탈장소</div>
@@ -75,74 +75,83 @@
                 </ul>
           </div>
       </div>
+    </div> -->
+    <ion-list>
+        <ion-list-header>
+            렌탈장소
+        </ion-list-header>
+    </ion-list>
+
+    <div class='app-layout'>
+        <div class='box a'>
+          <div class="text-area">
+            <button ion-button class="normal-btn danger-btn" >
+                <span lang="en">LS</span>
+                <!-- <span><ion-icon name="arrow-forward"></ion-icon></span> -->
+            </button>
+            <h4 lang="en">LALALAND STUDIO</h4>
+           
+            <div class="price">
+                <ion-icon name="logo-usd"></ion-icon>
+                <span>300</span></div>
+          </div>
+        </div>
+        <div class='box b'>
+            <div class="text-area">
+                <button ion-button class="normal-btn danger-btn" >
+                    <span lang="en">LLT</span>
+                <!-- <span><ion-icon name="arrow-forward"></ion-icon></span> -->
+                </button>
+                <h4 lang="en">LALALAND LOOPTOP</h4>
+               
+                <div class="price">
+                    <ion-icon name="logo-usd"></ion-icon>
+                    <span>300</span></div>
+              </div>
+        </div>
+        <div class='box c'>
+            <div class="text-area">
+                <button ion-button class="normal-btn danger-btn" >
+                    <span lang="en">SV</span>
+                <!-- <span><ion-icon name="arrow-forward"></ion-icon></span> -->
+                </button>
+                <h4 lang="en">SHAKESPEARE VACATION</h4>
+                
+                <div class="price">
+                    <ion-icon name="logo-usd"></ion-icon>
+                    <span>300</span></div>
+              </div>
+        </div>
     </div>
-    <div class="container">
-        <h2>행사 렌탈</h2>
-        <div class="info-title">
-          <div>렌탈장소</div>
-          <div>렌탈금액</div>
-          <div>이용안내</div>
-        </div>
-        <div class="grid">
-            <div class="a"> 
-                <div>M - <span>3</span></div>
-                <div>300</div>
-            </div>
-            <div class="b">
-                <div>M - <span>3</span></div>
-                <div>300</div>
-            </div>
-            <div class="c">
-                <div>M <span>2</span></div>
-                <div>500</div>
-            </div>
-            <div class="d">
-                <div>M <span>3</span></div>
-              <div>500</div>
-            </div>
-            <div class="e">
-                <div>M  <span>G</span></div>
-                <div>300</div>
-            </div>
-            <div class="f">
-                <div>K - <span>3</span></div>
-                <div>100</div>
-            </div>
-            <div class="g">
-                <div>K <span>3</span></div>
-                <div>200</div>
-            </div>
-            <div class="h">
-                <div>K <span>G</span></div>
-                <div>200</div>
-            </div>
-            <div class="i">
-                <ul>
-                    <li>
-                      <strong>렌탈</strong>이용시간 기준 / 초과시간당 10% 추가적용
-                    </li>
-                    <li>
-                      <strong>대용량 전기 시설/ 50만원</strong>(발전차 대신 대과장소 전기 사용)
-                    </li>
-                    <li>
-                      <strong>M-3차량 입고시</strong> 100만원 추가적용
-                    </li>
-                    <li><strong>지면 렌탈은</strong>동영상 렌탈비의 70% 적용<br>
-                    (지면 촬연은 메이킹 필름만 포함, 바이럴 및 광고성 동영상은 불포함)
-                    </li>
-                    <li>
-                      <strong>전날 셋팅을 위한 렌탈비는</strong>50% 적용
-                    </li>
-                    <li><strong>스튜디오 호리존 사용시</strong>기본 화이트 호리존 도색 70만원 / 
-                      다른색 도색시 100만원 소요, 복구필수
-                    </li>
-                    <li><strong>예약금</strong> : 예약시 50% / 잔금 : 렌탈 전일 <br> PM4:00까지 입금
-                    (예약금 미입금 시, 렌탈일 1주일 전 자동 캔슬 : 5일전 20% / 3일 전 50%/ / 렌탈일 0% 환불)
-                    </li>
-                    <li>100% 현장 복구 / 파손 발생 경우 해당 복구 비용 청구</li>
-                  </ul>
-            </div>
-        </div>
-      </div>
+    <ion-list>
+        <ion-list-header>
+            이용안내
+        </ion-list-header>
+        <ul>
+            <li>
+              <strong>렌탈</strong>이용시간 기준 / 초과시간당 10% 추가적용
+            </li>
+            <li>
+              <strong>대용량 전기 시설/ 50만원</strong>(발전차 대신 대과장소 전기 사용)
+            </li>
+            <li>
+              <strong>M-3차량 입고시</strong> 100만원 추가적용
+            </li>
+            <li><strong>지면 렌탈은</strong>동영상 렌탈비의 70% 적용<br>
+            (지면 촬연은 메이킹 필름만 포함, 바이럴 및 광고성 동영상은 불포함)
+            </li>
+            <li>
+              <strong>전날 셋팅을 위한 렌탈비는</strong>50% 적용
+            </li>
+            <li><strong>스튜디오 호리존 사용시</strong>기본 화이트 호리존 도색 70만원 / 
+              다른색 도색시 100만원 소요, 복구필수
+            </li>
+            <li><strong>예약금</strong> : 예약시 50% / 잔금 : 렌탈 전일 <br> PM4:00까지 입금
+            (예약금 미입금 시, 렌탈일 1주일 전 자동 캔슬 : 5일전 20% / 3일 전 50%/ / 렌탈일 0% 환불)
+            </li>
+            <li>100% 현장 복구 / 파손 발생 경우 해당 복구 비용 청구</li>
+          </ul>
+    </ion-list>
   </div>
 </ion-content>
+<menu [content]="content"></menu>

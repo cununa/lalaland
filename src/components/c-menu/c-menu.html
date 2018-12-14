@@ -1,0 +1,48 @@
+<ion-menu [attr.id]="id" [content]="content" side="left">
+    <ion-content class="menu-top-m">
+      <ion-list>
+          <div class="profile">
+              <div class="close-btn">
+                <ion-icon name="md-close"></ion-icon>
+              </div>
+            <div class="card-img">
+    
+            </div>
+            <p>구지영님, 안녕하세요?</p>
+          </div>
+        <button ion-item (click)="navPush('record-end')">
+          홈으로
+        </button>
+        <button ion-item (click)="navPush('record-theme')">
+          <span>예약완료</span>
+          <span>567</span>
+        </button>
+        <button ion-item (click)="navPush('record-list')">
+          <span>예약취소</span>
+          <span>1325</span>
+        </button>
+        <button ion-item (click)="navPush('record-community')">
+          <span>고객관리</span>
+          <span>615</span>
+        </button>
+        <button ion-item (click)="navPush('mypage')">
+          <span>메모</span>
+          <span>6</span>
+        </button>
+        <button ion-item (click)="navPush('setting')">
+          Space size
+        </button>
+        <button ion-item (click)="navPush('setting')">
+          Rental RAte
+        </button>
+        <button ion-item (click)="navPush('setting')">
+          Download
+        </button>
+        <button ion-item (click)="navPush('setting')">
+          로그아웃
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  

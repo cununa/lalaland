@@ -1,38 +1,84 @@
 page-schedule-reservation {
-    ion-list-header{
-        .label{
-            font-size: $font-size-s;
-        }
+    body{
+       font-weight:  $font-weight-medium !important;
     }
    
+   .schedule-title{
+    font-size: $font-size-s !important;
+    font-weight:  $font-weight-medium;
+        span{
+            padding-left: 2rem;
+        }
+       .item-inner{
+        border-bottom: 1px solid color($colors, primary) !important;
+        padding: 1.6rem 0;
+        
+       }
+}
    ion-item{
+    .place{
+        .label{
+            border-bottom: 1px solid color($colors, primary) !important;
+        }
+    }
     .label{
+        font-size: $font-size-s;
         display: flex;
         justify-items: center;
         line-height: 2rem;
         .floor{
+            color: color($colors,third);
             flex : 1;
-            #selctFloor{
-                border: unset;
-                font-weight: $font-weight-bold;
-                outline: unset;
-                option{
-                    border: unset;
+            #selctFloor {
+                font-weight: $font-weight-medium;
+                line-height: 1.5em;
+                padding: 0.5em 3.5em 0.5em 1em;
+                margin: 0;      
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                border: none;
+                color: color($colors,dark);
+                background-image:
+                    linear-gradient(45deg, transparent 50%, color($colors,danger) 50%),
+                    linear-gradient(135deg, color($colors,danger) 50%, transparent 50%);
+                   
+                background-position:
+                    calc(100% - 22px) calc(1em  ),
+                    calc(100% - 15px) calc(1em );
+                    
+                background-size:
+                    6px 7px,
+                    7px 7px;
+                  
+                background-repeat: no-repeat;
                 }
-            }
         }
         .manager{
             flex: 1;
+            padding: 0.5em 0 0.5em 0;
+            color: color($colors,third);
+            font-weight: $font-weight-medium;
             span{
-                font-weight: $font-weight-bold;
+                font-weight: inherit;
+                color: color($colors,dark);
+                padding-left: 1rem;
+
             }
         }
         .time{
             position: relative;
            flex: 1;
-            div:nth-child(2){
-                font-size: $font-size-s;
-                color: color($colors, gray);
+            // div:nth-child(2){
+            //     font-size: $font-size-s;
+            //     color: color($colors, gray);
+            // }
+            span{
+                padding-right: 1rem;
+            color: color($colors,third);
+
             }
             
         }
@@ -41,12 +87,22 @@ page-schedule-reservation {
             div{
                 flex: 1;
             }
-            div:nth-child(2){
-                font-size: $font-size-s;
-                color: color($colors, gray);
-            }
+            // div:nth-child(2){
+            //     font-size: $font-size-s;
+            //     color: color($colors, gray);
+            // }
         }
     }
    }
-    
+   label{
+       color: color($colors, third)
+   }
+   input[type="checkbox"]{
+    background: #ffffff;
+    border: 1px solid color($colors, danger);
+    width: 2rem;
+    height: 2rem;
+    margin : auto 1rem;
+    box-shadow: none;
+   }
 }

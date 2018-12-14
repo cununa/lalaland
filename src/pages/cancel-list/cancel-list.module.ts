@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CancelListPage } from './cancel-list';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { CancelListPage } from './cancel-list';
   ],
   imports: [
     IonicPageModule.forChild(CancelListPage),
+    ComponentsModule
   ],
 })
 export class CancelListPageModule {}

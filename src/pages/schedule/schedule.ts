@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -33,7 +33,7 @@ export class SchedulePage {
 //1. 이달의 갯수를 구한다
 //2. 이달의 1일이 무슨요일인지 구한다.
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController) {
     this.calcMonth();
 
 //    console.log(new Date(this.year, this.month, 1).getDay());

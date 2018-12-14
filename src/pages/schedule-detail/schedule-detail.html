@@ -1,47 +1,47 @@
 <ion-header>
 
-    <button ion-button><ion-icon name="arrow-back"></ion-icon></button>
+    <button ion-button><ion-icon name="arrow-back" menuToggle></ion-icon></button>
     <ion-title><h1>일정 상세보기</h1></ion-title>
     <button ion-button><ion-icon name="search"></ion-icon></button>
   
   </ion-header>
 
 
-<ion-content padding>
+<ion-content  #content>
   <ion-list>
     <ion-list-header>
         2018년 11월 23일
     </ion-list-header>
+      <ion-item class="first-item">
+        <div class="img-line">
+          <div><strong> 웰스 정수기 </strong>12:00AM - 12:00AM</div>
+        </div>
+        <div class="box">
+          <h3 lang="en">LS</h3>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div><span>담당</span>김민수</div>
+      </ion-item>
       <ion-item>
         <div>
-            <img src="" alt="">
+          <span>예약</span>
+          <div> 에어전시프로드, 박용식 실장<br>
+            010-8637-0962</div>
+         
         </div>
-        
-        <div class="right">
-          <div>웰스 정수기</div>
-          <div>12:00 AM - 12:00AM</div>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div>담당:</div>
-        <div class="right">김민수</div>
-      </ion-item>
-      <ion-item>
-        <div>예약:</div>
-        <div class="right">
-          <div>에어전시프로드, 박용식 실장</div>
-          <div>010-8637-0962</div>
-          <ion-icon name="ios-call-outline"></ion-icon>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div>고객:</div>
-        <div class="right">한컴</div>
         <ion-icon name="ios-call-outline"></ion-icon>
       </ion-item>
       <ion-item>
-        <div>상태:</div>
-        <div class="right deposit">계약금 미입금</div>
+        <div>
+          <span>고객</span>
+          한컴
+        </div>
+        <img src="../../assets/imgs/call.svg" alt="">
+      </ion-item>
+      <ion-item>
+        <span>상태</span>
+        <div class="deposit">계약금 미입금</div>
         
       </ion-item>
      
@@ -59,3 +59,4 @@
     <button ion-button class="normal-btn dark-btn">일정수정</button>
     <button ion-button class="normal-btn dark-btn">일정삭제</button>
 </ion-footer>
+<menu [content]="content"></menu>
