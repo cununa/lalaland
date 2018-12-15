@@ -7,10 +7,11 @@ page-customer-history {
                 font-size: $font-size-xl;
             }
             div{
+                font-weight: $font-weight-medium;
                 &:first-child{
                     font-size: $font-size-s;
-                    font-weight: $font-weight-medium;
                     flex: 9;
+                    font-weight:  $font-weight-medium;
                 }
             }
             .icon{
