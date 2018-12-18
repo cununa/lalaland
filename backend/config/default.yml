@@ -1,0 +1,5 @@
+db:
+  host: 'localhost:27017'
+  name: 'crud'
+  user: 'root'
+  pass: 'password'

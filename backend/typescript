@@ -1,0 +1,47 @@
+Script started on Fri Dec  7 20:17:49 2018
+[?1034hbash-3.2$ db [K-lo[K[K[K[K[Knpm db-local
+
+Usage: npm <command>
+
+where <command> is one of:
+    access, adduser, audit, bin, bugs, c, cache, ci, cit,
+    completion, config, create, ddp, dedupe, deprecate,
+    dist-tag, docs, doctor, edit, explore, get, help,
+    help-search, hook, i, init, install, install-test, it, link,
+    list, ln, login, logout, ls, outdated, owner, pack, ping,
+    prefix, profile, prune, publish, rb, rebuild, repo, restart,
+    root, run, run-script, s, se, search, set, shrinkwrap, star,
+    stars, start, stop, t, team, test, token, tst, un,
+    uninstall, unpublish, unstar, up, update, v, version, view,
+    whoami
+
+npm <command> -h  quick help on <command>
+npm -l            display full usage info
+npm help <term>   search for help on <term>
+npm help npm      involved overview
+
+Specify configs in the ini-formatted file:
+    /Users/xiu/.npmrc
+or on the command line via: npm <command> --key value
+Config info can be viewed via: npm help config
+
+npm@6.4.1 /usr/local/lib/node_modules/npm
+
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ npm start
+
+> crud@1.0.0 start /Users/xiu/web/byul/crud
+> node index.js
+
+mongoDB connection successful
+Express server listening on port 8080
+script
+
+(node:63687) DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+^C
+bash-3.2$ npm i[K[K[K[K[Kls
+config			model			package.json		typescript
+docker			node_modules		public
+index.js		package-lock.json	script-test.js
+bash-3.2$ 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel='stylesheet' type='text/css' href='http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css'>
+</head>
+<body>
+    <table id='datatable'></table>
+</body>
+<script src='https://code.jquery.com/jquery-3.3.1.js'></script>
+<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script>
+    $(document).ready(function () {
+        // ('#example').DataTable();
+
+        let dataSet = [
+            [0, '첫번째'],
+            [1, '두번째'],
+            [2, '세번째'],
+            [3, '네번째'],
+            [4, '다섯번째'],
+        ]
+        table = $('#datatable').DataTable({
+            data: dataSet, // 하드코딩된 데이터셋
+            // ordering: false, // 정렬 기능 
+            // searching: false, // 검색 기능
+            // paging: false, // 페이징 기능
+            // bInfo: false, //
+            // select: true,  // 선택 기능
+            // ajax: {
+            //     url: '/admin/board',
+            //     dataSrc: function (json) {
+            //         dataSet = json
+            //         return json
+            //     }
+            // },
+            columns: [{
+                    title: "번호",
+                    width: "10%",
+                    fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                        $(nTd).html(sData)
+                    }
+                },
+                {
+                    title: "제목",
+                    width: "50%",
+                },
+                // {
+                //     title: "작성자",
+                //     width: "10%",
+                // },
+                // {
+                //     title: "작성일",
+                //     width: "10%"
+                // },
+                // {
+                //     title: "수정",
+                //     width: "7%",
+                //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                //         $(nTd).html(
+                //             "<button type='button' class='btn btn-brand btn-xs' onclick='editRow(" +
+                //             iRow + ")'>수정</button>")
+                //     }
+                // },
+                // {
+                //     title: "삭제",
+                //     width: "7%",
+                //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                //         $(nTd).html(
+                //             "<button type='button' class='btn btn-secondary btn-xs' onclick='deleteRow(" +
+                //             iRow + ")'>삭제</button>")
+                //     }
+                // }
+            ],
+        })
+    });
+</script>
+
+</html>

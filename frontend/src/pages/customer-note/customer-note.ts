@@ -22,15 +22,15 @@ export class CustomerNotePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomerNotePage');
-        // axios 사용한 통신 -----------------------
-        axios.put('http://localhost:8080/note', {
-          title: 'note@nddlk.com',
-          name: 'dddd',
-          content: 'dsf',
-        }).then(({data}) => {
-          console.log(data)
-        })
+    // console.log('ionViewDidLoad CustomerNotePage');
+    //     // axios 사용한 통신 -----------------------
+    //     axios.put('http://localhost:8080/note', {
+    //       title: 'note@nddlk.com',
+    //       name: 'dddd',
+    //       content: 'dsf',
+    //     }).then(({data}) => {
+    //       console.log(data)
+    //     })
   }
 
 }

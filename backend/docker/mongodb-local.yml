@@ -1,0 +1,16 @@
+## docker-compose 파일 : docker-compose 라는 툴을 이용하여 도커의 이미지 및 컨테이너 설정을 명시하는 파일.
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "crud_mongodb"
+    environment:
+    - MONGO_DATA_DIR=/data/db
+    - MONGO_LOG_DIR=/dev/null
+    - MONGO_INITDB_ROOT_USERNAME=root
+    - MONGO_INITDB_ROOT_PASSWORD=password
+    - MONGO_INITDB_DATABASE=crud
+    ports:
+    - 27017:27017
+#    volumes:
+##    - /Volumes/data/docker/db/mongodb/:/data/db
