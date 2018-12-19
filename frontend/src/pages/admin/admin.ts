@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "admin",
+  segment : "admin"
+})
 @Component({
   selector: 'page-admin',
   templateUrl: 'admin.html',

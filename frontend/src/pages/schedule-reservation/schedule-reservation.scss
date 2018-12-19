@@ -97,13 +97,22 @@ page-schedule-reservation {
    label{
        color: color($colors, third)
    }
-   input[type="checkbox"]{
+   label{
+    display: inline-block;
     background: #ffffff;
     border: 1px solid color($colors, danger);
     width: 2rem;
     height: 2rem;
     margin : auto 1rem;
     box-shadow: none;
-    appearance: none;
+   }
+   input[id="info"]:checked + label{
+    display: inline-block;
+    background: color($colors, danger);
+    outline: 1px solid color($colors, primary);
+   
+   }
+   input[id="info"]{
+       display: none;
    }
 }

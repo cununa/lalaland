@@ -9,7 +9,11 @@ page-schedule-detail {
         margin: auto;
         text-align: center;
     }
-   
+   .text-box{
+       text-align: center;
+       padding: 1rem 0;
+       font-size: $font-size-s;
+   }
     ion-footer{
         border-top: 1px solid color($colors, danger) !important; 
         button{
@@ -47,7 +51,7 @@ page-schedule-detail {
             span{
                 color: color($colors , third);
                 padding-right: 1rem;
-                font-weight: inherit;
+                font-weight: $font-weight-medium;
             }
         }
     }

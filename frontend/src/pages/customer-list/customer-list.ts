@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "customer-list",
+  segment : "customer-list"
+})
 @Component({
   selector: 'page-customer-list',
   templateUrl: 'customer-list.html',

@@ -11,13 +11,22 @@ page-customer-note {
             text-align: left;
             font-weight: $font-weight-medium;
         }
+        div:nth-child(3){
+            flex: 1;        
+            text-align: right;
+            font-weight: $font-weight-medium;
+            color: color($colors,third);
+        }
         div:last-child{
-            flex: 1;
+            flex: .5;
             text-align: right;
             color: color($colors,third);
 
         }
     }
+    // .ion-ios-arrow-forward-outline{
+    //     padding: .8rem .2rem;
+    // }
     // .item-inner{
     //     border-bottom: .01rem solid color($colors, third) !important;
     // }

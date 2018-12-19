@@ -4,7 +4,7 @@ body{
     font-size: 10px;
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
-        &:lang(en){
+        :lang(en){
             font-family: 'Noto Sans', sans-serif;
         }
     }
@@ -12,7 +12,7 @@ body{
 ion-app.md{
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
-        &:lang(en){
+        :lang(en){
             font-family: 'Noto Sans', sans-serif;
         }
     }
@@ -20,7 +20,7 @@ ion-app.md{
 ion-app.ios{
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
-        &:lang(en){
+        :lang(en){
             font-family: 'Noto Sans', sans-serif;
         }
     }
@@ -110,9 +110,8 @@ ion-content{
             border: unset !important;
             color : color($colors,danger) !important;
         }
-       
-    }
-  
+        // 아이콘 
+    }       
 }
 //ion-content
 
@@ -147,11 +146,17 @@ ion-footer{
         background-image: none !important;
     }
 }
-// ion-footer
+// ion-icon
 .ion-ios-call-outline{
     color: red;
-    
 }
+.ion-ios-arrow-forward-outline{
+    color: color($colors,danger);
+}
+
+
+
+
 
 // 버튼 모양
 .outline-dark-btn{

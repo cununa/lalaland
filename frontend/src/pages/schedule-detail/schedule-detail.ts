@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "schedule-detail",
+  segment : "schedule-detail"
+})
 @Component({
   selector: 'page-schedule-detail',
   templateUrl: 'schedule-detail.html',

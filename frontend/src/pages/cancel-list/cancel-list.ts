@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "cancel-list",
+  segment : "cancel-list"
+})
 @Component({
   selector: 'page-cancel-list',
   templateUrl: 'cancel-list.html',

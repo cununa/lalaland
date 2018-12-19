@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "schedule-resevation",
+  segment : "schedule-resevation"
+})
 @Component({
   selector: 'page-schedule-reservation',
   templateUrl: 'schedule-reservation.html',
@@ -20,6 +23,7 @@ export class ScheduleReservationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleReservationPage');
+   
   }
 
 }

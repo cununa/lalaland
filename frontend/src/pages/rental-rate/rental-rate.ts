@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "rental-rate",
+  segment : "rental-rate"
+})
 @Component({
   selector: 'page-rental-rate',
   templateUrl: 'rental-rate.html',

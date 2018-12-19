@@ -8,7 +8,10 @@ import { IonicPage, NavController, NavParams ,MenuController} from 'ionic-angula
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name : "reservation-list",
+  segment : "reservation-list"
+})
 @Component({
   selector: 'page-reservation-list',
   templateUrl: 'reservation-list.html',
