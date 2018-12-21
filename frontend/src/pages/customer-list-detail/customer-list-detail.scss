@@ -3,17 +3,21 @@ page-customer-list-detail {
 
        .label{
         border-bottom: 1px solid color($colors,third);
-        padding: 1rem 0;
+        padding: 3rem 0;
         font-size: $font-size-n;
         font-weight: $font-weight-thin;
         color: color($colors, third);
+        margin: 0 auto;
         strong{
-            color: color($colors,dark)
+            color: color($colors,dark);
+            font-size: $font-size-l;
+            font-weight: $font-weight-thin;
         }
        }
        
    }
    .num-line{
+       margin: 2rem 0;
        .label{
         display: flex;
         div{

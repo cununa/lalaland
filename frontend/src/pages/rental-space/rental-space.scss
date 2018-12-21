@@ -33,10 +33,14 @@ page-rental-space {
         .right-box{
             margin: auto;
             text-align: center;
+            img{
+                width: 70%;
+                margin: auto;
+            }
             div{
                 font-size: $font-size-s;
                 padding: 0 0 1rem 0;
-                color: color($colors,primary);
+                color: color($colors,third);
                 strong{
                     color: color($colors,danger);
                 }

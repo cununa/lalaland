@@ -1,7 +1,9 @@
 page-customer-list {
-    
+    .list{
+        margin: 1rem 0;
+    }
     ion-label{
-        padding: .2rem .5rem;
+        padding: 0 .5rem;
         display: flex !important;
         div{
             &:first-child{
