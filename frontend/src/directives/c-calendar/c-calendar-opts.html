@@ -1,0 +1,35 @@
+
+<ion-grid>
+    <ion-row>
+        <ion-col col-auto class="nav-button-case prev">
+            <button class="nav-button" ion-button icon-only clear (click)="prevMonth()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-col>
+        <ion-col class="calendar-title">{{ year + '년 ' + utils.toXX(month + 1) + '월' }}</ion-col>
+        <ion-col col-auto class="nav-button-case next">
+            <button class="nav-button" ion-button icon-only clear (click)="nextMonth()">
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+    <ion-row class="calendar-day">
+        <ion-col class="sun">일</ion-col>
+        <ion-col>월</ion-col>
+        <ion-col>화</ion-col>
+        <ion-col>수</ion-col>
+        <ion-col>목</ion-col>
+        <ion-col>금</ion-col>
+        <ion-col class="sat">토</ion-col>
+    </ion-row>
+    <ion-row class="calendar-row">
+        <ion-col *ngFor="let date of empty_arr"></ion-col>
+        <ion-col #cols *ngFor="let date of date_arr;">
+            <button ion-button
+            [class.active]="active_dates.year == year && active_dates.month == month && active_dates.date == date"
+            (click)="toggleDate(date)"
+            [disabled]="cantSelect(date)"
+            >{{ date + 1 }}</button>
+        </ion-col>
+    </ion-row>
+</ion-grid>

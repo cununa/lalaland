@@ -1,0 +1,83 @@
+page-c-calendar-opts {
+    .calendar-title {
+        white-space: nowrap;
+        font-size: 1.6rem;
+    }
+    .grid {
+        padding: .5rem 0.9rem;
+    }
+    .col {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+    }
+    .nav-button-case {
+        &.prev {
+            justify-content: flex-start;
+        }
+        &.next {
+            justify-content: flex-end;
+        }
+    }
+    .nav-button {
+        .icon {
+            font-size: 1.4em;
+        }
+    }
+    .calendar-day {
+        .sun {
+            color: #ee3e27;
+        }
+        .sat {
+            color: #03488d;
+        }
+    }
+    .calendar-row {
+        .col {
+            flex: 0 0 14.28571%;
+            width: 14.28571%;
+            max-width: 14.28571%;
+            font-size: 1.3rem;
+            padding: 0;
+            &:nth-child(7n-6) {
+                .button {
+                    color: #f76350;
+                }
+            }
+            &:nth-child(7n) {
+                .button {
+                    color: #1d67b1;
+                }
+            }
+            .button {
+                width: 100%;
+                height: 0;
+                padding: 0;
+                padding-bottom: 100%;
+                background-color: white;
+                color: #333;
+                border-radius: 50%;
+                margin: 0;
+                &:hover {
+                    background-color: #eee;
+                }
+                &.active {
+                    background-color: color($colors, primary);
+                    color: white;
+                    &:hover {
+                        background-color: lighten(color($colors, primary), 0.1);
+                    }
+                }
+                .button-inner {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
