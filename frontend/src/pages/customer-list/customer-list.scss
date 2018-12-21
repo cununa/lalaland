@@ -1,14 +1,13 @@
 page-customer-list {
-  
+    
     ion-label{
         padding: .2rem .5rem;
         display: flex !important;
         div{
             &:first-child{
+                position: relative;
+                top: .5px;
                 flex: 1;
-                ion-icon{
-                    font-size: $font-size-xl;
-                }
             }
             &:nth-child(2){
                 flex: 8;
@@ -19,6 +18,8 @@ page-customer-list {
                 ion-icon{
                     flex : 1;
                     text-align: center;
+                    position: relative;
+                top: 1px;
                 }
             }
         }

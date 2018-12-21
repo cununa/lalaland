@@ -28,20 +28,22 @@ page-admin {
             }
         }
         div{
-            padding: 3rem 0;
+            padding: 0 0 3rem 0;
             color: color($colors,primary);
-            font-weight: $font-weight-regular;
+            font-weight: $font-weight-thin;
             input{
+                margin: .4rem;
                 border: unset;
                 padding-left:1rem; 
-                color: color($colors,danger);
-                opacity: .8;
+                color: color($colors,primary);
+                opacity: 1;
+                background: #f292bd;
                 &::placeholder{
-                    color: color($colors,danger);
+                    color: color($colors,primary);
                 }
             }
             @media screen and (max-width : 320px){
-                padding:0 0 5rem 0;
+                padding:0 0 2rem 0;
             }
         }
     }

@@ -1,3 +1,44 @@
 page-rental-space {
-    
+    .card{
+        width: 90%;
+        margin: 2rem auto;
+        border: 1px solid color($colors, danger);
+        display: flex;
+        .left-button{
+            display: flex;
+            flex-direction: column;
+            div{
+                &:first-child{
+                    color: color($colors,primary);
+                    font-size: $font-size-l;
+                    padding: 1rem;
+                    flex: 9;
+                    font-weight: $font-weight-normal;
+                }
+                &:last-child{
+                    padding: 1rem;
+                    text-align: center;
+                    ion-icon{
+                    color: color($colors,primary);
+                    font-size: $font-size-l;
+                    font-weight: $font-weight-normal;
+                    }
+                }
+            }
+            background: color($colors,danger);
+            
+        }
+        .right-box{
+            margin: auto;
+            text-align: center;
+            div{
+                font-size: $font-size-s;
+                padding: 0 0 1rem 0;
+                color: color($colors,primary);
+                strong{
+                    color: color($colors,danger);
+                }
+            }
+        }
+    }
 }

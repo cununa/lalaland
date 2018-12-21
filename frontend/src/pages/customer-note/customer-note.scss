@@ -9,12 +9,12 @@ page-customer-note {
         div:nth-child(2){
             flex: 3;        
             text-align: left;
-            font-weight: $font-weight-medium;
+            font-weight: $font-weight-thin;
         }
         div:nth-child(3){
             flex: 1;        
             text-align: right;
-            font-weight: $font-weight-medium;
+            font-weight: $font-weight-thin;
             color: color($colors,third);
         }
         div:last-child{

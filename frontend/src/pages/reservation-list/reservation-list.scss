@@ -12,11 +12,11 @@ page-reservation-list {
             .time{
                 position: relative;
                 border-left: .7rem solid color($colors , danger);
-                font-weight: $font-weight-medium;
+                font-weight: $font-weight-thin;
                 padding: .6rem 0 .6rem 1.5rem;
                 div:nth-child(2){
                     font-weight: inherit;
-                    font-size: $font-size-xs;
+                    font-size: $font-size-s;
                     color: color($colors, third);
                 }
             }
@@ -26,7 +26,7 @@ page-reservation-list {
                 align-items: center;
                 flex: 1;
                 margin-left: 2.5rem;
-                font-weight: $font-weight-medium;
+                font-weight: $font-weight-thin;
                 span{
                     color: color($colors,danger);
                     font-weight: inherit;
@@ -35,7 +35,7 @@ page-reservation-list {
                     flex: 1;
                 }
                 div:nth-child(2){
-                    font-size: $font-size-xs;
+                    font-size: $font-size-s;
                     color: color($colors, third);
                 }
             }

@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-
+import { ModalCtrl } from '../providers/cat/cat';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+      mode:'md'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -22,7 +24,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ModalCtrl
   ]
 })
 export class AppModule {}

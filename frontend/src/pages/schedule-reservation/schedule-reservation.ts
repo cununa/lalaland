@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angular';
 
 /**
  * Generated class for the ScheduleReservationPage page.
@@ -9,8 +9,8 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
  */
 
 @IonicPage({
-  name : "schedule-resevation",
-  segment : "schedule-resevation"
+  name : "schedule-reservation",
+  segment : "schedule-reservation"
 })
 @Component({
   selector: 'page-schedule-reservation',

@@ -60,6 +60,15 @@ page-schedule-list {
                     background: color($colors,gray) !important; 
                 }
             } 
+            .a,.b,.c{
+                button{
+                    &:active,&:focus{
+                        height: 100%;
+                        background: color($colors,danger);
+                        color: color($colors,primary );
+                    }
+                }
+            }
             .box{
                 margin: 1rem;
                 background: color($colors, primary);
@@ -75,8 +84,8 @@ page-schedule-list {
                     h4{
                         padding:0 1rem 2rem 2rem;
                         color : color($colors , danger);
-                        font-size: $font-size-s !important;
-                        font-weight: $font-weight-regular !important;
+                        font-size: $font-size-l !important;
+                        font-weight: $font-weight-normal !important;
                         text-align: left;
                     }
                     button{
@@ -87,16 +96,16 @@ page-schedule-list {
                         padding: 0;
                         span{
                             ion-icon{
-                                font-size: $font-size-n;
+                                font-size: $font-size-l;
                             }
                             &:first-child{
                                 flex: 3;
                                 text-align: left;
                                 padding-left: 1rem;
                                 font-size: $font-size-l;
-                                font-weight: $font-weight-extra-bold;
+                                font-weight: $font-weight-bold;
                             }
-                            &:nth-child(2){
+                            &:last-child{
                                 flex: 1;
                                 
                             }
@@ -110,7 +119,9 @@ page-schedule-list {
                 }
             }
     }
-
+.hide{
+    display: none;
+}
     
   
     

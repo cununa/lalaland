@@ -1,28 +1,23 @@
 page-schedule-reservation {
     body{
-       font-weight:  $font-weight-medium !important;
-    }
-   
-   .schedule-title{
-    font-size: $font-size-s !important;
-    font-weight:  $font-weight-medium;
-        span{
-            padding-left: 2rem;
-        }
-       .item-inner{
-        border-bottom: 1px solid color($colors, primary) !important;
-        padding: 1.6rem 0;
-        
-       }
-}
-   ion-item{
-    .place{
-        .label{
-            border-bottom: 1px solid color($colors, primary) !important;
-        }
+       font-weight:  $font-weight-thin !important;
     }
     .label{
-        font-size: $font-size-s;
+        font-size: $font-size-n;
+    }
+   .schedule-title{
+    font-size: $font-size-n !important;
+    font-weight:  $font-weight-thin;
+    }
+   ion-item{
+  
+    .item-inner{
+        border-bottom: 1px solid color($colors, primary) !important;
+        padding: 1.6rem 0;
+       
+       }
+    .label{
+        font-size: $font-size-n;
         display: flex;
         justify-items: center;
         line-height: 2rem;
@@ -30,7 +25,7 @@ page-schedule-reservation {
             color: color($colors,third);
             flex : 1;
             #selctFloor {
-                font-weight: $font-weight-medium;
+                font-weight: $font-weight-thin;
                 line-height: 1.5em;
                 padding: 0.5em 3.5em 0.5em 1em;
                 margin: 0;      
@@ -60,7 +55,7 @@ page-schedule-reservation {
             flex: 1;
             padding: 0.5em 0 0.5em 0;
             color: color($colors,third);
-            font-weight: $font-weight-medium;
+            font-weight: $font-weight-thin;
             span{
                 font-weight: inherit;
                 color: color($colors,dark);
@@ -72,7 +67,7 @@ page-schedule-reservation {
             position: relative;
            flex: 1;
             // div:nth-child(2){
-            //     font-size: $font-size-s;
+            //     font-size: $font-size-n;
             //     color: color($colors, gray);
             // }
             span{
@@ -88,7 +83,7 @@ page-schedule-reservation {
                 flex: 1;
             }
             // div:nth-child(2){
-            //     font-size: $font-size-s;
+            //     font-size: $font-size-n;
             //     color: color($colors, gray);
             // }
         }
@@ -101,8 +96,8 @@ page-schedule-reservation {
     display: inline-block;
     background: #ffffff;
     border: 1px solid color($colors, danger);
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     margin : auto 1rem;
     box-shadow: none;
    }

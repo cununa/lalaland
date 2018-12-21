@@ -26,7 +26,7 @@ page-main {
         div{
             padding: 5rem 0;
             color: color($colors,primary);
-            font-weight: $font-weight-regular;
+            font-weight: $font-weight-thin;
             @media screen and (max-width : 320px){
                 padding:0 0 5rem 0;
             }

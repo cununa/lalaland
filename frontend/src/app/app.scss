@@ -5,7 +5,7 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
         :lang(en){
-            font-family: 'Noto Sans', sans-serif;
+            font-family: futura-pt, sans-serif;
         }
     }
 }
@@ -13,7 +13,7 @@ ion-app.md{
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
         :lang(en){
-            font-family: 'Noto Sans', sans-serif;
+            font-family: futura-pt, sans-serif;
         }
     }
 }
@@ -21,7 +21,7 @@ ion-app.ios{
     font-family: 'Noto Sans KR', sans-serif;
     div,p,span,h1,h2,h3,h4 {
         :lang(en){
-            font-family: 'Noto Sans', sans-serif;
+            font-family: futura-pt, sans-serif;
         }
     }
 }
@@ -31,7 +31,16 @@ ion-app.ios{
 // init end
 
 ion-header{
-    display: flex;
+    .toolbar-background-md{
+        background: none;
+    }
+    .button-md{
+        margin: 0;
+    }
+    .toolbar-content{
+       display: flex;
+    }
+    flex-direction: row;
     background: color($colors,danger);
     // background: color($colors,secondary);
     ion-title{
@@ -40,8 +49,8 @@ ion-header{
     h1{
         margin: 0;
         color:color($colors,primary);
-        font-size : $font-size-n;
-        font-weight: bold;
+        font-size : $font-size-l;
+        font-weight: $font-weight-thin;
     }
     button{
         border: 0;
@@ -105,8 +114,8 @@ ion-content{
         // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
             background: color($colors, primary) !important;
-            font-size: $font-size-s !important;
-            font-weight: $font-weight-medium;
+            font-size: $font-size-n !important;
+            font-weight: $font-weight-thin;
             border: unset !important;
             color : color($colors,danger) !important;
         }
@@ -147,11 +156,13 @@ ion-footer{
     }
 }
 // ion-icon
-.ion-ios-call-outline{
-    color: red;
+.ion-ios-call{
+    color : color($colors,danger);
+    font-size: $font-size-n;
 }
 .ion-ios-arrow-forward-outline{
     color: color($colors,danger);
+    font-size: 2.2rem;
 }
 
 
@@ -162,21 +173,25 @@ ion-footer{
 .outline-dark-btn{
     // border-top: 1px solid color($colors, dark);
     background: color($colors , secondary);
-    color: color($colors ,dark)
+    color: color($colors ,dark);
+    font-weight: $font-weight-thin;
 }
 .outline-primary-btn{
     outline: 1px solid color($colors, primary);
     background: color($colors , secondary);
-    color: color($colors , primary)
+    color: color($colors , primary);
+    font-weight: $font-weight-thin;
 }
 .outline-danger-btn{
     outline: 1px solid color($colors, danger);
     background: color($colors , secondary);
-    color: color($colors ,danger)
+    color: color($colors ,danger);
+    font-weight: $font-weight-thin;
 }
 .primary-btn{
     background: color($colors, primary);
     color: color($colors, secondary);
+    font-weight: $font-weight-thin;
 }
 .danger-btn{
     background: color($colors , danger);
@@ -184,11 +199,13 @@ ion-footer{
     &:hover{
         background: color($colors , gray);
         color: color($colors, dark);
-}
+        font-weight: $font-weight-thin;
+    }
 }
 .dark-btn{
     background: color($colors , dark);
-    color: color($colors, secondary)
+    color: color($colors, secondary);
+    font-weight: $font-weight-thin;
 }
 
 

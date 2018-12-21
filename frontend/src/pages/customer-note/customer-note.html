@@ -1,12 +1,16 @@
 <ion-header>
-
-    <button ion-button><ion-icon name="arrow-back" menuToggle></ion-icon></button>
-    <ion-title><h1>메모</h1></ion-title>
-    <button ion-button><ion-icon name="search"></ion-icon></button>
-  
+    <ion-toolbar>
+      <button ion-button left  menuToggle>
+        <ion-icon name="ios-menu" ></ion-icon>
+      </button>
+      <ion-title><h1>메모</h1></ion-title>
+      <button ion-button end right>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-toolbar>
   </ion-header>
 
-<ion-content padding #content>
+<ion-content #content>
   <ion-list>
     <ion-item>
       <div>10.26</div>

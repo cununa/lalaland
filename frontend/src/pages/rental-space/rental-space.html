@@ -1,12 +1,57 @@
 <ion-header>
-
-    <button ion-button><ion-icon name="arrow-back"menuToggle></ion-icon></button>
-    <ion-title><h1 lang="en">Space size</h1></ion-title>
-    <button ion-button><ion-icon name="search"></ion-icon></button>
-  
-  </ion-header>
+    <ion-toolbar>
+      <button ion-button left  menuToggle>
+        <ion-icon name="ios-menu" ></ion-icon>
+      </button>
+      <ion-title><h1>공간 안내</h1></ion-title>
+      <button ion-button right>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-toolbar>
+</ion-header>
 
 <ion-content padding #content>
-  <img src="" alt="">
+  <div class="card">
+    <div class="left-button">
+      <div>LS</div>
+      <div>
+        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="right-box">
+      <img src="../../assets/imgs/rental-space.png" alt="">
+      <div>
+        <strong>175.9m2 (53.2py)</strong>40k(전력)
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="left-button">
+      <div>LS</div>
+      <div>
+        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="right-box">
+      <img src="../../assets/imgs/rental-space.png" alt="">
+      <div>
+        <strong>175.9m2 (53.2py)</strong>40k(전력)
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="left-button">
+      <div>LS</div>
+      <div>
+        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="right-box">
+      <img src="../../assets/imgs/rental-space.png" alt="">
+      <div>
+        <strong>175.9m2 (53.2py)</strong>40k(전력)
+      </div>
+    </div>
+  </div>
 </ion-content>
 <menu [content]="content"></menu>

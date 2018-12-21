@@ -1,24 +1,32 @@
 page-customer-list-detail {
-   
-   
-        .label{
-            display: flex;
-            ion-icon{
-                font-size: $font-size-xl;
-            }
-            div{
-                font-weight: $font-weight-medium;
-                &:first-child{
-                    font-size: $font-size-s;
-                    flex: 9;
-                    font-weight:  $font-weight-medium;
-                }
-            }
-            .icon{
-                padding-top: .5rem;
-              
+   .name-info{
+
+       .label{
+        border-bottom: 1px solid color($colors,danger);
+        padding: 1rem 0;
+        font-size: $font-size-n;
+        font-weight: $font-weight-thin;
+       }
+       
+   }
+   .num-line{
+       .label{
+        display: flex;
+        div{
+            &:first-child{
+                flex: 9;
+                font-size: $font-size-n;
+        font-weight: $font-weight-thin;
             }
         }
+       }
+       
+   }
+
+
+
+
+
     ion-footer{
         border-top: 1px solid color($colors, danger) !important; 
         button{

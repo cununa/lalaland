@@ -1,1 +1,45 @@
 <ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [attr.id]="id" [content]="content" side="left">
+    <ion-content class="menu-top-m">
+      <ion-list>
+          <div class="profile">
+              <div class="close-btn">
+                <ion-icon name="md-close"></ion-icon>
+              </div>
+            <div class="card-img">
+    
+            </div>
+            <p>구지영님, 안녕하세요?</p>
+          </div>
+        <button ion-item (click)="navPush('schedule')">
+          홈으로
+        </button>
+        <button ion-item (click)="navPush('reservation-list')">
+          <span>예약완료</span>
+          <span>567</span>
+        </button>
+        <button ion-item (click)="navPush('cancel-list')">
+          <span>예약취소</span>
+          <span>1325</span>
+        </button>
+        <button ion-item (click)="navPush('customer-list')">
+          <span>고객관리</span>
+          <span>615</span>
+        </button>
+        <button ion-item (click)="navPush('customer-note')">
+          <span>메모</span>
+          <span>6</span>
+        </button>
+        <button ion-item (click)="navPush('rental-space')">
+          공간 안내
+        </button>
+        <button ion-item (click)="navPush('rental-rate')">
+          렌탈비용
+        </button>
+        <button ion-item (click)="navPush('admin')">
+          로그아웃
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+

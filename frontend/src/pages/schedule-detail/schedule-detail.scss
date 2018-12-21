@@ -28,6 +28,7 @@ page-schedule-detail {
     
     .label{
         display: flex;
+        font-size: $font-size-n;
         div:first-child{
             flex: 1
         }
@@ -47,17 +48,17 @@ page-schedule-detail {
     ion-item{
         div{
             display: flex;
-            font-weight: $font-weight-medium;
+            font-weight: $font-weight-thin;
             span{
                 color: color($colors , third);
                 padding-right: 1rem;
-                font-weight: $font-weight-medium;
+                font-weight: $font-weight-thin;
             }
         }
     }
     .img-line{
         display: flex;
-        font-weight: $font-weight-medium;
+        font-weight: $font-weight-thin;
         div{
             flex-direction: column;
             display: flex;
@@ -67,13 +68,14 @@ page-schedule-detail {
             strong{
                 font-size: $font-size-l;
                 color: color($colors, dark);
-                padding: .5rem 0;
+                padding:  0;
+                font-weight: 600 !important;
             }
         }
     }
     .box{
-        width: 10rem;
-        height: 10rem;
+        width: 7rem;
+        height: 7rem;
         background: color($colors, danger);
         display: flex;
         align-items: center;
@@ -87,8 +89,8 @@ page-schedule-detail {
     .first-item{
         .label{
             padding: 1rem 0 2rem;
-            font-weight: $font-weight-medium;
-            border-bottom: 1px solid color($colors, third)
+            font-weight: $font-weight-thin;
+            border-bottom: .55px solid color($colors, third)
         }
     }
     ion-icon{

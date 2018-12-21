@@ -15,6 +15,7 @@ $app-direction: ltr;
 @import "ionic.globals";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&subset=korean');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url(' href="https://use.typekit.net/ybd5flm.css"');
 
 
 // Shared Variables
@@ -44,20 +45,21 @@ $colors: (
   dark:       #000000
   
 );
-$font-size-xs : 1.3rem ;
-$font-size-s: 1.6rem;
-$font-size-n: 1.8rem;
-$font-size-l: 2rem;
-$font-size-xl : 2.6rem;
+
+$font-size-s: 1.2rem;
+$font-size-n: 1.4rem;
+$font-size-l: 1.8rem;
+
+$font-size-xl : 2.6rem;//아이콘 사이즈
 $font-size-base: $font-size-n;
 
 $font-family-md-base: 'Nanum Myeongjo', serif !default;
-$font-weight-thin: 300;
-$font-weight-regular : 400;
-$font-weight-medium : 500;
-$font-weight-bold : 700;
-$font-weight-extra-bold : 800;
+$font-weight-thin: 300; // 한글 얇은 굵기
+$font-weight-normal : 400; // 영어는 폰트가 달라서 굵기 조정 필요.
+$font-weight-bold : 600;
 
+$font-weight-extra-bold : 800;
+// 폰트 굵기는 300 or 600
 
 // App iOS Variables
 // --------------------------------------------------
