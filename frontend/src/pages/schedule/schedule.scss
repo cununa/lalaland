@@ -15,18 +15,19 @@ page-schedule {
         padding: .9rem 0;
         
         font: 1rem;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-thin;
         ion-col{
             padding: 0;
             &:first-child{
                 color: color($colors, danger);
             }
             &:last-child{
-                color: gray;
+                color: color($colors, gray);
             }
         }
     }
     .month{
+        font-size: $font-size-l;
         color: color($colors,danger);
         padding: 1rem;
     }

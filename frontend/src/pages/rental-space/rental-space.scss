@@ -9,8 +9,10 @@ page-rental-space {
             flex-direction: column;
             div{
                 &:first-child{
+                    text-align: center;
+                    width: 4.3rem;
                     color: color($colors,primary);
-                    font-size: $font-size-l;
+                    font-size: $font-size-n;
                     padding: 1rem;
                     flex: 9;
                     font-weight: $font-weight-normal;

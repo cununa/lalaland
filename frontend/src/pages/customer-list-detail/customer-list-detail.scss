@@ -2,10 +2,14 @@ page-customer-list-detail {
    .name-info{
 
        .label{
-        border-bottom: 1px solid color($colors,danger);
+        border-bottom: 1px solid color($colors,third);
         padding: 1rem 0;
         font-size: $font-size-n;
         font-weight: $font-weight-thin;
+        color: color($colors, third);
+        strong{
+            color: color($colors,dark)
+        }
        }
        
    }
@@ -16,7 +20,7 @@ page-customer-list-detail {
             &:first-child{
                 flex: 9;
                 font-size: $font-size-n;
-        font-weight: $font-weight-thin;
+            font-weight: $font-weight-thin;
             }
         }
        }

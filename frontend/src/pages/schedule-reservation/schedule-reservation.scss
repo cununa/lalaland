@@ -89,25 +89,31 @@ page-schedule-reservation {
         }
     }
    }
-   label{
-       color: color($colors, third)
-   }
-   label{
-    display: inline-block;
-    background: #ffffff;
-    border: 1px solid color($colors, danger);
-    width: 1.5rem;
-    height: 1.5rem;
-    margin : auto 1rem;
-    box-shadow: none;
-   }
-   input[id="info"]:checked + label{
-    display: inline-block;
-    background: color($colors, danger);
-    outline: 1px solid color($colors, primary);
+//    label{
+//        color: color($colors, third)
+//    }
+//    label{
+//     display: inline-block;
+//     background: #ffffff;
+//     border: 1px solid color($colors, danger);
+//     width: 1.5rem;
+//     height: 1.5rem;
+//     margin : auto 1rem;
+//     box-shadow: none;
+//    }
+//    input[id="info"]:checked + label{
+//     display: inline-block;
+//     background: color($colors, danger);
+//     outline: 1px solid color($colors, primary);
    
-   }
-   input[id="info"]{
-       display: none;
-   }
+//    }
+//    input[id="info"]{
+//        display: none;
+//    }
+    .checkbox-icon{
+        border-color: color($colors,danger) !important;
+        .checkbox-inner{
+            border-color: color($colors,danger) !important;
+        }
+    }
 }

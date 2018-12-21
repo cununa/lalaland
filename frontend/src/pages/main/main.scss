@@ -16,7 +16,7 @@ page-main {
                 img{
                     max-width: 50rem;
                     width: 50%;
-                    padding: 8rem 0;
+                    padding: 8rem 0 5rem 0;
                     @media screen and (max-width : 320px){
                         padding: 5rem 0 ;
                     }
@@ -24,12 +24,10 @@ page-main {
             }
         }
         div{
-            padding: 5rem 0;
+            padding: 2rem 0;
             color: color($colors,primary);
             font-weight: $font-weight-thin;
-            @media screen and (max-width : 320px){
-                padding:0 0 5rem 0;
-            }
+            
         }
     }
 }

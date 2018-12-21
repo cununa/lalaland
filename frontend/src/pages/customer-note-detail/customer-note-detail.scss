@@ -21,28 +21,32 @@ page-customer-note-detail {
   .content-footer{
       width: 100%;
     //   border-top: 1px solid color($colors, gray);
-      border-bottom: 1px solid color($colors, gray);
+      
       display: flex;
       position: absolute;
       left: 0;
       bottom: 0;
       font-size: $font-size-n;
       div{
-          padding: .5rem 1rem;
+          padding: 2rem 2.5rem;
           flex: 1
       }
       div:nth-child(2){
-        padding: .5rem 1rem;
+        padding: 2rem 2rem;
         text-align: right;
         color :color( $colors , danger);
       }
   }
-  .title{
+  .note-title{
+      width: 90%;
       text-align: center;
       font-size: $font-size-l;
       font-weight: $font-weight-bold;
-      padding: 1rem 0 ;
-      border-bottom: 1px solid color($colors, primary) !important
+      margin: 2rem auto;
+      border-bottom: 1px solid color($colors, third);
+      .label{
+          padding:0 0  2rem 0;
+      }
   }
   .ion-ios-create-outline{
       color: color($colors,danger);
@@ -50,5 +54,14 @@ page-customer-note-detail {
   }
   .ion-ios-chatboxes-outline{
     font-size: $font-size-xl;
+  }
+  ion-item{
+      .label{
+          border-bottom: 1px solid color($colors, third);
+          margin: auto;
+          .item-inner{
+              padding: 0;
+          }
+      }
   }
 }

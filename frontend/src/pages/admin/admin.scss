@@ -27,8 +27,11 @@ page-admin {
                 }
             }
         }
+        .box{
+            margin: 2rem 0 0 0;
+        }
         div{
-            padding: 0 0 3rem 0;
+            padding: 0 0 7rem 0;
             color: color($colors,primary);
             font-weight: $font-weight-thin;
             input{

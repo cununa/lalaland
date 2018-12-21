@@ -1,8 +1,16 @@
 page-rental-rate {
-    
-   .ion-ios-menu{
-       color: color($colors,danger)
-   }
+    slides{
+        width: 100% !important;
+        height: 40%;
+        .swiper-container{
+            //width: 34rem;
+            height: 17rem;
+        }
+        .swiper-slide {
+            width: 12.5rem !important;
+            
+        }
+    }
     .list-ios{
         margin: 0;
     }
@@ -32,83 +40,148 @@ page-rental-rate {
             }
         }
     }
-    .app-layout {
-        display: grid;
-        width: 100%;
-        grid-template-columns : repeat(3, 33.3%);
-        grid-template-rows: repeat(1, 100%);
-        margin: 5rem auto;
+    
 
-        grid-template-areas: 
-            "a b c";
-            @media screen and (max-width: 540px) {
-                margin: auto;
+    .box{
+        width: 100%;
+        margin: 2rem 0 4rem 0;
+        background: color($colors, primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center; 
+        position: relative;
+        background: color($colors, secondary);
+        border: 1px solid color($colors , danger);
+        .text-area{
+            flex: 1;
+            h4{
+                padding:0rem 0 0rem 0rem;
+                color : color($colors , danger);
+                font-size: $font-size-n !important;
+                font-weight: $font-weight-normal !important;
+                text-align: center;
             }
-            .box{
-                width: 98%;
-                margin: 2rem auto 4rem auto;
-                background: color($colors, primary);
+            button{
+                width: 100%;
+                // position: absolute;
+                bottom: 0;
+                left: 0;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                align-content: center; 
-                position: relative;
-                background: color($colors, secondary);
-                border: 1px solid color($colors , danger);
-                .text-area{
-                    flex: 1;
-                    h4{
-                        padding:0rem 0 0rem 0rem;
-                        color : color($colors , danger);
-                        font-size: $font-size-n !important;
-                        font-weight: $font-weight-normal !important;
-                        text-align: center;
-                    }
-                    button{
-                        width: 100%;
-                        // position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        display: flex;
-                        padding: 0;
-                        margin: 0;
-                        .button-inner{
-                            padding: .5rem 0 .7rem;
-                        }
-                        span{
-                            ion-icon{
-                                font-size: $font-size-n;
-                            }
-                            &:first-child{
-                                flex: 1;
-                                text-align: center;
-                                // padding-left: .5rem;
-                                font-size: $font-size-l;
-                                font-weight: $font-weight-normal;
-                            }
-                            
-                        }
-                    }
-                    .price{
-                        border-top: .1px solid color($colors ,primary);
-                        width: 85%;
-                        margin: auto;
-                        padding: 1rem 0;
-                        text-align: center;
-                        color: color($colors, dark);
-                        font-size: $font-size-s;
-                        span{
-                            font-size: $font-size-s;
-                            font-weight: $font-weight-bold;
-                        }
-                     }
+                padding: 0;
+                margin: 0;
+                .button-inner{
+                    padding: .5rem 0 .7rem;
                 }
-             
+                span{
+                    ion-icon{
+                        font-size: $font-size-n;
+                    }
+                    &:first-child{
+                        flex: 1;
+                        text-align: center;
+                        // padding-left: .5rem;
+                        font-size: $font-size-l;
+                        font-weight: $font-weight-bold;
+                    }
+                    
+                }
             }
-            .a  { grid-area:  a ;}
-            .b  { grid-area:  b ;}
-            .c   { grid-area: c }
+            .price{
+                border-top: .1px solid color($colors ,primary);
+                width: 85%;
+                margin: auto;
+                padding: 1rem 0;
+                text-align: center;
+                color: color($colors, dark);
+                font-size: $font-size-s;
+                span{
+                    font-size: $font-size-s;
+                    font-weight: $font-weight-bold;
+                }
+             }
+        }
+     
     }
 
 
+
+    // .app-layout {
+    //     position: relative;
+    //     display: grid;
+    //     width: 100%;
+    //     grid-template-columns : repeat(3, 33.3%);
+    //     grid-template-rows: repeat(1, 100%);
+    //     margin: 5rem auto;
+
+    //     grid-template-areas: 
+    //         "a b c";
+    //         @media screen and (max-width: 540px) {
+    //             margin: auto;
+    //         }
+    //         .box{
+    //             width: 98%;
+    //             margin: 2rem auto 4rem auto;
+    //             background: color($colors, primary);
+    //             display: flex;
+    //             justify-content: center;
+    //             align-items: center;
+    //             align-content: center; 
+    //             position: relative;
+    //             background: color($colors, secondary);
+    //             border: 1px solid color($colors , danger);
+    //             .text-area{
+    //                 flex: 1;
+    //                 h4{
+    //                     padding:0rem 0 0rem 0rem;
+    //                     color : color($colors , danger);
+    //                     font-size: $font-size-n !important;
+    //                     font-weight: $font-weight-normal !important;
+    //                     text-align: center;
+    //                 }
+    //                 button{
+    //                     width: 100%;
+    //                     // position: absolute;
+    //                     bottom: 0;
+    //                     left: 0;
+    //                     display: flex;
+    //                     padding: 0;
+    //                     margin: 0;
+    //                     .button-inner{
+    //                         padding: .5rem 0 .7rem;
+    //                     }
+    //                     span{
+    //                         ion-icon{
+    //                             font-size: $font-size-n;
+    //                         }
+    //                         &:first-child{
+    //                             flex: 1;
+    //                             text-align: center;
+    //                             // padding-left: .5rem;
+    //                             font-size: $font-size-l;
+    //                             font-weight: $font-weight-normal;
+    //                         }
+                            
+    //                     }
+    //                 }
+    //                 .price{
+    //                     border-top: .1px solid color($colors ,primary);
+    //                     width: 85%;
+    //                     margin: auto;
+    //                     padding: 1rem 0;
+    //                     text-align: center;
+    //                     color: color($colors, dark);
+    //                     font-size: $font-size-s;
+    //                     span{
+    //                         font-size: $font-size-s;
+    //                         font-weight: $font-weight-bold;
+    //                     }
+    //                  }
+    //             }
+             
+    //         }
+    //         .a  { grid-area:  a ;}
+    //         .b  { grid-area:  b ;}
+    //         .c   { grid-area: c }
+    // }
 }
