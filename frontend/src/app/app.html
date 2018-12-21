@@ -1,5 +1,5 @@
-<ion-nav [root]="rootPage"></ion-nav>
-<ion-menu [attr.id]="id" [content]="content" side="left">
+<ion-nav #content [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" side="left">
     <ion-content class="menu-top-m">
       <ion-list>
           <div class="profile">
@@ -11,32 +11,32 @@
             </div>
             <p>구지영님, 안녕하세요?</p>
           </div>
-        <button ion-item (click)="navPush('schedule')">
+        <button ion-item (click)="navPush('schedule')" menuClose>
           홈으로
         </button>
-        <button ion-item (click)="navPush('reservation-list')">
-          <span>예약완료</span>
+        <button ion-item (click)="navPush('reservation-list')" menuClose>
+          <span>예약완료 test</span>
           <span>567</span>
         </button>
-        <button ion-item (click)="navPush('cancel-list')">
+        <button ion-item (click)="navPush('cancel-list')" menuClose>
           <span>예약취소</span>
           <span>1325</span>
         </button>
-        <button ion-item (click)="navPush('customer-list')">
+        <button ion-item (click)="navPush('customer-list')" menuClose>
           <span>고객관리</span>
           <span>615</span>
         </button>
-        <button ion-item (click)="navPush('customer-note')">
+        <button ion-item (click)="navPush('customer-note')" menuClose>
           <span>메모</span>
           <span>6</span>
         </button>
-        <button ion-item (click)="navPush('rental-space')">
-          공간 안내
+        <button ion-item (click)="navPush('rental-space')" menuClose>
+          공간안내
         </button>
-        <button ion-item (click)="navPush('rental-rate')">
+        <button ion-item (click)="navPush('rental-rate')" menuClose>
           렌탈비용
         </button>
-        <button ion-item (click)="navPush('admin')">
+        <button ion-item (click)="navPush('admin')" menuClose>
           로그아웃
         </button>
       </ion-list>

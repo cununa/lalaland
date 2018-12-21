@@ -211,8 +211,15 @@ ion-footer{
 
 
 // menu
+.item-inner{
+    min-height:2rem;
+}
+.label-md{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .profile{
-    padding: 7rem 0 2rem;;
+    padding: 5rem 0 2rem;;
 
     margin: auto;
     text-align: center;

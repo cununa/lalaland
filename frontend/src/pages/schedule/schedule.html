@@ -12,22 +12,21 @@
 <ion-content #content>
     <ion-list>
         <ion-list-header>
-            2018년 12월 19일 수
+          <ion-row class="date">
+            <ion-col>일</ion-col>
+            <ion-col>월</ion-col>
+            <ion-col>화</ion-col>
+            <ion-col>수</ion-col>
+            <ion-col>목</ion-col>
+            <ion-col>금</ion-col>
+            <ion-col>토</ion-col>
+          </ion-row>
         </ion-list-header>
     </ion-list>
   <ion-row class="month">
    
     <ion-col>{{(month+1)}}월</ion-col>
   
-  </ion-row>
-  <ion-row class="date">
-    <ion-col>일</ion-col>
-    <ion-col>월</ion-col>
-    <ion-col>화</ion-col>
-    <ion-col>수</ion-col>
-    <ion-col>목</ion-col>
-    <ion-col>금</ion-col>
-    <ion-col>토</ion-col>
   </ion-row>
   <ion-row class="calendar-row">
     <ion-col *ngFor="let date of empty_arr"></ion-col>
@@ -39,18 +38,8 @@
   <ion-col>{{(month+2)}}월</ion-col>
 
 </ion-row>
-<ion-row class="date">
-  <ion-col>일</ion-col>
-  <ion-col>월</ion-col>
-  <ion-col>화</ion-col>
-  <ion-col>수</ion-col>
-  <ion-col>목</ion-col>
-  <ion-col>금</ion-col>
-  <ion-col>토</ion-col>
-</ion-row>
 <ion-row class="calendar-row">
   <ion-col *ngFor="let date of empty_arr"></ion-col>
   <ion-col *ngFor="let date of date_arr, let i = index;">{{i+1}}</ion-col>
 </ion-row>
 </ion-content>
-<menu [content]="content"></menu>

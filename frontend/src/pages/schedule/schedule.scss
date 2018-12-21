@@ -1,4 +1,10 @@
 page-schedule {
+    .item{
+        padding: 0;
+    }
+    .label{
+        margin-right:0;
+    }
     .col {
         display: flex;
         justify-content: center;
