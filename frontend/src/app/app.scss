@@ -258,3 +258,33 @@ ion-footer{
         }
     } 
 }
+
+//modal
+.small-modal {
+    ion-backdrop {
+        visibility: visible;
+    }
+    .modal-wrapper {
+        left: calc(50% - 150px);
+        top: calc(50% - 62px);
+        //부모의 50%에서 나의 50%를 빼면 중앙정렬
+        width: 300px;
+        height: 124px;
+        z-index: 3;
+        position: relative;
+    }
+}
+.long-modal {
+    ion-backdrop {
+        visibility: visible;
+    }
+    .modal-wrapper {
+        left: calc(50% - 150px);
+        top: calc(50% - 110px);
+        //부모의 50%에서 나의 50%를 빼면 중앙정렬
+        width: 300px;
+        height: 220px;
+        z-index: 3;
+        position: relative;
+    }
+}

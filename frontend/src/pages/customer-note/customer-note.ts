@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import axios from 'axios';
 import moment from 'moment';
+import { ModalCtrl } from '../../providers/cat/cat';
 
 /**
  * Generated class for the CustomerNotePage page.
@@ -24,6 +25,7 @@ export class CustomerNotePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다 
     public menuCtrl: MenuController) {
   }
 
@@ -36,5 +38,10 @@ export class CustomerNotePage {
           this.list = data
         // console.log(data)
         })
+  }
+  openModal(){
+    this.modalCtrl.create('popup-customer', {}, {
+      cssClass: 'long-modal'
+    }).present();
   }
 }

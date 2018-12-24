@@ -1,0 +1,65 @@
+page-popup-customer {
+    font-weight: $font-weight-bold;
+    .scroll-content{
+        overflow-y: hidden;
+    }
+    .input-group{
+        padding: 1rem 0 !important;
+        margin: 0;
+
+    }
+    .popinfo{
+        text-align: center;
+        margin: auto;
+        line-height: 3rem;
+        width: 25rem;
+        height: 3rem;
+        border: 0;
+        border-bottom: 0.1rem solid color($colors, secondary);
+    }
+    .popcontent{
+        text-align: center;
+        margin: auto;
+        margin-bottom: 0.5rem;
+        line-height: 3rem;
+        width: 25rem;
+        height: 10rem;
+        border: 0.1rem solid color($colors, secondary);
+    }
+    .button{
+        border: .1rem solid color($colors,gray);
+        border-right: unset;
+        border-left: unset;
+        border-bottom: unset;
+        margin: 0;
+        height: 55px;
+    }
+    .left{
+        border-right: .1rem solid color($colors ,gray)
+    }
+    .right{
+        span{
+            position: relative;
+            &::after{
+                content:'';
+                background-color: color($colors, secondary);
+                position: absolute;
+                top: calc(50% - .2rem);
+                left: 4rem;
+                width: calc(100% - 8rem);
+                height: .7rem;
+                z-index: -1;
+            }
+        }
+    }
+    .popbox{
+        padding: 0;
+    }
+    .row:first-child{
+        padding: 2rem 0;
+    }
+    .button-inner{
+        font-size: $font-size-n;
+        font-weight: $font-weight-bold;
+    }
+}
