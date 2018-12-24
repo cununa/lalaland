@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-      <button ion-button left  napPop>
+      <button navPush="customer-note" ion-button left  napPop>
         <ion-icon name="arrow-back" ></ion-icon>
       </button>
       <ion-title><h1>메모</h1></ion-title>
@@ -14,15 +14,14 @@
 <ion-content #content>
   <ion-list>
     <ion-list-header>
-        2015년 10월 26일 
+      <div>{{item.createdAt}}</div>
+      <div> {{item.name}}</div>
     </ion-list-header>
-      <ion-item class="note-title"> 엘레베이터 사이즈</ion-item>
+      <ion-item class="note-title"> {{item.title}}</ion-item>
   </ion-list>
 
   <div class="note-detail">
-    <p>입구 900(폭)*2100(높이)</p>
-    <p>내부 1600(폭)*1490(깊이)*2300(높이)</p>
-    <p>모형 1500(폭)*1540(깊이)*2300(높이)</p>
+      {{item.content}}
   </div>
   <div class="content-footer">
     <div><ion-icon name="ios-chatboxes-outline"></ion-icon></div>

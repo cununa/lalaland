@@ -12,22 +12,10 @@
 
 <ion-content #content>
   <ion-list>
-    <ion-item>
-      <div>10.26</div>
-      <div>엘리베이터 사이즈</div>
-      <div>김지혜</div>
-      <div><ion-icon name="ios-arrow-forward-outline"></ion-icon> </div>
-    </ion-item>
-    <ion-item>
-      <div>10.26</div>
-      <div>엘리베이터 사이즈</div>
-      <div>김지혜</div>
-      <div><ion-icon name="ios-arrow-forward-outline"></ion-icon> </div>
-    </ion-item>
-    <ion-item>
-      <div>10.26</div>
-      <div>엘리베이터 사이즈</div>
-      <div>김지혜</div>
+    <ion-item navPush="customer-note-detail" [navParams]='item' *ngFor="let item of list">
+      <div>{{item.createdAt}}</div>
+      <div>{{item.title}}</div>
+      <div>{{item.name}}</div>
       <div><ion-icon name="ios-arrow-forward-outline"></ion-icon> </div>
     </ion-item>
   </ion-list>

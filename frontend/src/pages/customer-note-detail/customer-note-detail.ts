@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angular';
-
 /**
  * Generated class for the CustomerNoteDetailPage page.
  *
@@ -17,12 +16,21 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
   templateUrl: 'customer-note-detail.html',
 })
 export class CustomerNoteDetailPage {
+  item ={
+    createdAt:'',
+    name:'',
+    title:'',
+    content:''
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController) {
+      this.item =this.navParams.data
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerNoteDetailPage');
   }
-
 }
