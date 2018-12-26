@@ -1,8 +1,13 @@
 page-customer-note-detail {
     
     .list-bar{
-        display: block;
-        align-items: flex-end;
+        display: flex;
+        div{
+            flex: 1;
+            &:last-child{
+                text-align: right;
+            }
+        }
     }
   .note-detail{
       padding-left: 1.6rem;

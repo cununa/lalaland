@@ -40,30 +40,30 @@ export class CustomerNoteDetailPage {
     console.log('ionViewDidLoad CustomerNoteDetailPage');
   }
 
-  openModalModify(){
-    let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.modifyList.bind(this)).present();
-  }
+  // openModalModify(){
+  //   let modal = this.modalCtrl.createWithCallBack(
+  //     'popup-customer', {}, { cssClass: 'long-modal'}, this.modifyList.bind(this)).present();
+  // }
 
-  openModalDel(){
-    let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.delList.bind(this)).present();
-  }
+  // openModalDel(){
+  //   let modal = this.modalCtrl.createWithCallBack(
+  //     'popup-customer', {}, { cssClass: 'long-modal'}, this.delList.bind(this)).present();
+  // }
 
-  modifyList() {
-    axios.post('http://localhost:8080/note').then(({data}) => {
-      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-      this.list = data
-      console.log(this.list)
-    })
-  }
-  delList() {
-    axios.delete('http://localhost:8080/note').then(({data}) => {
-      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-      this.list = data
-      console.log(this.list)
-    })
-  }
+  // modifyList() {
+  //   axios.post('http://localhost:8080/note').then(({data}) => {
+  //     data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
+  //     data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
+  //     this.list = data
+  //     console.log(this.list)
+  //   })
+  // }
+  // delList() {
+  //   axios.delete('http://localhost:8080/note').then(({data}) => {
+  //     data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
+  //     data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
+  //     this.list = data
+  //     console.log(this.list)
+  //   })
+  // }
 }
