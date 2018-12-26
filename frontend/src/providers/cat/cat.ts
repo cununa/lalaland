@@ -397,6 +397,18 @@ export class ModalCtrl {
     });
     return modal;
   }
+
+  createWithCallBack(page = '', data = {}, opt = {}, cb) {
+    history.pushState({}, '', location.href);
+    let modal = this.modalCtrl.create(page, data, opt);
+    modal.onWillDismiss(() => {
+      this.events.publish('app:overlayPop');
+      history.back();
+      if (cb) cb()
+    });
+    return modal;
+  }
+
   openBrowser(url) {
     if(url.indexOf('http') != -1) {
       let win:any = window.open(url, '_blank', 'location=yes,toolbarcolor=#71cbd3,hideurlbar=yes');

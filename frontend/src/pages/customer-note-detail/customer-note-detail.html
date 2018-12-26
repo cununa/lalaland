@@ -13,9 +13,11 @@
 
 <ion-content #content>
   <ion-list>
-    <ion-list-header>
-      <div>{{item.createdAt}}</div>
-      <div> {{item.name}}</div>
+    <ion-list-header >
+      <div class="list-bar">
+        <div>{{item.createdAt}}</div>
+        <div>{{item.name}}</div>
+      </div>
     </ion-list-header>
       <ion-item class="note-title"> {{item.title}}</ion-item>
   </ion-list>
@@ -23,12 +25,8 @@
   <div class="note-detail">
       {{item.content}}
   </div>
-  <div class="content-footer">
-    <div><ion-icon name="ios-chatboxes-outline"></ion-icon></div>
-    <div><ion-icon name="ios-create-outline"></ion-icon></div>
-  </div>
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn  dark-btn">메모수정</button>
-  <button ion-button class="normal-btn  dark-btn">메모삭제</button>
+  <button ion-button class="normal-btn  dark-btn" ion-button (click)="openModalModify()">메모수정</button>
+  <button ion-button class="normal-btn  dark-btn" ion-button (click)="openModalDel()">메모삭제</button>
 </ion-footer>

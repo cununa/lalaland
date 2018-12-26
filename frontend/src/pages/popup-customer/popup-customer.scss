@@ -15,7 +15,7 @@ page-popup-customer {
         width: 25rem;
         height: 3rem;
         border: 0;
-        border-bottom: 0.1rem solid color($colors, secondary);
+        border-bottom: 0.1rem solid color($colors, gray);
     }
     .popcontent{
         text-align: center;
@@ -24,7 +24,7 @@ page-popup-customer {
         line-height: 3rem;
         width: 25rem;
         height: 10rem;
-        border: 0.1rem solid color($colors, secondary);
+        border: 0.1rem solid color($colors, gray);
     }
     .button{
         border: .1rem solid color($colors,gray);

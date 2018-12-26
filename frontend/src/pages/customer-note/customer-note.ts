@@ -31,17 +31,21 @@ export class CustomerNotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerNotePage');
-        // axios 사용한 통신 -----------------------
-        axios.get('http://localhost:8080/note').then(({data}) => {
-          data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-          data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-          this.list = data
-        // console.log(data)
-        })
+    this.getList()
   }
-  openModal(){
-    this.modalCtrl.create('popup-customer', {}, {
-      cssClass: 'long-modal'
-    }).present();
+  
+  openModalWrite(){
+    let modal = this.modalCtrl.createWithCallBack(
+      'popup-customer', {}, { cssClass: 'long-modal'}, this.getList.bind(this)).present();
   }
+
+  getList() {
+    axios.get('http://localhost:8080/note').then(({data}) => {
+      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
+      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
+      this.list = data
+      console.log(this.list)
+    })
+  }
+
 }

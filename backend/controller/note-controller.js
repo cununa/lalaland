@@ -1,12 +1,12 @@
 'use strict'
 
 const noteModel = require('../model/note-model')
+const userModel = require('../model/user-model')
 
 exports.createNote = async (req, res) => {
-    const { title, name, content } = req.body
-    const data = {
-        title, name, content
-    }
+    const { id,title, content } = req.body
+    const [{ name }] = await userModel.find({ _id:id })
+    const data = {title, name, content}
     const note = await noteModel.create(data)
     res.json(note)
 }

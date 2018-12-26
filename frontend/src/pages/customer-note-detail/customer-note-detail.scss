@@ -1,19 +1,12 @@
 page-customer-note-detail {
     
-    ion-footer{
-        border-top: 1px solid color($colors, danger) !important; 
-        button{
-            &:hover{
-                background: color($colors ,danger);
-            }
-        }
-        button:first-child{
-            border-right: 1px solid color($colors, danger); 
-        }
+    .list-bar{
+        display: block;
+        align-items: flex-end;
     }
   .note-detail{
       padding-left: 1.6rem;
-      font-size: $font-size-s;
+      font-size: $font-size-n;
   }
   ion-content{
       position: relative;

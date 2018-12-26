@@ -288,3 +288,98 @@ ion-footer{
         position: relative;
     }
 }
+
+.textarea-group{
+    margin-bottom: 1rem;
+    font-size: $font-size-n;
+    textarea{
+        box-shadow: none;
+        border: 0;
+        border-bottom: .1rem solid color($colors, danger);
+        text-align: center;
+        max-width: 26rem;
+        width: 85%;
+        padding: .6rem;
+        resize: none;
+
+        &:focus{
+            border: .1rem solid color($colors, danger);
+        }
+
+        $placeholder-color:color($colors, danger);
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $placeholder-color;
+            opacity: 1; /* Firefox */
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $placeholder-color;
+        }
+        &::-ms-input-placeholder { /* Microsoft Edge */
+            color: $placeholder-color;
+        }
+
+        &[readonly] {
+            border-bottom: .1rem solid color($colors, danger);
+            $placeholder-color:color($colors, danger);
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $placeholder-color;
+                opacity: 1; /* Firefox */
+            }
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $placeholder-color;
+            }
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                color: $placeholder-color;
+            }
+        }
+    }  
+}
+.input-group{
+    margin-bottom: 1rem;
+    font-size: $font-size-n;
+    input{
+        box-shadow: none;
+        border: 0;
+        border-bottom: .1rem solid color($colors, danger);
+        text-align: center;
+        max-width: 26rem;
+        width: 85%;
+        padding: .6rem;
+        
+        &:focus{
+            border-bottom: .1rem solid color($colors, danger);
+        }
+
+        $placeholder-color:color($colors, danger);
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $placeholder-color;
+            opacity: 1; /* Firefox */
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $placeholder-color;
+        }
+        &::-ms-input-placeholder { /* Microsoft Edge */
+            color: $placeholder-color;
+        }
+
+        &[readonly] {
+            border-bottom: .1rem solid color($colors, danger);
+            $placeholder-color:color($colors, danger);
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $placeholder-color;
+                opacity: 1; /* Firefox */
+            }
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $placeholder-color;
+            }
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                color: $placeholder-color;
+            }
+        }
+    }
+    caption {
+        display: block;
+        font-size: $font-size-s;
+        margin-top: .4rem;
+    }
+}
