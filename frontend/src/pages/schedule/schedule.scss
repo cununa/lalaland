@@ -52,4 +52,20 @@ page-schedule {
     .swiper-slide {
         align-items: flex-start;
     }
+    .item-md{
+        background: color($colors,secondary);
+    }
+    .calendar-row{
+        ion-col{
+            font-size: $font-size-n;
+        }
+    }
+    .dot{
+        background: color($colors,gray);
+        border-radius: 50%;
+        width: .6rem;
+        height: .6rem;
+        position: absolute;
+        top: 90%;
+    }
 }

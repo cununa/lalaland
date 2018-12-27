@@ -31,6 +31,9 @@ ion-app.ios{
 // init end
 
 ion-header{
+    .date-list{
+        background: color($colors,light);
+    }
     .toolbar-background-md{
         background: none;
     }
@@ -47,7 +50,7 @@ ion-header{
     }
     h1{
         margin: 0;
-        color:color($colors,primary);
+        color:color($colors,light);
         font-size : $font-size-l;
         font-weight: $font-weight-thin;
     }
@@ -56,7 +59,7 @@ ion-header{
         background: none !important;
         box-shadow: none !important;
         ion-icon{
-            color:color($colors,primary);
+            color:color($colors,light);
             font-size: $font-size-xl;
         }
         .ion-md-search{
@@ -65,7 +68,9 @@ ion-header{
     }
 }
 //ion-header
-
+.list-header-md{
+    border: none;
+}
 
 ion-content{
     .container{
@@ -109,7 +114,7 @@ ion-content{
         padding:0 0 1rem 0;
         // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
-            background: color($colors, primary) !important;
+            background: color($colors, light) !important;
             font-size: $font-size-n !important;
             font-weight: $font-weight-thin;
             border: unset !important;
@@ -175,10 +180,10 @@ ion-footer{
     color: color($colors ,dark);
     font-weight: $font-weight-thin;
 }
-.outline-primary-btn{
-    outline: 1px solid color($colors, primary);
+.outline-light-btn{
+    outline: 1px solid color($colors, light);
     background: color($colors , secondary);
-    color: color($colors , primary);
+    color: color($colors , light);
     font-weight: $font-weight-thin;
 }
 .outline-danger-btn{
@@ -187,8 +192,8 @@ ion-footer{
     color: color($colors ,danger);
     font-weight: $font-weight-thin;
 }
-.primary-btn{
-    background: color($colors, primary);
+.light-btn{
+    background: color($colors, light);
     color: color($colors, secondary);
     font-weight: $font-weight-thin;
 }

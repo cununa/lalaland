@@ -67,7 +67,10 @@
           </ion-row>
           <ion-row class="calendar-row">
             <ion-col *ngFor="let date of active_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date)">{{ date }}</ion-col>
+            <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date)">{{ date }}
+              <div class="dot"></div>
+            </ion-col>
+           
           </ion-row>
         </ion-grid>
       </div>
@@ -85,7 +88,7 @@
       <div class="swiper-slide">
         <ion-grid>
           <ion-row class="month">
-            <ion-col>{{next_2_date.year}}년 {{next_2_date.month + 1}}월</ion-col>
+            <ion-col>{{next_2_date.year}}년 {{next_2_date.month + 1}}월 요일</ion-col>
           </ion-row>
           <ion-row class="calendar-row">
             <ion-col *ngFor="let date of next_2_date.prev_date"></ion-col>
