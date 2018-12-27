@@ -1,3 +1,6 @@
+app:
+ secret: '60xGkdA/ePsObt0nA9tBoVBjeRrDPrVE9EluE8blPB0='
+
 db:
   host: 'localhost:27017'
   name: 'crud'

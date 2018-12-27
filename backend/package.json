@@ -7,13 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node index.js",
-    "db-local": "docker-compose -f docker/mongodb-local.yml up -d",
-    "db-live": "docker-compose -f docker/mongodb.yml up -d",
-    "db-local-down": "docker-compose -f docker/mongodb-local.yml down",
-    "db-live-down": "docker-compose -f docker/mongodb.yml down",
-    "script": "node script-test",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "export NODE_ENV=production && node index",
+    "local": "export NODE_ENV=development && PORT=8080 node index",
+    "db": "docker-compose -f docker/mongodb-local.yml up -d",
+    "db-down": "docker-compose -f docker/mongodb-local.yml down",
+    "db-test": "node script-test",
+    "build": "cd ../front && npm run build && cd ../server",
+    "deploy": "export NODE_ENV=production && node deploy"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,11 @@
     "express-async-wrap": "^1.0.0",
     "express-formidable": "^1.2.0",
     "js-yaml": "^3.12.0",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.9",
     "mongoose-timestamp": "^0.6.0",
     "multer": "^1.4.1",
-    "multiparty": "^4.2.1"
+    "multiparty": "^4.2.1",
+    "ramda": "^0.26.1"
   }
 }

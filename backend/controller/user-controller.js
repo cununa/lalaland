@@ -1,7 +1,37 @@
 'use strict'
 
+const R = require('ramda')
+const { ifElseP, raiseError } = require('../common/util')
+const { ERROR } = require('../common/error')
+const config = require('config')
+const jwt = require('jsonwebtoken')
 const userModel = require('../model/user-model')
 
+const getToken = (user) => jwt.sign({ id: this.id }, config.app.secret)
+
+exports.login = async (req, res) => {
+    const user = await userModel.findOne({ email: req.body.email })
+    if (user && req.body.password === user.password) {
+      res.json({ token: getToken(user) })
+    } else throw 'login error'
+  }
+  
+  exports.join = async (req, res, next) => {
+    const { email, name, password, phone, type = 1 } = req.body
+  
+    const getUser = ({ email }) => userModel.findOne({ email })
+    const isAbleToCreateUser = (user) => Promise.resolve(user ? false : true)
+    const createUser = (data) => userModel.create(data)
+  
+    const join = ifElseP(
+      R.pipeP(getUser, isAbleToCreateUser),
+      createUser,
+      raiseError(ERROR.JOIN.USER_EMAIL_EXSISTS)
+    )
+    const result = await join({ email, name, password, phone, type })
+    res.json(result)
+  }
+  
 exports.createUser = async (req, res) => {
     // req : request(요청) 클라이언트가 보내는 요청 데이터
 
