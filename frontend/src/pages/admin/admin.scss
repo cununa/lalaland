@@ -20,9 +20,9 @@ page-admin {
                 img{
                     max-width: 50rem;
                     width: 50%;
-                    padding: 8rem 0 5rem 0;
+                    padding: 5rem 0 0 0;
                     @media screen and (max-width : 320px){
-                        padding: 5rem 0 ;
+                        width: 55%
                     }
                 }
             }
@@ -48,9 +48,7 @@ page-admin {
                     color: color($colors,secondary);
                 }
             }
-            @media screen and (max-width : 320px){
-                padding:0 0 2rem 0;
-            }
+            
         }
     }
 }
