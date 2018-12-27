@@ -1,5 +1,5 @@
 import { Component,ChangeDetectorRef } from '@angular/core';
-import { Platform, App, IonicApp, Events } from 'ionic-angular';
+import { Platform, App, IonicApp, Events, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -7,7 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'schedule';
+  rootPage:any = 'main';
+  active = 'schedule';
 
   constructor(
     platform: Platform,
@@ -15,6 +16,7 @@ export class MyApp {
     splashScreen: SplashScreen,
     ionicApp: IonicApp,
     events: Events,
+    private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App) {
     platform.ready().then(() => {
@@ -64,7 +66,11 @@ export class MyApp {
     this.changeDetector.detectChanges();
   }
   navPush(nm){
+    this.active = nm;
     this.appCtrl.getRootNavs()[0].setRoot(nm);
+    setTimeout(() => {
+      this.menuCtrl.close();
+    }, 300);
   }
 }
 

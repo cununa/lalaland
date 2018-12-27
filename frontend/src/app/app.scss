@@ -250,11 +250,6 @@ ion-footer{
             &:first-child{
                 flex: 7;
             }
-            &:last-child{
-                flex: 3;
-                padding-left: .5rem;
-                color: color($colors,danger)
-            }
         }
     } 
 }
@@ -382,67 +377,72 @@ ion-footer{
         font-size: $font-size-s;
         margin-top: .4rem;
     }
-
-    .ready-active {
+}
+.ready-active {
+    overflow: visible;
+    color: color($colors, dark) !important;
+    .item-inner {
         overflow: visible;
-        color: color($colors, primary) !important;
-        .item-inner {
-            overflow: visible;
-        }
-        .input-wrapper {
-            overflow: visible;
-        }
-        .label {
-            overflow: visible;
+    }
+    .input-wrapper {
+        overflow: visible;
+    }
+    .label {
+        overflow: visible;
+        position: relative;
+        font-size: $font-size-n;
+        color: color($colors, dark);
+        font-weight: $font-weight-bold;
+        span {
             position: relative;
-            font-size: $font-size-l;
-            color: color($colors, primary);
-            font-weight: $font-weight-bold;
-            span {
-                position: relative;
-                &::before {
-                    content: '';
-                    background-color: color($colors, secondary);
-                    position: absolute;
-                    top: calc(50% - .5rem);
-                    left: - .5rem;
-                    width: calc(100% + 1rem);
-                    height: 1rem;
-                    z-index: -1;
-                    transition: transform .4s;
-                    transform: translate3d(-30rem, 0, 0);
-                }
+            &::before {
+                content: '';
+                background-color: color($colors, danger);
+                position: absolute;
+                top: calc(50% - .5rem);
+                left: - .5rem;
+                width: calc(100% + 1rem);
+                height: 1rem;
+                z-index: -1;
+                transition: transform .4s;
+                transform: translate3d(-30rem, 0, 0);
             }
-            &::after {
-                content: ">";
-                position: relative;
-                left: 1rem;
-                top: -.1rem;
-                font-size: .7em;
-                color: #000000;
-            }
+        }
+        &::after {
+            content: ">";
+            position: relative;
+            left: 1rem;
+            top: -.1rem;
+            font-size: .7em;
+            color: #000000;
+        }
+        .no{
+            flex: 3;
+            padding-left: .5rem;
+            color: color($colors,danger)
         }
     }
-    .ready-active.active {
-        .label {
-            color: color($colors, dark);
-            font-weight: $font-weight-bold;
-            overflow: visible;
-    
-            span {
-                position: relative;
-                &::before {
-                    content: '';
-                    background-color: color($colors, secondary);
-                    position: absolute;
-                    top: calc(50% - .5rem);
-                    left: - .5rem;
-                    width: calc(100% + 1rem);
-                    height: 1rem;
-                    z-index: -1;
-                    transform: translate3d(0, 0, 0);
-                }
+}
+.ready-active.active {
+    .label {
+        color: color($colors, dark);
+        font-weight: $font-weight-bold;
+        overflow: visible;
+
+        .text {
+            position: relative;
+            &::before {
+                content: '';
+                background-color: color($colors, danger);
+                position: absolute;
+                top: calc(50% - .5rem);
+                left: - .5rem;
+                width: calc(100% + 1rem);
+                height: 1rem;
+                z-index: -1;
+                transform: translate3d(0, 0, 0);
             }
         }
+
     }
 }
