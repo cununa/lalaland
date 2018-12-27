@@ -67,7 +67,7 @@
           </ion-row>
           <ion-row class="calendar-row">
             <ion-col *ngFor="let date of active_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of active_date.date">{{ date }}</ion-col>
+            <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date)">{{ date }}</ion-col>
           </ion-row>
         </ion-grid>
       </div>

@@ -188,4 +188,10 @@ export class SchedulePage {
     }
     return date_obj;
   }
+  openDetail(date, active_date) {
+    this.navCtrl.push('schedule-reservation', {
+      date: date,//클릭한 날짜
+      active_date: active_date//클릭한 월
+    });
+  }
 }
