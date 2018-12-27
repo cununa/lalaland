@@ -31,7 +31,10 @@ page-admin {
             margin: 2rem 0 0 0;
         }
         div{
-            padding: 0 0 7rem 0;
+            &:first-child{
+                padding: 0 0 4rem 0;
+            }
+            
             color: color($colors,secondary);
             font-weight: $font-weight-thin;
             input{

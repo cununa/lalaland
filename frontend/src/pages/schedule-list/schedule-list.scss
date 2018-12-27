@@ -5,35 +5,8 @@ page-schedule-list {
         margin: 0;
         outline: none;
     }
-    text-align: center;
-    .date{
-        padding: .9rem 0;
-        background: color($colors, secondary);
-        font: 1rem;
-        font-weight: $font-weight-bold;
-        ion-col{
-            padding: 0;
-            &:first-child{
-                color: red;
-            }
-            &:last-child{
-                color: gray;
-            }
-        }
-    }
-    .date-number{
-        font-size: $font-size-n;
-        
-        border-bottom: 1px solid color($colors, primary);
-        .col{
-            padding: 1.1rem;
-        }
-    }
-    ion-list{
-        .item:nth-child(odd){
-            background: color($colors, secondary);
-        }
-    }
+    text-align: left;
+   
 
     /* Our Grid Code */
     .app-layout {
