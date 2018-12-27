@@ -37,14 +37,14 @@ page-customer-list-detail {
 
 
     ion-footer{
-        border-top: 1px solid color($colors, danger) !important; 
+        border-top: 1px solid color($colors, primary) !important; 
         button{
             &:hover{
-                background: color($colors ,danger);
+                background: color($colors ,primary);
             }
         }
         button:first-child{
-            border-right: 1px solid color($colors, danger); 
+            border-right: 1px solid color($colors, primary); 
         }
     }
     
@@ -57,7 +57,7 @@ page-customer-list-detail {
             margin: 1rem;
             .time{
                 position: relative;
-                border-left: .7rem solid color($colors , danger);
+                border-left: .7rem solid color($colors , primary);
                 font-weight: $font-weight-thin;
                 padding: .6rem 0 .6rem 1.5rem;
                 div:nth-child(2){
@@ -74,7 +74,7 @@ page-customer-list-detail {
                 margin-left: 2.5rem;
                 font-weight: $font-weight-thin;
                 span{
-                    color: color($colors,danger);
+                    color: color($colors,primary);
                     font-weight: $font-weight-bold;
                 }
                 div{

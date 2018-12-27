@@ -8,7 +8,7 @@ page-schedule-list {
     text-align: center;
     .date{
         padding: .9rem 0;
-        background: color($colors, primary);
+        background: color($colors, secondary);
         font: 1rem;
         font-weight: $font-weight-bold;
         ion-col{
@@ -24,14 +24,14 @@ page-schedule-list {
     .date-number{
         font-size: $font-size-n;
         
-        border-bottom: 1px solid color($colors, danger);
+        border-bottom: 1px solid color($colors, primary);
         .col{
             padding: 1.1rem;
         }
     }
     ion-list{
         .item:nth-child(odd){
-            background: color($colors, primary);
+            background: color($colors, secondary);
         }
     }
 
@@ -66,26 +66,26 @@ page-schedule-list {
                     transition: height .5s ease;
                     &:active,&:focus{
                         height: 100%;
-                        background: color($colors,danger);
-                        color: color($colors,primary );
+                        background: color($colors,primary);
+                        color: color($colors,secondary );
                     }
                 }
             }
             .box{
                 margin: 1rem;
-                background: color($colors, primary);
+                background: color($colors, secondary);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 align-content: center; 
                 position: relative;
-                background: color($colors, secondary);
-                border: 1px solid color($colors , danger);
+                background: color($colors, light);
+                border: 1px solid color($colors , primary);
                 .text-area{
                     flex: 1;
                     h4{
                         padding:0 1rem 2rem 2rem;
-                        color : color($colors , danger);
+                        color : color($colors , primary);
                         font-size: $font-size-n !important;
                         font-weight: $font-weight-normal !important;
                         text-align: left;

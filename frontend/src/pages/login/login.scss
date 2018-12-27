@@ -1,6 +1,6 @@
 page-login {
     .ion-page{
-        background: color($colors,danger);
+        background: color($colors,primary);
     }
   
     // ion-header{
@@ -13,7 +13,7 @@ page-login {
         
     // }
     .container{
-        background: color($colors,danger);
+        background: color($colors,primary);
         text-align: center;
         ion-row{
             ion-col{
@@ -32,17 +32,17 @@ page-login {
         }
         div{
             padding: 0 0 7rem 0;
-            color: color($colors,primary);
+            color: color($colors,secondary);
             font-weight: $font-weight-thin;
             input{
                 margin: .4rem;
                 border: unset;
                 padding-left:1rem; 
-                color: color($colors,primary);
+                color: color($colors,secondary);
                 opacity: 1;
                 background: #f292bd;
                 &::placeholder{
-                    color: color($colors,primary);
+                    color: color($colors,secondary);
                 }
             }
             @media screen and (max-width : 320px){

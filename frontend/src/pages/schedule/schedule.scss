@@ -33,16 +33,16 @@ page-schedule {
         ion-col{
             padding: 0;
             &:first-child{
-                color: color($colors, danger);
+                color: color($colors, primary);
             }
             &:last-child{
-                color: color($colors, gray);
+                color: color($colors, primary);
             }
         }
     }
     .month{
         font-size: $font-size-l;
-        color: color($colors,danger);
+        color: color($colors,primary);
         padding: 1rem;
     }
     

@@ -12,7 +12,7 @@ page-schedule-reservation {
    ion-item{
   
     .item-inner{
-        border-bottom: 1px solid color($colors, primary) !important;
+        border-bottom: 1px solid color($colors, secondary) !important;
         padding: 1.6rem 0;
        
        }
@@ -37,8 +37,8 @@ page-schedule-reservation {
                 border: none;
                 color: color($colors,dark);
                 background-image:
-                    linear-gradient(45deg, transparent 50%, color($colors,danger) 50%),
-                    linear-gradient(135deg, color($colors,danger) 50%, transparent 50%);
+                    linear-gradient(45deg, transparent 50%, color($colors,primary) 50%),
+                    linear-gradient(135deg, color($colors,primary) 50%, transparent 50%);
                    
                 background-position:
                     calc(100% - 22px) calc(1em  ),
@@ -95,7 +95,7 @@ page-schedule-reservation {
 //    label{
 //     display: inline-block;
 //     background: #ffffff;
-//     border: 1px solid color($colors, danger);
+//     border: 1px solid color($colors, primary);
 //     width: 1.5rem;
 //     height: 1.5rem;
 //     margin : auto 1rem;
@@ -103,17 +103,17 @@ page-schedule-reservation {
 //    }
 //    input[id="info"]:checked + label{
 //     display: inline-block;
-//     background: color($colors, danger);
-//     outline: 1px solid color($colors, primary);
+//     background: color($colors, primary);
+//     outline: 1px solid color($colors, secondary);
    
 //    }
 //    input[id="info"]{
 //        display: none;
 //    }
     .checkbox-icon{
-        border-color: color($colors,danger) !important;
+        border-color: color($colors,primary) !important;
         .checkbox-inner{
-            border-color: color($colors,danger) !important;
+            border-color: color($colors,primary) !important;
         }
     }
 }

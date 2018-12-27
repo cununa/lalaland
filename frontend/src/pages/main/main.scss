@@ -6,10 +6,15 @@ page-main {
             background: unset;
             border: none !important;
         }
-        
+        .h1 {
+            margin: 0;
+            color: color($colors,primary);
+            font-size: 1.8rem;
+            font-weight: 300;
+          }
     }
     .container{
-        background: color($colors,danger);
+        background: color($colors,primary);
         text-align: center;
         ion-row{
             ion-col{
@@ -25,7 +30,7 @@ page-main {
         }
         div{
             padding: 2rem 0;
-            color: color($colors,primary);
+            color: color($colors,secondary);
             font-weight: $font-weight-thin;
             
         }
