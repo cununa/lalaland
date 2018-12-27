@@ -1,0 +1,53 @@
+page-login {
+    .ion-page{
+        background: color($colors,danger);
+    }
+  
+    // ion-header{
+    //     border: unset;
+    //     background-image: unset;
+    //     .toolbar-background-ios{
+    //         background: unset;
+    //         border: none !important;
+    //     }
+        
+    // }
+    .container{
+        background: color($colors,danger);
+        text-align: center;
+        ion-row{
+            ion-col{
+                img{
+                    max-width: 50rem;
+                    width: 50%;
+                    padding: 8rem 0 5rem 0;
+                    @media screen and (max-width : 320px){
+                        padding: 5rem 0 ;
+                    }
+                }
+            }
+        }
+        .box{
+            margin: 2rem 0 0 0;
+        }
+        div{
+            padding: 0 0 7rem 0;
+            color: color($colors,primary);
+            font-weight: $font-weight-thin;
+            input{
+                margin: .4rem;
+                border: unset;
+                padding-left:1rem; 
+                color: color($colors,primary);
+                opacity: 1;
+                background: #f292bd;
+                &::placeholder{
+                    color: color($colors,primary);
+                }
+            }
+            @media screen and (max-width : 320px){
+                padding:0 0 2rem 0;
+            }
+        }
+}
+}

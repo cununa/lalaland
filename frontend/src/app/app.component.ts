@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { Platform, App, IonicApp, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,6 +15,7 @@ export class MyApp {
     splashScreen: SplashScreen,
     ionicApp: IonicApp,
     events: Events,
+    private changeDetector: ChangeDetectorRef,
     private appCtrl: App) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -50,6 +51,17 @@ export class MyApp {
       });
 
     });
+  }
+  opened() {
+    if(location.hash.indexOf('schedule') != -1) this.active = 'schedule';
+    else if(location.hash.indexOf('reservation-list') != -1) this.active = 'reservation-list';
+    else if(location.hash.indexOf('cancel-list') != -1) this.active = 'cancel-list';
+    else if(location.hash.indexOf('customer-list') != -1) this.active = 'customer-list';
+    else if(location.hash.indexOf('customer-note') != -1) this.active = 'customer-note';
+    else if(location.hash.indexOf('rental-space') != -1) this.active = 'rental-space';
+    else if(location.hash.indexOf('rental-rate') != -1) this.active = 'rental-rate';
+    else if(location.hash.indexOf('admin') != -1) this.active = 'admin';
+    this.changeDetector.detectChanges();
   }
   navPush(nm){
     this.appCtrl.getRootNavs()[0].setRoot(nm);
