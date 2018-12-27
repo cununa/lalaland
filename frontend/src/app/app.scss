@@ -114,7 +114,7 @@ ion-content{
         padding:0 0 1rem 0;
         // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
-            background: color($colors, light) !important;
+            background: color($colors, secondary) !important;
             font-size: $font-size-n !important;
             font-weight: $font-weight-thin;
             border: unset !important;
