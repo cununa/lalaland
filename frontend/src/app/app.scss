@@ -40,7 +40,6 @@ ion-header{
     .toolbar-content{
        display: flex;
     }
-    flex-direction: row;
     background: color($colors,danger);
     // background: color($colors,secondary);
     ion-title{
@@ -56,15 +55,12 @@ ion-header{
         border: 0;
         background: none !important;
         box-shadow: none !important;
-        &:first-child{
-            ion-icon{
-                color:color($colors,primary);
-                font-size: $font-size-xl;
-            }
-        }
         ion-icon{
             color:color($colors,primary);
             font-size: $font-size-xl;
+        }
+        .ion-md-search{
+            color:color($colors,danger);
         }
     }
 }
@@ -163,6 +159,9 @@ ion-footer{
 .ion-ios-arrow-forward-outline{
     color: color($colors,danger);
     font-size: 2.2rem;
+}
+.ion-md-search{
+    color: colors($colors,danger)
 }
 
 

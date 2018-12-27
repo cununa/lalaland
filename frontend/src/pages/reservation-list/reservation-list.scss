@@ -8,7 +8,7 @@ page-reservation-list {
             display: flex;
             justify-items: center;
             line-height: 2rem;
-            
+            margin: 1rem;
             .time{
                 position: relative;
                 border-left: .7rem solid color($colors , danger);
@@ -29,7 +29,7 @@ page-reservation-list {
                 font-weight: $font-weight-thin;
                 span{
                     color: color($colors,danger);
-                    font-weight: inherit;
+                    font-weight: $font-weight-bold;
                 }
                 div{
                     flex: 1;

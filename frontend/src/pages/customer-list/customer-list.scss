@@ -26,6 +26,9 @@ page-customer-list {
             }
         }
     }
+    .ion-md-search{
+        color:color($colors,primary) !important;
+    }
     // .input-wrapper{
     //     border-bottom: .11rem solid color($colors, third)
     // }

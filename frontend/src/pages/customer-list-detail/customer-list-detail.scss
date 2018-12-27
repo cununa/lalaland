@@ -1,6 +1,7 @@
 page-customer-list-detail {
    .name-info{
-
+        
+     
        .label{
         border-bottom: 1px solid color($colors,third);
         padding: 3rem 0;
@@ -44,6 +45,46 @@ page-customer-list-detail {
         }
         button:first-child{
             border-right: 1px solid color($colors, danger); 
+        }
+    }
+    
+
+    .history{
+        .label{
+            display: flex;
+            justify-items: center;
+            line-height: 2rem;
+            margin: 1rem;
+            .time{
+                position: relative;
+                border-left: .7rem solid color($colors , danger);
+                font-weight: $font-weight-thin;
+                padding: .6rem 0 .6rem 1.5rem;
+                div:nth-child(2){
+                    font-weight: inherit;
+                    font-size: $font-size-s;
+                    color: color($colors, third);
+                }
+            }
+            .item-content{
+                padding: .6rem 0 .6rem 1.5rem;
+                justify-items: center;
+                align-items: center;
+                flex: 1;
+                margin-left: 2.5rem;
+                font-weight: $font-weight-thin;
+                span{
+                    color: color($colors,danger);
+                    font-weight: $font-weight-bold;
+                }
+                div{
+                    flex: 1;
+                }
+                div:nth-child(2){
+                    font-size: $font-size-s;
+                    color: color($colors, third);
+                }
+            }
         }
     }
 }
