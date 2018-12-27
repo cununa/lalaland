@@ -1,42 +1,42 @@
 <ion-nav #content [root]="rootPage"></ion-nav>
-<ion-menu [content]="content" side="left">
+<ion-menu [content]="content" side="left" swipeEnabled="false" (ionOpen)="opened()">
     <ion-content class="menu-top-m">
       <ion-list>
           <div class="profile">
               <div class="close-btn">
-                <ion-icon name="md-close"></ion-icon>
+                <!-- <ion-icon name="md-close"></ion-icon> -->
               </div>
             <div class="card-img">
     
             </div>
             <p>구지영님, 안녕하세요?</p>
           </div>
-        <button ion-item (click)="navPush('schedule')" menuClose>
+        <button ion-item (click)="navPush('schedule')" class="ready-active" [class.active]="active == 'schedule'">
           홈으로
         </button>
-        <button ion-item (click)="navPush('reservation-list')" menuClose>
+        <button ion-item (click)="navPush('reservation-list')" class="ready-active" [class.active]="active == 'reservation-list'">
           <span>예약완료 test</span>
           <span>567</span>
         </button>
-        <button ion-item (click)="navPush('cancel-list')" menuClose>
+        <button ion-item (click)="navPush('cancel-list')" class="ready-active" [class.active]="active == 'cancel-list'">
           <span>예약취소</span>
           <span>1325</span>
         </button>
-        <button ion-item (click)="navPush('customer-list')" menuClose>
+        <button ion-item (click)="navPush('customer-list')" class="ready-active" [class.active]="active == 'customer-list'">
           <span>고객관리</span>
           <span>615</span>
         </button>
-        <button ion-item (click)="navPush('customer-note')" menuClose>
+        <button ion-item (click)="navPush('customer-note')" class="ready-active" [class.active]="active == 'customer-note'">
           <span>메모</span>
           <span>6</span>
         </button>
-        <button ion-item (click)="navPush('rental-space')" menuClose>
+        <button ion-item (click)="navPush('rental-space')" class="ready-active" [class.active]="active == 'rental-space'">
           공간안내
         </button>
-        <button ion-item (click)="navPush('rental-rate')" menuClose>
+        <button ion-item (click)="navPush('rental-rate')" class="ready-active" [class.active]="active == 'rental-rate'">
           렌탈비용
         </button>
-        <button ion-item (click)="navPush('admin')" menuClose>
+        <button ion-item (click)="navPush('admin')" class="ready-active" [class.active]="active == 'admin'"><!--menuClose-->
           로그아웃
         </button>
       </ion-list>
