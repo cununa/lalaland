@@ -9,8 +9,13 @@ page-schedule-reservation {
     font-size: $font-size-n !important;
     font-weight:  $font-weight-thin;
     }
+    .col{
+        padding: 0;
+    }
+    .settime{
+        color: color($colors,third) !important;
+    }
    ion-item{
-  
     .item-inner{
         border-bottom: 1px solid color($colors, secondary) !important;
         padding: 1.6rem 0;
@@ -27,7 +32,7 @@ page-schedule-reservation {
             #selctFloor {
                 font-weight: $font-weight-thin;
                 line-height: 1.5em;
-                padding: 0.5em 3.5em 0.5em 1em;
+                padding: 0em 3.5em 0em 1em;
                 margin: 0;      
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
@@ -41,8 +46,8 @@ page-schedule-reservation {
                     linear-gradient(135deg, color($colors,primary) 50%, transparent 50%);
                    
                 background-position:
-                    calc(100% - 22px) calc(1em  ),
-                    calc(100% - 15px) calc(1em );
+                    calc(100% - 22px) calc(.6em  ),
+                    calc(100% - 15px) calc(.6em );
                     
                 background-size:
                     6px 7px,
@@ -53,7 +58,7 @@ page-schedule-reservation {
         }
         .manager{
             flex: 1;
-            padding: 0.5em 0 0.5em 0;
+            padding: 0;
             color: color($colors,third);
             font-weight: $font-weight-thin;
             span{
@@ -89,31 +94,19 @@ page-schedule-reservation {
         }
     }
    }
-//    label{
-//        color: color($colors, third)
-//    }
-//    label{
-//     display: inline-block;
-//     background: #ffffff;
-//     border: 1px solid color($colors, primary);
-//     width: 1.5rem;
-//     height: 1.5rem;
-//     margin : auto 1rem;
-//     box-shadow: none;
-//    }
-//    input[id="info"]:checked + label{
-//     display: inline-block;
-//     background: color($colors, primary);
-//     outline: 1px solid color($colors, secondary);
-   
-//    }
-//    input[id="info"]{
-//        display: none;
-//    }
+
     .checkbox-icon{
         border-color: color($colors,primary) !important;
         .checkbox-inner{
             border-color: color($colors,primary) !important;
         }
     }
+    .datetime-md{
+        padding: 0 1rem;
+    }
+    .datetime-text{
+        font-size: $font-size-n;
+        font-weight: $font-weight-thin;
+    }
+   
 }

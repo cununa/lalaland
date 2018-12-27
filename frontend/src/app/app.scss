@@ -71,7 +71,9 @@ ion-header{
 .list-header-md{
     border: none;
 }
-
+.button-md{
+    box-shadow: none;
+}
 ion-content{
     .container{
         padding: 1.6rem;
@@ -83,6 +85,7 @@ ion-content{
         margin: 0;
         padding-left: 2rem;
     }
+   
     padding: 0 !important;
     .scroll-content{
         padding: 0 !important;
