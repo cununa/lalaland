@@ -32,7 +32,7 @@ page-customer-note-detail {
       div:nth-child(2){
         padding: 2rem 2rem;
         text-align: right;
-        color :color( $colors , danger);
+        color :color( $colors , primary);
       }
   }
   .note-title{
@@ -47,7 +47,7 @@ page-customer-note-detail {
       }
   }
   .ion-ios-create-outline{
-      color: color($colors,danger);
+      color: color($colors,primary);
       font-size: $font-size-xl;
   }
   .ion-ios-chatboxes-outline{
@@ -68,4 +68,5 @@ page-customer-note-detail {
   .label-md{
       margin: 0;
   }
+  
 }

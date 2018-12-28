@@ -6,14 +6,14 @@ page-rental-rate {
         font-size: $font-size-s;
         tr{
             th{
-                background: color($colors,primary);
+                background: color($colors,secondary);
                 padding: 1rem 0;
                 
                 font-weight: $font-weight-bold;
             }
             td{
                 padding: .6rem 0;
-                color: color($colors,danger);
+                color: color($colors,primary);
                 font-weight: $font-weight-bold;
             }    
             
@@ -34,7 +34,7 @@ page-rental-rate {
         width: 85%;
         margin: auto;
         padding: 2.5rem;
-        background: color($colors,primary);
+        background: color($colors,secondary);
         list-style-type: none;
        
         li{
@@ -47,7 +47,7 @@ page-rental-rate {
         ion-item{
             .label{
                text-align: center;
-                color :color($colors,danger);
+                color :color($colors,primary);
                 font-size: $font-size-n;
                 font-weight: $font-weight-thin;
             }
@@ -67,19 +67,19 @@ page-rental-rate {
     .box{
         width: 100%;
         margin: 2rem 0 4rem 0;
-        background: color($colors, primary);
+        background: color($colors, secondary);
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center; 
         position: relative;
-        background: color($colors, secondary);
-        border: 1px solid color($colors , danger);
+        background: color($colors, light);
+        border: 1px solid color($colors , primary);
         .text-area{
             flex: 1;
             h4{
                 padding:0rem 0 0rem 0rem;
-                color : color($colors , danger);
+                color : color($colors , primary);
                 font-size: $font-size-n !important;
                 font-weight: $font-weight-normal !important;
                 text-align: center;
@@ -111,7 +111,7 @@ page-rental-rate {
                 }
             }
             .price{
-                border-top: .1px solid color($colors ,primary);
+                border-top: .1px solid color($colors ,secondary);
                 width: 85%;
                 margin: auto;
                 padding: 1rem 0;
@@ -145,19 +145,19 @@ page-rental-rate {
     //         .box{
     //             width: 98%;
     //             margin: 2rem auto 4rem auto;
-    //             background: color($colors, primary);
+    //             background: color($colors, secondary);
     //             display: flex;
     //             justify-content: center;
     //             align-items: center;
     //             align-content: center; 
     //             position: relative;
-    //             background: color($colors, secondary);
-    //             border: 1px solid color($colors , danger);
+    //             background: color($colors, light);
+    //             border: 1px solid color($colors , primary);
     //             .text-area{
     //                 flex: 1;
     //                 h4{
     //                     padding:0rem 0 0rem 0rem;
-    //                     color : color($colors , danger);
+    //                     color : color($colors , primary);
     //                     font-size: $font-size-n !important;
     //                     font-weight: $font-weight-normal !important;
     //                     text-align: center;
@@ -188,7 +188,7 @@ page-rental-rate {
     //                     }
     //                 }
     //                 .price{
-    //                     border-top: .1px solid color($colors ,primary);
+    //                     border-top: .1px solid color($colors ,secondary);
     //                     width: 85%;
     //                     margin: auto;
     //                     padding: 1rem 0;

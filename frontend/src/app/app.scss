@@ -31,6 +31,9 @@ ion-app.ios{
 // init end
 
 ion-header{
+    .date-list{
+        background: color($colors,light);
+    }
     .toolbar-background-md{
         background: none;
     }
@@ -40,7 +43,6 @@ ion-header{
     .toolbar-content{
        display: flex;
     }
-    flex-direction: row;
     background: color($colors,danger);
     // background: color($colors,secondary);
     ion-title{
@@ -48,7 +50,7 @@ ion-header{
     }
     h1{
         margin: 0;
-        color:color($colors,primary);
+        color:color($colors,light);
         font-size : $font-size-l;
         font-weight: $font-weight-thin;
     }
@@ -56,21 +58,22 @@ ion-header{
         border: 0;
         background: none !important;
         box-shadow: none !important;
-        &:first-child{
-            ion-icon{
-                color:color($colors,primary);
-                font-size: $font-size-xl;
-            }
-        }
         ion-icon{
-            color:color($colors,primary);
+            color:color($colors,light);
             font-size: $font-size-xl;
+        }
+        .ion-md-search{
+            color:color($colors,danger);
         }
     }
 }
 //ion-header
-
-
+.list-header-md{
+    border: none;
+}
+.button-md{
+    box-shadow: none;
+}
 ion-content{
     .container{
         padding: 1.6rem;
@@ -82,6 +85,7 @@ ion-content{
         margin: 0;
         padding-left: 2rem;
     }
+   
     padding: 0 !important;
     .scroll-content{
         padding: 0 !important;
@@ -113,7 +117,7 @@ ion-content{
         padding:0 0 1rem 0;
         // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
         ion-list-header{
-            background: color($colors, primary) !important;
+            background: color($colors, secondary) !important;
             font-size: $font-size-n !important;
             font-weight: $font-weight-thin;
             border: unset !important;
@@ -164,6 +168,9 @@ ion-footer{
     color: color($colors,danger);
     font-size: 2.2rem;
 }
+.ion-md-search{
+    color: colors($colors,danger)
+}
 
 
 
@@ -176,10 +183,10 @@ ion-footer{
     color: color($colors ,dark);
     font-weight: $font-weight-thin;
 }
-.outline-primary-btn{
-    outline: 1px solid color($colors, primary);
+.outline-light-btn{
+    outline: 1px solid color($colors, light);
     background: color($colors , secondary);
-    color: color($colors , primary);
+    color: color($colors , light);
     font-weight: $font-weight-thin;
 }
 .outline-danger-btn{
@@ -188,8 +195,8 @@ ion-footer{
     color: color($colors ,danger);
     font-weight: $font-weight-thin;
 }
-.primary-btn{
-    background: color($colors, primary);
+.light-btn{
+    background: color($colors, light);
     color: color($colors, secondary);
     font-weight: $font-weight-thin;
 }

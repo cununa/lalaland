@@ -18,27 +18,40 @@
     <ion-list-header>
       일정 정보
     </ion-list-header>
-    <ion-item class="schedule-title">
-      <span>일정 제목</span>
-    </ion-item>
-    <ion-item class="place">
-      <div class="floor">
-        장소
-        <select name="floor" id="selctFloor">
-          <option value="ls" lang="en">LS</option>
-          <option value="llt" lang="en">LLT</option>
-          <option value="sv" lang="en">SV</option>
-        </select>
-      </div>
-      <div class="manager">
-        <div>담당 <span>구자영</span></div>
-
-      </div>
-    </ion-item>
+    <ion-row>
+          <ion-col>
+              <ion-item>
+                <ion-label class="schedule-title">일정 제목</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-col>
+        </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label>시작</ion-label>
+            <div class="floor">
+                장소
+                <select name="floor" id="selctFloor">
+                  <option value="ls" lang="en">LS</option>
+                  <option value="llt" lang="en">LLT</option>
+                  <option value="sv" lang="en">SV</option>
+                </select>
+              </div>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+            <div class="manager">
+                <div>담당 <span>구자영</span></div>
+              </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="settime">시작</ion-label>
           <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
         </ion-item>
       </ion-col>
@@ -48,22 +61,53 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-item>
-      <div class="time">
-        <div><span>종료</span> 2018. 11. 22</div>
-        <div><span>철수</span> 2018. 11. 22</div>
-      </div>
-      <div class="item-content">
-        <div>오전 12:00</div>
-        <div>오전 12:00</div>
-        <div>오전 12:00</div>
-      </div>
-    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="settime">종료</ion-label>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="myTime" (ionChange)="test($event)"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="settime">철수</ion-label>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="myTime" (ionChange)="test($event)"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
     <ion-list-header>
       예약자 정보
     </ion-list-header>
-    <ion-item>예약자명</ion-item>
-    <ion-item>전화번호</ion-item>
+    <ion-row>
+      <ion-col>
+          <ion-item>
+              <ion-label class="colorThird">예약자명</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+          <ion-item>
+            <ion-label class="colorThird">전화번호</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+    
     <ion-item>
       <!-- <span> 고객정보 예약자와 동일</span>
         <input type="checkbox" id="info" >
@@ -71,15 +115,36 @@
       <ion-label for="info">고객정보 예약자와 동일</ion-label>
       <ion-checkbox id="info"></ion-checkbox>
     </ion-item>
-    <ion-item>회사명</ion-item>
-    <ion-item>고객명</ion-item>
-    <ion-item>전화번호</ion-item>
-    <ion-list-header>
+    <ion-row>
+        <ion-col>
+            <ion-item>
+              <ion-label class="colorThird">회사명</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <ion-item>
+                <ion-label class="colorThird">고객</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                  <ion-label class="colorThird">전화번호</ion-label>
+                  <ion-input type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+    <!-- <ion-list-header>
       기타 사항
-    </ion-list-header>
+    </ion-list-header> -->
 
   </ion-list>
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn dark-btn">예약하기</button>
+  <button ion-button class="normal-btn dark-btn" (click)="send()">예약하기</button>
 </ion-footer>

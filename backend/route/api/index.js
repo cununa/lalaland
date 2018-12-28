@@ -2,9 +2,18 @@ const wrap = require('express-async-wrap')
 const userController = require('../../controller/user-controller')
 const customerController = require('../../controller/customer-controller')
 const noteController = require('../../controller/note-controller')
+const authController = require('../../controller/auth-controller')
 const api = require('express').Router()
 
+
+
 // api
+//===================  auth  ========================
+api.post('/login', wrap(userController.login))
+api.post('/join', wrap(userController.join))
+
+// api.use(authController.auth)일단 주석처리 > 모든페이지 접근 가능하게
+
 //===================  user  ========================
 api.put('/user', wrap(userController.createUser))
 api.get('/user', wrap(userController.getUser))

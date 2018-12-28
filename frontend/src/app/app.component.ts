@@ -2,6 +2,7 @@ import { Component,ChangeDetectorRef } from '@angular/core';
 import { Platform, App, IonicApp, Events, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Connect } from '../providers/cat/cat';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,9 +17,14 @@ export class MyApp {
     splashScreen: SplashScreen,
     ionicApp: IonicApp,
     events: Events,
+    private connect: Connect,
     private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App) {
+
+      this.connect.url = 'https://lalaland-2019.appspot.com';
+    
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

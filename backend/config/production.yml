@@ -1,0 +1,9 @@
+app:
+ secret: '60xGkdA/ePsObt0nA9tBoVBjeRrDPrVE9EluE8blPB0='
+
+db:
+  type: 'remote'
+  host: 'cluster0-0nrn7.gcp.mongodb.net'
+  name: 'lalaland'
+  user: 'root'
+  pass: '2019'

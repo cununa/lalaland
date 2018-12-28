@@ -1,6 +1,6 @@
 page-admin {
     .ion-page{
-        background: color($colors,danger);
+        background: color($colors,primary);
     }
   
     // ion-header{
@@ -13,16 +13,16 @@ page-admin {
         
     // }
     .container{
-        background: color($colors,danger);
+        background: color($colors,primary);
         text-align: center;
         ion-row{
             ion-col{
                 img{
                     max-width: 50rem;
                     width: 50%;
-                    padding: 8rem 0 5rem 0;
+                    padding: 5rem 0 0 0;
                     @media screen and (max-width : 320px){
-                        padding: 5rem 0 ;
+                        width: 50%
                     }
                 }
             }
@@ -31,23 +31,24 @@ page-admin {
             margin: 2rem 0 0 0;
         }
         div{
-            padding: 0 0 7rem 0;
-            color: color($colors,primary);
+            &:first-child{
+                padding: 0 0 4rem 0;
+            }
+            
+            color: color($colors,secondary);
             font-weight: $font-weight-thin;
             input{
                 margin: .4rem;
                 border: unset;
                 padding-left:1rem; 
-                color: color($colors,primary);
+                color: color($colors,secondary);
                 opacity: 1;
                 background: #f292bd;
                 &::placeholder{
-                    color: color($colors,primary);
+                    color: color($colors,secondary);
                 }
             }
-            @media screen and (max-width : 320px){
-                padding:0 0 2rem 0;
-            }
+            
         }
     }
 }

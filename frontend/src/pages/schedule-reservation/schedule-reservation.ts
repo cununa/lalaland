@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController  } from 'ionic-angular';
 import { Utils } from '../../providers/cat/cat';
 
 /**
@@ -18,6 +18,14 @@ import { Utils } from '../../providers/cat/cat';
   templateUrl: 'schedule-reservation.html',
 })
 export class ScheduleReservationPage {
+  form = {
+    name: '',
+    email: '',
+    space: '',
+    phone:''
+  }
+
+  is_reservation: boolean = false;
   
   myDate = '2018-12-29';
   myTime = '13:12';
@@ -26,6 +34,7 @@ export class ScheduleReservationPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
+    private alertCtrl: AlertController,
     public utils: Utils
     ) {
   }
@@ -37,5 +46,47 @@ export class ScheduleReservationPage {
   test(ev) {
     console.log(this.myTime);
   }
+  ionViewCanLeave() {
+    // if (this.is_reservation) {
+    //   return new Promise((resolve, reject) => {
+    //     let confirm:any = this.alertCtrl.create({
+    //       message: '저장하겠습니까?',
+    //       buttons: [{
+    //           text: '아니오',
+    //           handler: () => {
+    //             reject();
+    //           }
+    //         },
+    //         {
+    //           text: '예',
+    //           handler: () => {
+    //             resolve();
+    //           }
+    //         }
+    //       ]
+    //     });
+    //     confirm.present();
+    //   });
+    // }
+  }
 
+  send(){
+    let confirm:any = this.alertCtrl.create({
+      message: '저장하겠습니까?',
+      buttons: [{
+          text: '예',
+          handler: () => {
+            const obj = {
+                email: this.form.email
+               }
+          }
+        },
+        {
+          text: '아니요',
+          role: 'cancel'
+        }
+      ]
+    });
+    confirm.present();
+  }
 }

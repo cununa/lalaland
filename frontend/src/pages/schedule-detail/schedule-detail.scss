@@ -15,14 +15,14 @@ page-schedule-detail {
        font-size: $font-size-s;
    }
     ion-footer{
-        border-top: 1px solid color($colors, danger) !important; 
+        border-top: 1px solid color($colors, primary) !important; 
         button{
             &:hover{
-                background: color($colors ,danger);
+                background: color($colors ,primary);
             }
         }
         button:first-child{
-            border-right: 1px solid color($colors, danger); 
+            border-right: 1px solid color($colors, primary); 
         }
     }
     
@@ -38,10 +38,10 @@ page-schedule-detail {
     }
     .black{
         background: color($colors, dark) !important;
-        color: color($colors, secondary);
+        color: color($colors, light);
     }
     .deposit{
-        color: color($colors,danger);
+        color: color($colors,primary);
         font-weight: bold;
     }
   
@@ -76,11 +76,11 @@ page-schedule-detail {
     .box{
         width: 7rem;
         height: 7rem;
-        background: color($colors, danger);
+        background: color($colors, primary);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: color($colors, secondary);
+        color: color($colors, light);
       h3{
         font-weight: $font-weight-bold;
         font-size: $font-size-xl;
@@ -94,7 +94,7 @@ page-schedule-detail {
         }
     }
     ion-icon{
-        font-size: $font-size-xl;
+        font-size: $font-size-l;
     }
     img{
         width: 2rem;

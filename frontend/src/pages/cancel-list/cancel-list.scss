@@ -5,7 +5,7 @@ page-cancel-list {
             display: flex;
             justify-items: center;
             line-height: 2rem;
-            
+            margin: 1rem 0;
             .time{
                 position: relative;
                 border-left: .7rem solid color($colors ,third);
@@ -23,8 +23,8 @@ page-cancel-list {
                 margin-left: 2.5rem;
                 font-weight: $font-weight-thin;
                 span{
-                    color: color($colors,danger);
-                    font-weight: inherit;
+                    color: color($colors,primary);
+                    font-weight: $font-weight-bold;
                 }
                 div{
                     flex: 1;

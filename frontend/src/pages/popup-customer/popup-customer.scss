@@ -42,7 +42,7 @@ page-popup-customer {
             position: relative;
             &::after{
                 content:'';
-                background-color: color($colors, secondary);
+                background-color: color($colors, light);
                 position: absolute;
                 top: calc(50% - .2rem);
                 left: 4rem;

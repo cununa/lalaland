@@ -459,25 +459,19 @@ export class User {
   }
 
   get() {
-    if (window.localStorage.getItem('user_id')) {
+    if (window.localStorage.getItem('token')) {
       return {
-        user_id: Number(window.localStorage.getItem('user_id')),
-        user_session: window.localStorage.getItem('user_session'),
-        dp_nm: window.localStorage.getItem('name'),
+        token: Number(window.localStorage.getItem('token')),
         auto_login: true
       }
-    } else if (window.sessionStorage.getItem('user_id')) {
+    } else if (window.sessionStorage.getItem('token')) {
       return {
-        user_id: Number(window.sessionStorage.getItem('user_id')),
-        user_session: window.sessionStorage.getItem('user_session'),
-        dp_nm: window.sessionStorage.getItem('name'),
+        token: Number(window.sessionStorage.getItem('token')),
         auto_login: false
       }
     } else {
       return {
-        user_id: 0,
-        user_session: '',
-        dp_nm: '',
+        token: 0,
         auto_login: false
       }
     }
@@ -489,9 +483,7 @@ export class User {
     } else {
       storage = 'sessionStorage';
     }
-    window[storage].setItem('user_id', data.user_id);
-    window[storage].setItem('user_session', data.user_session);
-    window[storage].setItem('dp_nm', data.dp_nm);
+    window[storage].setItem('token', data.token);
   }
   clear() {
     window.sessionStorage.clear();
@@ -506,6 +498,7 @@ export class Connect {
   loadingCounter: number = 0;
   isError: boolean = false;
   connectInit: boolean = false;
+  url = '';
 
   constructor(public http: Http,
     public app: App,
@@ -547,8 +540,10 @@ export class Connect {
       this.loadingCounter++;
     }
 
-    const url = "http://222.239.254.199/aram/userservice.asmx/" + method;
+    const url = this.url + '/' + method;
     const headers = new Headers();
+    headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    console.log(headers);
     const data = this.jsonToFormData(body);
     const options = new RequestOptions({
       headers: headers
@@ -563,7 +558,7 @@ export class Connect {
           this.toast.present('서버 통신에 실패했습니다.\n 인터넷 연결을 확인해주세요.');
           break;
         case 500:
-          this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
+          //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
           break;
       }
     });
@@ -588,9 +583,7 @@ export class Connect {
       }
     }
     
-    return http ? http : {
-      code: 9999
-    };
+    return http ? http : 'error';
   }
   error(error) {
     if (this.isError == true) return;

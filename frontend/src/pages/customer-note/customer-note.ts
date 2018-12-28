@@ -31,21 +31,22 @@ export class CustomerNotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerNotePage');
-    // this.getList()
+    this.getList()
   }
   
-  // openModalWrite(){
-  //   let modal = this.modalCtrl.createWithCallBack(
-  //     'popup-customer', {}, { cssClass: 'long-modal'}, this.getList.bind(this)).present();
-  // }
+  openModalWrite(){
+    let modal = this.modalCtrl.createWithCallBack(
+      'popup-customer', {}, { cssClass: 'long-modal'}, this.getList.bind(this)).present();
+  }
 
-  // getList() {
-  //   axios.get('http://localhost:8080/note').then(({data}) => {
-  //     data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-  //     data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-  //     this.list = data
-  //     console.log(this.list)
-  //   })
-  // }
+  getList() {
+    axios.get('https://lalaland-2019.appspot.com/note').then(({data}) => {
+      console.log(data);
+      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
+      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
+      this.list = data
+      console.log(this.list)
+    })
+  }
 
 }
