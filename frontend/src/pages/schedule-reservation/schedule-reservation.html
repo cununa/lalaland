@@ -18,9 +18,14 @@
     <ion-list-header>
       일정 정보
     </ion-list-header>
-    <ion-item class="schedule-title">
-      <span>일정 제목</span>
-    </ion-item>
+    <ion-row>
+          <ion-col>
+              <ion-item>
+                <ion-label class="schedule-title">일정 제목</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-col>
+        </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
@@ -85,8 +90,24 @@
     <ion-list-header>
       예약자 정보
     </ion-list-header>
-    <ion-item>예약자명</ion-item>
-    <ion-item>전화번호</ion-item>
+    <ion-row>
+      <ion-col>
+          <ion-item>
+              <ion-label class="colorThird">예약자명</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+          <ion-item>
+            <ion-label class="colorThird">전화번호</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+    
     <ion-item>
       <!-- <span> 고객정보 예약자와 동일</span>
         <input type="checkbox" id="info" >
@@ -94,12 +115,33 @@
       <ion-label for="info">고객정보 예약자와 동일</ion-label>
       <ion-checkbox id="info"></ion-checkbox>
     </ion-item>
-    <ion-item>회사명</ion-item>
-    <ion-item>고객명</ion-item>
-    <ion-item>전화번호</ion-item>
-    <ion-list-header>
+    <ion-row>
+        <ion-col>
+            <ion-item>
+              <ion-label class="colorThird">회사명</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <ion-item>
+                <ion-label class="colorThird">고객</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                  <ion-label class="colorThird">전화번호</ion-label>
+                  <ion-input type="text"></ion-input>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+    <!-- <ion-list-header>
       기타 사항
-    </ion-list-header>
+    </ion-list-header> -->
 
   </ion-list>
 </ion-content>

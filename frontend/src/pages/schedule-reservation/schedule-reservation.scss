@@ -5,9 +5,29 @@ page-schedule-reservation {
     .label{
         font-size: $font-size-n;
     }
+    .text-input-md{
+        margin: 0;
+    }
+    .list-md .item-input:last-child{
+        border: none;
+        
+    }
+    .item-input-has-focus:last-child{
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .input-wrapper{
+        font-size: $font-size-n;
+        font-weight: $font-weight-thin;
+        
+    }
+    .colorThird{
+        color: color($colors,third) !important;
+    }
    .schedule-title{
     font-size: $font-size-n !important;
     font-weight:  $font-weight-thin;
+    color: color($colors,dark) !important;
     }
     .col{
         padding: 0;
