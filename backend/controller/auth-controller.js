@@ -5,9 +5,11 @@ const config = require('config')
 const userModel = require('../model/user-model')
 
 exports.auth = async (req, res, next) => {
-  console.log('auth')
   const token = req.get('accessToken')
-  if (typeof token === 'undefined') res.sendStatus(403)
+  if (typeof token === 'undefined') {
+    res.sendStatus(403)
+    return 
+  }
   const decoded = jwt.verify(token, config.app.secret)
   const user = await userModel.findOne({ id: decoded.id} )
   if (user) {
