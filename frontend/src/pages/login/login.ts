@@ -20,6 +20,7 @@ import { IonicPage, NavController, NavParams , MenuController } from 'ionic-angu
 export class LoginPage {
 
   form = {
+    auth: '',
     email: ''
   }
   email: any;

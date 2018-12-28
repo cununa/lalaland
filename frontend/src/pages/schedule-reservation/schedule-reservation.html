@@ -104,5 +104,5 @@
   </ion-list>
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn dark-btn">예약하기</button>
+  <button ion-button class="normal-btn dark-btn" [class.pause]="is_reservation" (click)="ionViewCanLeave()">예약하기</button>
 </ion-footer>

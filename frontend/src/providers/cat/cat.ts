@@ -547,7 +547,7 @@ export class Connect {
       this.loadingCounter++;
     }
 
-    const url = "http://222.239.254.199/aram/userservice.asmx/" + method;
+    const url = "https://lalaland-2019.appspot.com/" + method;
     const headers = new Headers();
     const data = this.jsonToFormData(body);
     const options = new RequestOptions({

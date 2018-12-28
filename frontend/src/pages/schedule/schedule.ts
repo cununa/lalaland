@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams ,MenuController, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController } from 'ionic-angular';
 import Swiper from 'swiper';
 import { Utils } from '../../providers/cat/cat';
 
@@ -20,6 +20,8 @@ import { Utils } from '../../providers/cat/cat';
 })
 export class SchedulePage {
   
+
+
   @ViewChild('swiper') swiper;
 
   prev_3_date = {
@@ -79,6 +81,7 @@ export class SchedulePage {
     public utils: Utils,
     public navCtrl: NavController,
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     public menuCtrl: MenuController
     ) {
     this.today = this.cutDate(this.utils.today());
