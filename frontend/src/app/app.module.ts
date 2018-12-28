@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { ModalCtrl, Utils, Connect, User, Device, ToastCtrl } from '../providers/cat/cat';
+import { ModalCtrl, Utils, Connect, User, Device, ToastCtrl, AlertCtrl } from '../providers/cat/cat';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -33,6 +33,7 @@ import { HttpModule } from '@angular/http';
     User,
     Device,
     ToastCtrl,
+    AlertCtrl
   ]
 })
 export class AppModule {}

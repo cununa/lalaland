@@ -4,7 +4,8 @@ import {
 import {
   Http,
   Headers,
-  RequestOptions
+  RequestOptions,
+  URLSearchParams
 } from '@angular/http';
 import {
   Platform,
@@ -226,23 +227,23 @@ export class Utils {
     // convert base64 to raw binary data held in a string
     // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
     var byteString = atob(dataURI.split(',')[1]);
-  
+
     // separate out the mime component
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-  
+
     // write the bytes of the string to an ArrayBuffer
     var ab = new ArrayBuffer(byteString.length);
-  
+
     // create a view into the buffer
     var ia = new Uint8Array(ab);
-  
+
     // set the bytes of the buffer to the correct values
     for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+      ia[i] = byteString.charCodeAt(i);
     }
-  
+
     // write the ArrayBuffer to a blob, and you're done
-    var blob:any = new Blob([ab], {type: mimeString});
+    var blob: any = new Blob([ab], { type: mimeString });
     blob.lastModifiedDate = new Date();
     return blob;
   }
@@ -272,7 +273,7 @@ export class Utils {
     return JSON.parse(JSON.stringify(json));
   }
   //custom utils
-  
+
 }
 
 @Injectable()
@@ -336,7 +337,7 @@ export class Device {
 export class ToastCtrl {
   constructor(
     private toastCtrl: ToastController
-  ) {}
+  ) { }
   present(message, duration: number = 4000) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -355,7 +356,7 @@ export class AlertCtrl {
   constructor(
     private alertCtrl: AlertController,
     private events: Events
-  ) {}
+  ) { }
   create(data: any = {}) {
     history.pushState({}, '', location.href);
     let handler = [];
@@ -410,8 +411,8 @@ export class ModalCtrl {
   }
 
   openBrowser(url) {
-    if(url.indexOf('http') != -1) {
-      let win:any = window.open(url, '_blank', 'location=yes,toolbarcolor=#71cbd3,hideurlbar=yes');
+    if (url.indexOf('http') != -1) {
+      let win: any = window.open(url, '_blank', 'location=yes,toolbarcolor=#71cbd3,hideurlbar=yes');
     } else {
       this.create(url).present();
     }
@@ -453,7 +454,7 @@ export class ModalCtrl {
 export class User {
 
   constructor(
-    private device: Device
+    // private device: Device
   ) {
 
   }
@@ -461,12 +462,12 @@ export class User {
   get() {
     if (window.localStorage.getItem('token')) {
       return {
-        token: Number(window.localStorage.getItem('token')),
+        token: window.localStorage.getItem('token'),
         auto_login: true
       }
     } else if (window.sessionStorage.getItem('token')) {
       return {
-        token: Number(window.sessionStorage.getItem('token')),
+        token: window.sessionStorage.getItem('token'),
         auto_login: false
       }
     } else {
@@ -504,7 +505,7 @@ export class Connect {
     public app: App,
     public user: User,
     public toast: ToastCtrl,
-    public loadingCtrl: LoadingController) {}
+    public loadingCtrl: LoadingController) { }
   ready() {
     this.connectInit = true;
   }
@@ -543,8 +544,7 @@ export class Connect {
     const url = this.url + '/' + method;
     const headers = new Headers();
     headers.set('Content-Type', 'application/x-www-form-urlencoded');
-    console.log(headers);
-    const data = this.jsonToFormData(body);
+    const data = this.query.set(body);
     const options = new RequestOptions({
       headers: headers
     });
@@ -564,7 +564,7 @@ export class Connect {
     });
 
     if (http) {
-      if(http.data) {
+      if (http.data) {
         imgArr = this.getUrlFromObj(http.data);
         await this.checkAllImg(imgArr);
         //console.log(await this.checkAllImg(imgArr));
@@ -591,7 +591,6 @@ export class Connect {
     setTimeout(() => {
       this.isError = false;
     }, 1000);
-    console.error(error);
     this.toast.present(error.message);
   }
   async delay(func, delay_limit = 500) {
@@ -605,34 +604,34 @@ export class Connect {
   }
   jsonToFormData(json) {
     let form = new FormData();
-    for(let prompt in json) {
-      if(typeof json[prompt] == 'object') {
-        if(json[prompt] == null) {
+    for (let prompt in json) {
+      if (typeof json[prompt] == 'object') {
+        if (json[prompt] == null) {
           form.append(prompt, json[prompt]);
-        } else if(json[prompt].constructor.name == 'Array') {
-          if(typeof json[prompt][0] == 'object') {
+        } else if (json[prompt].constructor.name == 'Array') {
+          if (typeof json[prompt][0] == 'object') {
             //console.log(json[prompt][0].constructor.name);
-            if(json[prompt][0].constructor.name == 'File') {
+            if (json[prompt][0].constructor.name == 'File') {
               //파일 어레이임!!!!
-              for(let i = 0; i < json[prompt].length; i++) {
+              for (let i = 0; i < json[prompt].length; i++) {
                 //console.log(prompt);
                 //console.log(json[prompt][i]);
                 form.append(prompt, json[prompt][i]);
               }
-            } else if(json[prompt][0].constructor.name == 'Blob') {
-              for(let i = 0; i < json[prompt].length; i++) {
+            } else if (json[prompt][0].constructor.name == 'Blob') {
+              for (let i = 0; i < json[prompt].length; i++) {
                 //console.log(prompt);
                 //console.log(json[prompt][i]);
                 console.log(json[prompt][i]);
                 form.append(prompt, json[prompt][i], 'attaches' + new Date().getTime() + '.jpeg');
               }
-            }else {
+            } else {
               //보통 오브젝트 어레이임
               //console.log(prompt);
               //console.log(JSON.stringify(json[prompt]));
               form.append(prompt, JSON.stringify(json[prompt]));
             }
-          } else  {
+          } else {
             //보통 어레이임
             //console.log(prompt);
             //console.log(JSON.stringify(json[prompt]));
@@ -643,15 +642,15 @@ export class Connect {
           //console.log(prompt);
           //console.log(JSON.stringify(json[prompt]));
           //console.log(json[prompt].constructor.name);
-          if(json[prompt].constructor.name == 'File') {
+          if (json[prompt].constructor.name == 'File') {
             form.append(prompt, json[prompt]);
           } else {
             form.append(prompt, JSON.stringify(json[prompt]));
           }
         }
       } else {
-        if(json[prompt] == 'true') json[prompt] = true;
-        if(json[prompt] == 'false') json[prompt] = false;
+        if (json[prompt] == 'true') json[prompt] = true;
+        if (json[prompt] == 'false') json[prompt] = false;
         //console.log(prompt);
         //console.log(JSON.stringify(json[prompt]));
         form.append(prompt, json[prompt]);
@@ -693,7 +692,37 @@ export class Connect {
     });
   }
   checkAllImg(paths) {
-    return Promise.all(paths.map(this.checkImg)); 
+    return Promise.all(paths.map(this.checkImg));
+  }
+  query = {
+    get: (data) => {
+      if(data.indexOf('?') != -1) {
+        data = data.split('?')[1];
+      }
+      var params = data;
+      var paramObj = {};
+      if (params.indexOf('&') != -1) {
+        params = params.split('&');
+      } else {
+        if (params == "") {
+          return undefined;
+        }
+        params = [params];
+      }
+
+      for (var i = 0; i < params.length; i++) {
+        var pair = params[i].split('=');
+        paramObj[pair[0]] = pair[1];
+      }
+      return paramObj;
+    },
+    set: (options) => {
+      let params = new URLSearchParams();
+      for (let key in options) {
+        params.set(key, options[key]);
+      }
+      return params;
+    }
   }
 
   loader() {

@@ -52,12 +52,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">시작</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.start.date"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="myTime" (ionChange)="test($event)"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.start.time"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -65,12 +65,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">종료</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.end.date"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="myTime" (ionChange)="test($event)"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.end.time"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -78,12 +78,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">철수</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="myDate"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.lastend.date"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="myTime" (ionChange)="test($event)"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.lastend.time"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>

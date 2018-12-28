@@ -54,15 +54,16 @@ export class LoginPage {
       email: this.form.email,
       password: this.form.password,
     }
-    console.log(obj);
     const result = await this.connect.run('login', obj);
-    console.log(result);
     switch(result) {
       case 'error':
       this.toast.present('찾을 수 없는 유저입니다.');
       break;
       default:
       this.user.set(result);
+      this.navCtrl.setRoot('schedule', {}, {
+        animate: true
+      });
       break;
     }
   }
