@@ -18,6 +18,12 @@ import { Utils } from '../../providers/cat/cat';
   templateUrl: 'schedule-reservation.html',
 })
 export class ScheduleReservationPage {
+  form = {
+    name: '',
+    email: '',
+    space: '',
+    phone:''
+  }
 
   is_reservation: boolean = false;
   
@@ -41,26 +47,44 @@ export class ScheduleReservationPage {
     console.log(this.myTime);
   }
   ionViewCanLeave() {
-    if (this.is_reservation) {
-      return new Promise((resolve, reject) => {
-        let confirm = this.alertCtrl.create({
-          message: '저장하겠습니까?',
-          buttons: [{
-              text: '아니오',
-              handler: () => {
-                reject();
-              }
-            },
-            {
-              text: '예',
-              handler: () => {
-                resolve();
-              }
-            }
-          ]
-        });
-        confirm.present();
-      });
-    }
+    // if (this.is_reservation) {
+    //   return new Promise((resolve, reject) => {
+    //     let confirm:any = this.alertCtrl.create({
+    //       message: '저장하겠습니까?',
+    //       buttons: [{
+    //           text: '아니오',
+    //           handler: () => {
+    //             reject();
+    //           }
+    //         },
+    //         {
+    //           text: '예',
+    //           handler: () => {
+    //             resolve();
+    //           }
+    //         }
+    //       ]
+    //     });
+    //     confirm.present();
+    //   });
+    // }
+  }
+
+  send(){
+    let confirm:any = this.alertCtrl.create({
+      message: '저장하겠습니까?',
+      buttons: [{
+          text: '예',
+          handler: () => {
+            
+          }
+        },
+        {
+          text: '아니요',
+          role: 'cancel'
+        }
+      ]
+    });
+    confirm.present();
   }
 }
