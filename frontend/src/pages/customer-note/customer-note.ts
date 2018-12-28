@@ -56,6 +56,7 @@ export class CustomerNotePage {
     }
     const result = await this.connect.run('note', obj);
     console.log(result);
+    this.list = [result];
     // ---------------------------------------------------------------------------------
   }
 
