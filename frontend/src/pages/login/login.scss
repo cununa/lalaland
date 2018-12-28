@@ -31,7 +31,10 @@ page-login {
             margin: 2rem 0 0 0;
         }
         div{
-            padding: 0 0 7rem 0;
+            &:first-child{
+                padding: 0 0 7rem 0;
+            }
+           
             color: color($colors,secondary);
             font-weight: $font-weight-thin;
             input{
@@ -46,7 +49,7 @@ page-login {
                 }
             }
             @media screen and (max-width : 320px){
-                padding:0 0 2rem 0;
+                padding:0 0 0 0;
             }
         }
 }
