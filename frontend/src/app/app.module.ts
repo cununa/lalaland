@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { ModalCtrl, Utils } from '../providers/cat/cat';
+import { ModalCtrl, Utils, User } from '../providers/cat/cat';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { ModalCtrl, Utils } from '../providers/cat/cat';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ModalCtrl,
-    Utils
+    Utils,
+    User
   ]
 })
 export class AppModule {}

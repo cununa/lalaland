@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , MenuController } from 'ionic-angular';
-// import { Connect, Device, User, ToastCtrl, ModalCtrl } from '../../providers/cat/cat';
+import axios from 'axios'
+import { FormsModule } from '@angular/forms';
+import { User } from '../../providers/cat/cat';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,18 +21,18 @@ import { IonicPage, NavController, NavParams , MenuController } from 'ionic-angu
 })
 export class LoginPage {
 
-  form = {
-    auth: '',
-    email: ''
+  data = {
+    email: '',
+    password: ''
   }
+
   email: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     // private connect: Connect,
-    // private device: Device,
-    // private user: User,
-    // private toast: ToastCtrl,
+    private user: User
+    // private toast: ToastCtrl,d
     // private modalCtrl: ModalCtrl,
     // private events: Events
     ) {
@@ -39,9 +41,17 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-  submit(){
-    this.navCtrl.push('schedule');
+  // submit(){
+  //   this.navCtrl.push('schedule');
+  // }
+
+  login() {
+    axios.post('http://localhost:8080/login', this.data).then(({data}) => {
+      this.user.set(data)
+      this.navCtrl.push('schedule')
+    })
   }
+
   // async submit() {
   //   if(!this.email) return this.toast.present('아이디를 입력해주세요.');
 

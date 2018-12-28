@@ -14,12 +14,12 @@
         관리자 전용입니다. <br> 로그인 바랍니다
       </div>
       <div>
-        <input type="email" class="secondary-btn normal-btn" placeholder="Email login" [(ngModel)]="form.auth"> 
-        <input type="password" class="secondary-btn normal-btn" placeholder="Password" [(ngModel)]="form.accessToken" (enter)="submit()">
+        <input type="email" class="secondary-btn normal-btn" placeholder="Email login" [(ngModel)]="data.email" value="{{data.email}}"> 
+        <input type="password" class="secondary-btn normal-btn" placeholder="Password" [(ngModel)]="data.password" value="{{data.password}}" (enter)="login()">
       </div>
     </div>   
 </div>
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn dark-btn" (click)="submit()">확인</button>
+  <button ion-button class="normal-btn dark-btn" (click)="login()">확인</button>
 </ion-footer>
