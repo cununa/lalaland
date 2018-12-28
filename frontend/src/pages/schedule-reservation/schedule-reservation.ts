@@ -76,7 +76,9 @@ export class ScheduleReservationPage {
       buttons: [{
           text: '예',
           handler: () => {
-            
+            const obj = {
+                email: this.form.email
+               }
           }
         },
         {
