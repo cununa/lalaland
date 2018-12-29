@@ -40,6 +40,9 @@ export class CustomerNotePage {
     public note: NoteProvider
   ) {
     this.notes= this.note.notes;
+    this.events.subscribe('note:noteChanged', () => {
+      this.notes = this.note.notes
+    })
   }
 
   ionViewDidLoad() {
@@ -52,6 +55,11 @@ export class CustomerNotePage {
     }
     // ----------------------------------------------------------------
   }
+
+  ionViewDidEnter() {
+    this.notes= this.note.notes;
+  }
+
   ionViewWillEnter() {
     this.notes= this.note.notes;
   }

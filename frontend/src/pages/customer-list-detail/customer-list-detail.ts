@@ -17,8 +17,14 @@ import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angu
   templateUrl: 'customer-list-detail.html',
 })
 export class CustomerListDetailPage {
-
+  name: ''
+  phone: ''
+  company: ''
   constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController) {
+    const { name, phone, company } = navParams.data
+    this.name = name;
+    this.phone = phone;
+    this.company = company;
   }
 
   ionViewDidLoad() {

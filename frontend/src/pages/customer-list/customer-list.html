@@ -11,11 +11,11 @@
   </ion-header>
 <ion-content #content>
   <ion-list>
-      <ion-item navPush="customer-list-detail" *ngFor="let data of datas">
+      <ion-item navPush="customer-list-detail" [navParams]='customer' *ngFor="let customer of customers">
         <div>
           <ion-icon name="ios-call"></ion-icon>
         </div>
-        <div>{{data.name}}</div>
+        <div>{{customer.name}}</div>
         <div>
           <ion-icon name="ios-arrow-forward-outline"></ion-icon>
         </div>

@@ -6,6 +6,7 @@ const { ERROR } = require('../common/error')
 const config = require('config')
 const jwt = require('jsonwebtoken')
 const userModel = require('../model/user-model')
+const noteModel = require('../model/note-model')
 
 const assignToken = (userData) => {
     const { _id, email, name, phone } = userData; 
@@ -16,11 +17,13 @@ const assignToken = (userData) => {
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
     if (user && req.body.password === user.password) {
+        const result = await noteModel.find({ userId: user._id})
       res.json({ 
         accessToken: assignToken(user),
         email: user.email,
         name: user.name,
-        phone: user.phone
+        phone: user.phone,
+        notesCount: result.length
       })
     } else {
         // throw 'login error'

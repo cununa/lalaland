@@ -17,11 +17,11 @@
         고객정보
     </ion-list-header>
     <ion-item class="name-info">
-      <div>로케이션디모스</div>
-      <div><strong>신동원</strong></div>
+      <div>{{company}}</div>
+      <div><strong>{{name}}</strong></div>
     </ion-item>
     <ion-item class="num-line">
-      <div>1) 010-123-4567</div>
+      <div>1) {{phone}}</div>
       <div class="icon">
           <ion-icon name="ios-call"></ion-icon>
       </div>
@@ -44,6 +44,6 @@
   
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn  dark-btn">메모수정</button>
-  <button ion-button class="normal-btn  dark-btn">메모삭제</button>
+  <button ion-button class="normal-btn  dark-btn">고객 수정</button>
+  <button ion-button class="normal-btn  dark-btn">고객 삭제</button>
 </ion-footer>

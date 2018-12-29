@@ -1,3 +1,4 @@
+import { CustomerProvider } from './../providers/CustomerProvider';
 import { NoteProvider } from './../providers/NoteProvider';
 import { Component,ChangeDetectorRef } from '@angular/core';
 import { Platform, App, IonicApp, Events, MenuController} from 'ionic-angular';
@@ -14,6 +15,7 @@ export class MyApp {
   active = 'schedule';
   userName = '';
   notesCount = 0;
+  customersCount = 0;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -25,11 +27,12 @@ export class MyApp {
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App,
     private user: User,
-    private note: NoteProvider
+    private note: NoteProvider,
+    private customer: CustomerProvider
   ) {
       this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
-      this.notesCount = this.note.notes.length
-
+      this.notesCount = this.note.notes.length;
+      this.customersCount = this.customer.customers.length;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -63,9 +66,11 @@ export class MyApp {
         popDelay++;
       });
       events.subscribe('user:loggedIn', ()=> {
-        this.userName = this.user.name
-      })
-      events.subscribe('note:noteCountChanged', () => {
+        console.log("this.user?", this.user);
+        this.userName = this.user.name;
+        this.notesCount = this.user.notesCount;
+      });
+      events.subscribe('note:noteChanged', () => {
         this.notesCount = this.note.notes.length
       })
     });

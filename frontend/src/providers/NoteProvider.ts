@@ -16,8 +16,8 @@ export class NoteProvider {
     private initEvents() { }
 
     initNotesFromServer(notes) {
-        this.notes = notes
-        this.events.publish('note:noteCountChanged')
+        this.notes = notes;
+        this.events.publish('note:noteChanged');
     }
 
     getNotes() {
@@ -28,14 +28,13 @@ export class NoteProvider {
         if (typeof newNote === "undefined") {
             return;
         }
-
-        this.notes.push(newNote)
-        this.events.publish('note:noteCountChanged')
+        this.notes.push(newNote);
+        this.events.publish('note:noteChanged');
     }
     
     removeNote(removedNoteId: string) {
-        this.notes = this.notes.filter((note) => note._id !== removedNoteId)
-        this.events.publish('note:noteCountChanged')
+        this.notes = this.notes.filter((note) => note._id !== removedNoteId);
+        this.events.publish('note:noteChanged');
     }
 
     updateNote(updatedNote) {
@@ -45,7 +44,7 @@ export class NoteProvider {
             }
             return note
         })
-        
+        this.events.publish('note:noteChanged');
     }
 }
 
