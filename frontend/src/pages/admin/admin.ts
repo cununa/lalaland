@@ -47,7 +47,7 @@ export class AdminPage {
       phone: this.form.phone,
     }
 
-    const result = await this.connect.run('join', obj);
+    const result = await this.connect.run({route: 'join', method: 'post'}, obj);
 
     switch(result.message) {
       case 'user email exsists':

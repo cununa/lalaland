@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angular';
 import axios from 'axios';
 import moment from 'moment';
-import { ModalCtrl } from '../../providers/cat/cat';
+import { ModalCtrl, User } from '../../providers/cat/cat';
 /**
  * Generated class for the CustomerNoteDetailPage page.
  *
@@ -20,7 +20,7 @@ import { ModalCtrl } from '../../providers/cat/cat';
 })
 export class CustomerNoteDetailPage {
   list: Array<string>;
-
+  userName: ''
   item ={
     createdAt:'',
     name:'',
@@ -32,12 +32,15 @@ export class CustomerNoteDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다
-    public menuCtrl: MenuController) {
-      this.item =this.navParams.data
+    public menuCtrl: MenuController,
+    public user: User
+  ) {
+    this.userName = this.user.name;
+    this.item = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomerNoteDetailPage');
+    console.log('ionViewDidLoad CustomerNoteDetailPage', this);
   }
 
   openModalModify(){

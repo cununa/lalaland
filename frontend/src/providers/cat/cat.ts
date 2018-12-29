@@ -402,10 +402,10 @@ export class ModalCtrl {
   createWithCallBack(page = '', data = {}, opt = {}, cb) {
     history.pushState({}, '', location.href);
     let modal = this.modalCtrl.create(page, data, opt);
-    modal.onWillDismiss(() => {
+    modal.onWillDismiss((newNote) => {
       this.events.publish('app:overlayPop');
       history.back();
-      if (cb) cb()
+      if (cb) cb(newNote)
     });
     return modal;
   }
@@ -528,7 +528,7 @@ export class Connect {
     }
     result(func);
   }
-  async run(method = 'NOTTING', body: any = {}, sOpt: any = {
+  async run(config: { route: string, method: string} = { route: 'nothing', method: 'post'}, body: any = {}, sOpt: any = {
     loading: false,
     delay: false
   }) {
@@ -548,29 +548,57 @@ export class Connect {
       this.loadingCounter++;
     }
 
-    const url = this.url + '/' + method;
+    let getToken;
+    try {
+      getToken = await this.user.get().token;
+    } catch (error) {
+      console.error("Token이 없음")
+    }
+    
+    const url = this.url + '/' + config.route;
     const headers = new Headers();
     headers.set('Content-Type', 'application/x-www-form-urlencoded');
-    headers.set("Authorization", `Bearer ${body.token}`)
+    headers.set("Authorization", `Bearer ${getToken}`)
     const data = this.query.set(body);
     const options = new RequestOptions({
       headers: headers
     });
     let imgArr = [];
-
-    const http = await this.http.post(url, data, options).timeout(60000).map(res => {
-      return res.json();
-    }).toPromise().catch(error => {
-      switch (error.status) {
-        case 0:
-          this.toast.present('서버 통신에 실패했습니다.\n 인터넷 연결을 확인해주세요.');
-          break;
-        case 500:
-          //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
-          break;
-      }
-    });
-
+    let http;
+    if (config.method === 'get') {
+      http = await this.http[config.method](url, options).timeout(60000).map(res => {
+        return res.json();
+      }).toPromise().catch(error => {
+        switch (error.status) {
+          case 0:
+            this.toast.present('서버 통신에 실패했습니다.\n 인터넷 연결을 확인해주세요.');
+            break;
+          case 500:
+            //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
+            break;
+          default: 
+            console.error("에러남", error)
+            break;
+        }
+      });  
+    } else {
+      http = await this.http[config.method](url, data, options).timeout(60000).map(res => {
+        return res.json();
+      }).toPromise().catch(error => {
+        switch (error.status) {
+          case 0:
+            this.toast.present('서버 통신에 실패했습니다.\n 인터넷 연결을 확인해주세요.');
+            break;
+          case 500:
+            //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
+            break;
+          default: 
+            console.error("에러남", error)
+            break;
+        }
+      });
+    }
+    
     if (http) {
       if (http.data) {
         imgArr = this.getUrlFromObj(http.data);

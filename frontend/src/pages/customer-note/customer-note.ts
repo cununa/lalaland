@@ -10,7 +10,12 @@ import { ModalCtrl, User, Connect } from '../../providers/cat/cat'; // 인증(�
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+export interface INote {
+  _id: string,
+  title: string,
+  content: string,
+  createdAt: string,
+}
 @IonicPage({
   name: 'customer-note',
   segment: 'customer-note'
@@ -20,7 +25,7 @@ import { ModalCtrl, User, Connect } from '../../providers/cat/cat'; // 인증(�
   templateUrl: 'customer-note.html',
 })
 export class CustomerNotePage {
-  list = [];
+  notes: INote[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -45,19 +50,20 @@ export class CustomerNotePage {
   
   openModalWrite(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.getList.bind(this)).present();
+      'popup-customer', {}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
   }
 
   async getList() {
-    // 모든 데이터 통신할때 headers 부분을 삽입해야 함. 시간 관계상 래핑 함수는 작성하지 않음.
-    const obj = {
-      title: 665756,
-      content: 3454545
-    }
-    const result = await this.connect.run('note', obj);
-    console.log(result);
-    this.list = [result];
-    // ---------------------------------------------------------------------------------
+    const result = await this.connect.run({route: 'note', method: 'get'});
+    this.notes = result;
   }
+
+  newNoteCreated(newNote: INote) {
+    if (typeof newNote === "undefined") {
+      return;
+    }
+    this.notes.push(newNote)
+  }
+
 
 }

@@ -4,16 +4,21 @@ const noteModel = require('../model/note-model')
 const userModel = require('../model/user-model')
 
 exports.createNote = async (req, res) => {
-    const { id,title, content } = req.body
-    const [{ name }] = await userModel.find({ _id:id })
-    const data = {title, name, content}
+    const { title, content } = req.body
+    const { _id} = req.user
+    const data = {
+        title, 
+        content,
+        userId: _id 
+    }
     const note = await noteModel.create(data)
     res.json(note)
 }
 
 exports.getNote = async (req, res) => {
-    const note = await noteModel.find()
-    res.json(note)
+    const { _id } = req.user
+    const notes = await noteModel.find({ userId: _id})
+    res.json(notes)
 }
 
 exports.updateNote = async (req, res) => {
