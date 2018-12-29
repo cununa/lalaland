@@ -8,7 +8,7 @@ page-cancel-list {
             margin: 1rem 0;
             .time{
                 position: relative;
-                border-left: .7rem solid color($colors ,third);
+                border-left: .5rem solid color($colors ,third);
                 font-weight: $font-weight-thin;
                 padding: .6rem 0 .6rem 1.5rem;
                 div:nth-child(2){
@@ -28,6 +28,7 @@ page-cancel-list {
                 }
                 div{
                     flex: 1;
+                    height: 20px;
                 }
                 div:nth-child(2){
                     font-size: $font-size-s;

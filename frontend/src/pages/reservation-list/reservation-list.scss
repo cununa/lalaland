@@ -1,17 +1,14 @@
 page-reservation-list {
     
     ion-item{
-        .item-inner{
-           
-        }
         .label{
             display: flex;
             justify-items: center;
             line-height: 2rem;
-            margin: 1rem;
+            margin: 1rem 0;
             .time{
                 position: relative;
-                border-left: .7rem solid color($colors , primary);
+                border-left: .5rem solid color($colors , primary);
                 font-weight: $font-weight-thin;
                 padding: .6rem 0 .6rem 1.5rem;
                 div:nth-child(2){
@@ -22,8 +19,6 @@ page-reservation-list {
             }
             .item-content{
                 padding: .6rem 0 .6rem 1.5rem;
-                justify-items: center;
-                align-items: center;
                 flex: 1;
                 margin-left: 2.5rem;
                 font-weight: $font-weight-thin;
@@ -33,6 +28,7 @@ page-reservation-list {
                 }
                 div{
                     flex: 1;
+                    height: 20px;
                 }
                 div:nth-child(2){
                     font-size: $font-size-s;
