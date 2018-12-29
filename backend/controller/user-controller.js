@@ -7,13 +7,17 @@ const config = require('config')
 const jwt = require('jsonwebtoken')
 const userModel = require('../model/user-model')
 
-const getToken = (user) => jwt.sign({ id: this.id }, config.app.secret)
+const assignToken = (userData) => {
+    const { _id, email, name, phone } = userData; 
+    const jwtToken = jwt.sign({ _id, email, name, phone }, config.app.secret)
+    return jwtToken
+}
 
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
     if (user && req.body.password === user.password) {
       res.json({ 
-        accessToken: getToken(user),
+        accessToken: assignToken(user),
         email: user.email,
         name: user.name,
         phone: user.phone
@@ -28,7 +32,7 @@ exports.login = async (req, res) => {
     const { email, name, password, phone, type = 1 } = req.body
     const getUser = ({ email }) => userModel.findOne({ email })
     const isAbleToCreateUser = (user) => Promise.resolve(user ? false : true)
-    const createUser = (data) => userModel.create(data)
+    const createUser = (data) => userModel.create(data);
   
     const join = ifElseP(
       R.pipeP(getUser, isAbleToCreateUser),
@@ -45,7 +49,7 @@ exports.login = async (req, res) => {
         name: result.name,
         phone: result.phone,
         email: result.email,
-        accessToken: getToken(result)
+        accessToken: assignToken(result)
     }
 
     res.json(resultWithToken)

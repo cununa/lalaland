@@ -24,11 +24,12 @@ exports.auth = async (req, res, next) => {
   } catch (error) {
     return res.status(400).send(error)
   }
-  const user = await userModel.findOne({ id: decoded.id} )
+
+  const user = await userModel.findOne({ _id: decoded._id})
   if (user) {
     req.user = user
     next()
   } else {
-    res.status(400).send(err.message)
+    res.status(400).send("user가 없음")
   } 
 }
