@@ -1,9 +1,6 @@
 page-reservation-list {
     
     ion-item{
-        .item-inner{
-           
-        }
         .label{
             display: flex;
             justify-items: center;
@@ -22,8 +19,6 @@ page-reservation-list {
             }
             .item-content{
                 padding: .6rem 0 .6rem 1.5rem;
-                justify-items: center;
-                align-items: center;
                 flex: 1;
                 margin-left: 2.5rem;
                 font-weight: $font-weight-thin;
