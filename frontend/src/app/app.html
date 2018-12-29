@@ -24,7 +24,7 @@
         </button>
         <button ion-item (click)="navPush('customer-list')" class="ready-active" [class.active]="active == 'customer-list'">
           <span class="text">고객관리</span>
-          <span class="no">615</span>
+          <span class="no">{{customersCount}}</span>
         </button>
         <button ion-item (click)="navPush('customer-note')" class="ready-active" [class.active]="active == 'customer-note'">
           <span class="text">메모</span>
