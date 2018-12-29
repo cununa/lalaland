@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Events } from 'ionic-angular';
 import axios from 'axios';
 import moment from 'moment';
 import { ModalCtrl, User, Connect } from '../../providers/cat/cat'; // 인증(로그인) 처리를 위해선 User를 넣어주어야 함
@@ -33,8 +33,12 @@ export class CustomerNotePage {
     private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다 
     public menuCtrl: MenuController,
     public user: User,
-    private connect: Connect
-    ) {
+    private connect: Connect,
+    public events: Events
+  ) {
+    this.events.subscribe('note:noteRemoved', (removedNoteId: string) => {
+      this.notes = this.notes.filter((note) => note._id !== removedNoteId)
+    })
   }
 
   ionViewDidLoad() {
@@ -50,7 +54,7 @@ export class CustomerNotePage {
   
   openModalWrite(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
+      'popup-customer', { method: "createNote"}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
   }
 
   async getList() {

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Events  } from 'ionic-angular';
 import axios from 'axios';
 import moment from 'moment';
-import { ModalCtrl, User } from '../../providers/cat/cat';
+import { ModalCtrl, User, Connect } from '../../providers/cat/cat';
 /**
  * Generated class for the CustomerNoteDetailPage page.
  *
@@ -21,7 +21,8 @@ import { ModalCtrl, User } from '../../providers/cat/cat';
 export class CustomerNoteDetailPage {
   list: Array<string>;
   userName: ''
-  item ={
+  item = {
+    _id: '',
     createdAt:'',
     name:'',
     title:'',
@@ -33,7 +34,9 @@ export class CustomerNoteDetailPage {
     public navParams: NavParams,
     private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다
     public menuCtrl: MenuController,
-    public user: User
+    public user: User,
+    public connect: Connect,
+    public events: Events
   ) {
     this.userName = this.user.name;
     this.item = this.navParams.data;
@@ -43,30 +46,28 @@ export class CustomerNoteDetailPage {
     console.log('ionViewDidLoad CustomerNoteDetailPage', this);
   }
 
-  openModalModify(){
+  openUpdateNoteModal(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.modifyList.bind(this)).present();
+      'popup-customer', { noteId: this.item._id, method: 'updateNote'}, { cssClass: 'long-modal'}, this.updateNote.bind(this)).present();
   }
 
   openModalDel(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.delList.bind(this)).present();
+      'popup-customer', {}, { cssClass: 'long-modal'}, this.removeNote.bind(this)).present();
   }
 
-  modifyList() {
-    axios.post('https://lalaland-2019.appspot.com/note').then(({data}) => {
-      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-      this.list = data
-      console.log(this.list)
-    })
+  async removeNote() {
+    const result = await this.connect.run({route: `note/${this.item._id}`, method: 'delete'})
+    if (result.n === 1 && result.ok === 1) {
+      this.events.publish("note:noteRemoved", this.item._id)
+    } else {
+      console.log("Note 삭제하는데 실패.")
+    }
+    this.navCtrl.pop();
   }
-  delList() {
-    axios.delete('https://lalaland-2019.appspot.com/note').then(({data}) => {
-      data.sort((a,b) => a.createdAt > b.createdAt ? -1:1)
-      data.map(item => item.createdAt = moment(data.createdAt).format('MM.DD'))
-      this.list = data
-      console.log(this.list)
-    })
+
+  async updateNote(updatedNote) {
+    this.item = updatedNote;
   }
+
 }

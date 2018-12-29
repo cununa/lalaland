@@ -15,7 +15,7 @@
   <ion-list>
     <ion-list-header >
       <div class="list-bar">
-        <div>{{item.createdAt}}d</div>
+        <div>{{item.createdAt}}</div>
         <div>{{userName}}</div>
       </div>
     </ion-list-header>
@@ -27,6 +27,6 @@
   </div>
 </ion-content>
 <ion-footer>
-  <button ion-button class="normal-btn  dark-btn" ion-button (click)="openModalModify()">메모수정</button>
-  <button ion-button class="normal-btn  dark-btn" ion-button (click)="openModalDel()">메모삭제</button>
+  <button ion-button class="normal-btn  dark-btn" ion-button (click)="openUpdateNoteModal()">메모수정</button>
+  <button ion-button class="normal-btn  dark-btn" ion-button (click)="removeNote()">메모삭제</button>
 </ion-footer>

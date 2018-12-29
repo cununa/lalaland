@@ -565,7 +565,7 @@ export class Connect {
     });
     let imgArr = [];
     let http;
-    if (config.method === 'get') {
+    if (config.method === 'get' || config.method === 'delete' ) {
       http = await this.http[config.method](url, options).timeout(60000).map(res => {
         return res.json();
       }).toPromise().catch(error => {

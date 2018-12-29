@@ -31,7 +31,7 @@ api.delete('/customer', wrap(customerController.deleteCustomer))
 api.put('/note', wrap(noteController.createNote))
 api.get('/note', wrap(noteController.getNote))
 api.post('/note', wrap(noteController.updateNote))
-api.delete('/note', wrap(noteController.deleteNote))
+api.delete('/note/:id', wrap(noteController.deleteNote))
 //모두 삭제
 api.delete('/note/all', wrap(noteController.deleteAllNote))
 
