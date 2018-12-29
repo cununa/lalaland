@@ -1,16 +1,21 @@
+import { CustomerProvider } from './../providers/CustomerProvider';
+import { NoteProvider } from './../providers/NoteProvider';
 import { Component,ChangeDetectorRef } from '@angular/core';
-import { Platform, App, IonicApp, Events, MenuController } from 'ionic-angular';
+import { Platform, App, IonicApp, Events, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Connect } from '../providers/cat/cat';
+import { Connect, User } from '../providers/cat/cat';
 
 @Component({
+  selector: 'app',
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = 'main';
   active = 'schedule';
-
+  userName = '';
+  notesCount = 0;
+  customersCount = 0;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -20,11 +25,14 @@ export class MyApp {
     private connect: Connect,
     private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
-    private appCtrl: App) {
-
-      this.connect.url = 'https://lalaland-2019.appspot.com';
-    
-
+    private appCtrl: App,
+    private user: User,
+    private note: NoteProvider,
+    private customer: CustomerProvider
+  ) {
+      this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
+      this.notesCount = this.note.notes.length;
+      this.customersCount = this.customer.customers.length;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -57,9 +65,17 @@ export class MyApp {
       events.subscribe('app:overlayPop', () => {
         popDelay++;
       });
-
+      events.subscribe('user:loggedIn', ()=> {
+        console.log("this.user?", this.user);
+        this.userName = this.user.name;
+        this.notesCount = this.user.notesCount;
+      });
+      events.subscribe('note:noteChanged', () => {
+        this.notesCount = this.note.notes.length
+      })
     });
   }
+
   opened() {
     if(location.hash.indexOf('schedule') != -1) this.active = 'schedule';
     else if(location.hash.indexOf('reservation-list') != -1) this.active = 'reservation-list';
@@ -77,6 +93,11 @@ export class MyApp {
     setTimeout(() => {
       this.menuCtrl.close();
     }, 300);
+  }
+
+  logout() {
+    this.user.clear();
+    this.navPush('login')
   }
 }
 

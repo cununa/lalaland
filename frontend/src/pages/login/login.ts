@@ -54,16 +54,21 @@ export class LoginPage {
       email: this.form.email,
       password: this.form.password,
     }
-    const result = await this.connect.run('login', obj);
-    switch(result) {
+    const result = await this.connect.run({route: 'login', method: 'post'}, obj);
+
+    switch(result.message) {
       case 'error':
-      this.toast.present('찾을 수 없는 유저입니다.');
-      break;
+        this.toast.present('찾을 수 없는 유저입니다.');
+        break;
+      case '아이디 또는 비밀번호를 확인하세요.':
+        this.toast.present('아이디 또는 비밀번호를 확인하세요.');
+        break;
       default:
-      this.user.set(result);
-      this.navCtrl.setRoot('schedule', {}, {
-        animate: true
-      });
+        this.user.set(result);
+        this.events.publish("user:loggedIn")
+        this.navCtrl.setRoot('schedule', {}, {
+          animate: true
+        });
       break;
     }
   }

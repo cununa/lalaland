@@ -9,7 +9,7 @@
             <div class="card-img">
     
             </div>
-            <p>구지영님, 안녕하세요?</p>
+            <p>{{userName}}님, 안녕하세요?</p>
           </div>
         <button ion-item (click)="navPush('schedule')" class="ready-active" [class.active]="active == 'schedule'">
           <span class="text">홈으로</span>
@@ -24,11 +24,11 @@
         </button>
         <button ion-item (click)="navPush('customer-list')" class="ready-active" [class.active]="active == 'customer-list'">
           <span class="text">고객관리</span>
-          <span class="no">615</span>
+          <span class="no">{{customersCount}}</span>
         </button>
         <button ion-item (click)="navPush('customer-note')" class="ready-active" [class.active]="active == 'customer-note'">
           <span class="text">메모</span>
-          <span class="no">6</span>
+          <span class="no">{{notesCount}}</span>
         </button>
         <button ion-item (click)="navPush('rental-space')" class="ready-active" [class.active]="active == 'rental-space'">
             <span class="text">공간안내</span>
@@ -36,7 +36,7 @@
         <button ion-item (click)="navPush('rental-rate')" class="ready-active" [class.active]="active == 'rental-rate'">
             <span class="text">렌탈비용</span>
         </button>
-        <button ion-item (click)="navPush('admin')" class="ready-active" [class.active]="active == 'admin'"><!--menuClose-->
+        <button ion-item (click)="logout()" class="ready-active" [class.active]="active == 'admin'"><!--menuClose-->
           <span class="text">로그아웃</span>
         </button>
       </ion-list>

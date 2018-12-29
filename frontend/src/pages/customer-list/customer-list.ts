@@ -1,3 +1,4 @@
+import { CustomerProvider } from './../../providers/CustomerProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angular';
 
@@ -17,12 +18,14 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
   templateUrl: 'customer-list.html',
 })
 export class CustomerListPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController) {
+  customers = []
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController, public customer: CustomerProvider) {
+    this.customers = this.customer.customers;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerListPage');
+    this.customers = this.customer.customers;
   }
 
 }

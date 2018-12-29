@@ -9,10 +9,11 @@ const api = require('express').Router()
 
 // api
 //===================  auth  ========================
-api.post('/login', wrap(userController.login))
 api.post('/join', wrap(userController.join))
+api.post('/login', wrap(userController.login))
 
-// api.use(authController.auth)일단 주석처리 > 모든페이지 접근 가능하게
+// 회원가입, 로그인 이외에는 모두 authController를 거치는 구조 입니다.
+api.use(authController.auth)
 
 //===================  user  ========================
 api.put('/user', wrap(userController.createUser))
@@ -30,7 +31,7 @@ api.delete('/customer', wrap(customerController.deleteCustomer))
 api.put('/note', wrap(noteController.createNote))
 api.get('/note', wrap(noteController.getNote))
 api.post('/note', wrap(noteController.updateNote))
-api.delete('/note', wrap(noteController.deleteNote))
+api.delete('/note/:id', wrap(noteController.deleteNote))
 //모두 삭제
 api.delete('/note/all', wrap(noteController.deleteAllNote))
 
