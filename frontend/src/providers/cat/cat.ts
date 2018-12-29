@@ -484,7 +484,7 @@ export class User {
     } else {
       storage = 'sessionStorage';
     }
-    window[storage].setItem('token', data.token);
+    window[storage].setItem('token', data.accessToken);
   }
   clear() {
     window.sessionStorage.clear();
@@ -544,6 +544,7 @@ export class Connect {
     const url = this.url + '/' + method;
     const headers = new Headers();
     headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    headers.set("Authorization", `Bearer ${body.token}`)
     const data = this.query.set(body);
     const options = new RequestOptions({
       headers: headers

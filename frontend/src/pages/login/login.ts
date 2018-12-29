@@ -50,11 +50,14 @@ export class LoginPage {
     if (!this.form.email) return this.toast.present('아이디를 입력해주세요.');
     if (!this.form.password) return this.toast.present('비밀번호를 입력해주세요.');
 
+    const token = this.user.get();
     const obj = {
       email: this.form.email,
       password: this.form.password,
+      token: token.token
     }
     const result = await this.connect.run('login', obj);
+
     switch(result) {
       case 'error':
       this.toast.present('찾을 수 없는 유저입니다.');

@@ -22,7 +22,7 @@ export class MyApp {
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App) {
 
-      this.connect.url = 'https://lalaland-2019.appspot.com';
+      this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
     
 
     platform.ready().then(() => {

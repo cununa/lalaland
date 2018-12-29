@@ -11,8 +11,6 @@ const getToken = (user) => jwt.sign({ id: this.id }, config.app.secret)
 
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
-    console.log(req.body)
-    console.log(user)
     if (user && req.body.password === user.password) {
       res.json({ 
         accessToken: getToken(user),
@@ -28,7 +26,6 @@ exports.login = async (req, res) => {
   
   exports.join = async (req, res, next) => {
     const { email, name, password, phone, type = 1 } = req.body
-  
     const getUser = ({ email }) => userModel.findOne({ email })
     const isAbleToCreateUser = (user) => Promise.resolve(user ? false : true)
     const createUser = (data) => userModel.create(data)
@@ -38,8 +35,20 @@ exports.login = async (req, res) => {
       createUser,
       raiseError(ERROR.JOIN.USER_EMAIL_EXSISTS)
     )
+    
     const result = await join({ email, name, password, phone, type })
-    res.json(result)
+
+    // 회원 가입시에 jwt토큰을 만들어서 프론트로 내려줍니다. 프론트는 바로 로그인 상태가 되며
+    // 토큰의 유효기간 내에는 프론트에서 서버로 통신 할때마다 header의 Authorization에 token값을
+    // 집어 넣어서 요청이 오는 구조입니다.
+    const resultWithToken = {
+        name: result.name,
+        phone: result.phone,
+        email: result.email,
+        accessToken: getToken(result)
+    }
+
+    res.json(resultWithToken)
   }
   
 exports.createUser = async (req, res) => {
