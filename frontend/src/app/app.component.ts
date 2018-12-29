@@ -1,5 +1,5 @@
 import { Component,ChangeDetectorRef } from '@angular/core';
-import { Platform, App, IonicApp, Events, MenuController } from 'ionic-angular';
+import { Platform, App, IonicApp, Events, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Connect, User } from '../providers/cat/cat';
@@ -23,7 +23,8 @@ export class MyApp {
     private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App,
-    private user: User) {
+    private user: User,
+  ) {
       this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
     
 
@@ -81,6 +82,11 @@ export class MyApp {
     setTimeout(() => {
       this.menuCtrl.close();
     }, 300);
+  }
+
+  logout() {
+    this.user.clear();
+    this.navPush('login')
   }
 }
 
