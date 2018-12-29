@@ -452,6 +452,9 @@ export class ModalCtrl {
 
 @Injectable()
 export class User {
+  name: '';
+  email: '';
+  phone: '';
 
   constructor(
     // private device: Device
@@ -477,6 +480,7 @@ export class User {
       }
     }
   }
+  
   set(data, auto = true) {
     let storage: string = '';
     if (auto) {
@@ -485,6 +489,9 @@ export class User {
       storage = 'sessionStorage';
     }
     window[storage].setItem('token', data.accessToken);
+    this.name = data.name;
+    this.email = data.email;
+    this.phone = data.phone;
   }
   clear() {
     window.sessionStorage.clear();

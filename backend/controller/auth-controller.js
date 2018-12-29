@@ -9,11 +9,16 @@ const { raiseError } = require('../common/util')
 exports.auth = async (req, res, next) => {
   // request header에 있는 Authorization의 값 예외처리
   const authorizationHeader = req.get('authorization').split(" ");
-  if (authorizationHeader[0] !== "Bearer" || typeof authorizationHeader[1] !== "string") {
+  if (authorizationHeader[0] !== "Bearer" || typeof authorizationHeader[1] !== "string" || typeof authorizationHeader[1] === "undefined") {
     raiseError(ERROR.AUTH.AUTHORIZATION_HEADER_EXCEPTION)
   }
 
-  const decoded = jwt.verify(authorizationHeader[1], config.app.secret)
+  let decoded;
+  try {
+    decoded = jwt.verify(authorizationHeader[1], config.app.secret)  
+  } catch (error) {
+    return res.status(400).send(error)
+  }
   const user = await userModel.findOne({ id: decoded.id} )
   if (user) {
     req.user = user

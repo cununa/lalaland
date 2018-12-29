@@ -17,7 +17,11 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
   templateUrl: 'customer-list.html',
 })
 export class CustomerListPage {
-
+  datas = [
+    { name: "송은지PD"},
+    { name: "김태헌PD"},
+    { name: "송시우PD"},
+  ]
   constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController) {
   }
 

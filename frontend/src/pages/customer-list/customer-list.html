@@ -11,32 +11,14 @@
   </ion-header>
 <ion-content #content>
   <ion-list>
-      <ion-item navPush="customer-list-detail">
+      <ion-item navPush="customer-list-detail" *ngFor="let data of datas">
         <div>
           <ion-icon name="ios-call"></ion-icon>
         </div>
-        <div>송은지 PD</div>
+        <div>{{data.name}}</div>
         <div>
           <ion-icon name="ios-arrow-forward-outline"></ion-icon>
         </div>
       </ion-item>
-      <ion-item navPush="customer-list-detail">
-          <div>
-              <ion-icon name="ios-call"></ion-icon>
-          </div>
-          <div>송은지 PD</div>
-          <div>
-            <ion-icon name="ios-arrow-forward-outline"></ion-icon>
-          </div>
-        </ion-item>
-      <ion-item navPush="customer-list-detail">
-            <div>
-                <ion-icon name="ios-call"></ion-icon>
-            </div>
-            <div>송은지 PD</div>
-            <div>
-              <ion-icon name="ios-arrow-forward-outline"></ion-icon>
-            </div>
-          </ion-item>
   </ion-list>
 </ion-content>

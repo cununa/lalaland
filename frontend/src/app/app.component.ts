@@ -2,15 +2,17 @@ import { Component,ChangeDetectorRef } from '@angular/core';
 import { Platform, App, IonicApp, Events, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Connect } from '../providers/cat/cat';
+import { Connect, User } from '../providers/cat/cat';
 
 @Component({
+  selector: 'app',
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = 'main';
   active = 'schedule';
-
+  userName = '';
+  
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -20,8 +22,8 @@ export class MyApp {
     private connect: Connect,
     private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
-    private appCtrl: App) {
-
+    private appCtrl: App,
+    private user: User) {
       this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
     
 
@@ -57,7 +59,9 @@ export class MyApp {
       events.subscribe('app:overlayPop', () => {
         popDelay++;
       });
-
+      events.subscribe('user:loggedIn', ()=> {
+        this.userName = this.user.name
+      })
     });
   }
   opened() {
