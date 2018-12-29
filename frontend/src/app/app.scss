@@ -28,6 +28,12 @@ ion-app.ios{
 .header::after{
     background: none;
 }
+.item-md{
+    padding: 0 1.6rem;
+}
+.item-inner{
+    padding: 0 !important;
+}
 // init end
 
 ion-header{
@@ -37,11 +43,28 @@ ion-header{
     .toolbar-background-md{
         background: none;
     }
+    .toolbar-md{
+        padding: 0 16px;
+    }
     .button-md{
         margin: 0;
+        padding: 0;
     }
     .toolbar-content{
        display: flex;
+    }
+    .bar-button-md{
+        margin: 0;
+        padding: 0;
+    }
+    .button-inner{
+        width: unset;
+    }
+    .bar-button-menutoggle-md ion-icon{
+        padding: 0;
+    }
+    .bar-button-menutoggle-md{
+        min-width: unset;
     }
     background: color($colors,danger);
     // background: color($colors,secondary);
@@ -167,9 +190,11 @@ ion-footer{
 .ion-ios-arrow-forward-outline{
     color: color($colors,danger);
     font-size: 2.2rem;
+    text-align: right;
 }
 .ion-md-search{
-    color: colors($colors,danger)
+    color: colors($colors,danger);
+    width: 22px;
 }
 
 

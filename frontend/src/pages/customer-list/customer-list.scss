@@ -2,8 +2,12 @@ page-customer-list {
     .list{
         margin: 1rem 0;
     }
+    .label-md{
+        margin: 0;
+    }
+
     ion-label{
-        padding: 0 .5rem;
+        padding: 0;
         display: flex !important;
         div{
             &:first-child{
@@ -19,7 +23,7 @@ page-customer-list {
                 flex: 1;
                 ion-icon{
                     flex : 1;
-                    text-align: center;
+                    
                     position: relative;
                 top: 1px;
                 }

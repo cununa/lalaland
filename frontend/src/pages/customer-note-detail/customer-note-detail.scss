@@ -16,6 +16,12 @@ page-customer-note-detail {
   ion-content{
       position: relative;
   }
+  .item-md{
+      padding: 0;
+  }
+  .item-inner{
+      padding: 0 !important;
+  }
   .content-footer{
       width: 100%;
     //   border-top: 1px solid color($colors, gray);
