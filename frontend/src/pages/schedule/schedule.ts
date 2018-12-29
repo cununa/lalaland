@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController } from 'ionic-angular';
 import Swiper from 'swiper';
-import { Utils } from '../../providers/cat/cat';
+import { Utils, Connect } from '../../providers/cat/cat';
 
 /**
  * Generated class for the HomePage page.
@@ -20,7 +20,7 @@ import { Utils } from '../../providers/cat/cat';
 })
 export class SchedulePage {
   
-
+  is_loaded:boolean = false;
 
   @ViewChild('swiper') swiper;
 
@@ -82,7 +82,8 @@ export class SchedulePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private alertCtrl: AlertController,
-    public menuCtrl: MenuController
+    public menuCtrl: MenuController,
+    private connect: Connect
     ) {
     this.today = this.cutDate(this.utils.today());
 
@@ -95,9 +96,15 @@ export class SchedulePage {
     this.next_3_date = this.calcMonth(this.cutDate(this.utils.today({month: 3})));
   }
   ionViewDidLoad() {
+    this.refresh();
+  }
+  async refresh() {
+    this.is_loaded = false;
+    await this.connect.timeout(700);
+    this.is_loaded = true;
     setTimeout(() => {
       this.makeSlide();
-    }, 200);
+    }, 0);
   }
   makeSlide() {
     let swiper = new Swiper(this.swiper.nativeElement, {

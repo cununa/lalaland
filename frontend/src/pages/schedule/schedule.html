@@ -26,106 +26,114 @@
 </ion-header>
 <ion-content>
   <div #swiper class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{prev_3_date.year}}년 {{prev_3_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of prev_3_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of prev_3_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
+    <ng-container *ngIf="!is_loaded">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col><span class="animated-background">2018년 12월</span></ion-col>
+            </ion-row>
+            <ion-row class="calendar-row animated-background">
+              <ion-col>1</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{prev_2_date.year}}년 {{prev_2_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of prev_2_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of prev_2_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
+    </ng-container>
+    <ng-container *ngIf="is_loaded">
+      <div class="swiper-wrapper visible">
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{prev_3_date.year}}년 {{prev_3_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of prev_3_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of prev_3_date.date">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{prev_2_date.year}}년 {{prev_2_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of prev_2_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of prev_2_date.date">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{prev_date.year}}년 {{prev_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of prev_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of prev_date.date">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{active_date.year}}년 {{active_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of active_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date, active_date)">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{next_date.year}}년 {{next_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of next_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of next_date.date" (click)="openDetail(date, next_date)">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{next_2_date.year}}년 {{next_2_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of next_2_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of next_2_date.date">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="swiper-slide">
+          <ion-grid>
+            <ion-row class="month">
+              <ion-col>{{next_3_date.year}}년 {{next_3_date.month + 1}}월</ion-col>
+            </ion-row>
+            <ion-row class="calendar-row">
+              <ion-col *ngFor="let date of next_3_date.prev_date"></ion-col>
+              <ion-col *ngFor="let date of next_3_date.date">{{ date }}
+                <div class="dot"></div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{prev_date.year}}년 {{prev_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of prev_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of prev_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{active_date.year}}년 {{active_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of active_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date)">{{ date }}
-              <div class="dot"></div>
-            </ion-col>
-           
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{next_date.year}}년 {{next_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of next_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of next_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{next_2_date.year}}년 {{next_2_date.month + 1}}월 요일</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of next_2_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of next_2_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="swiper-slide">
-        <ion-grid>
-          <ion-row class="month">
-            <ion-col>{{next_3_date.year}}년 {{next_3_date.month + 1}}월</ion-col>
-          </ion-row>
-          <ion-row class="calendar-row">
-            <ion-col *ngFor="let date of next_3_date.prev_date"></ion-col>
-            <ion-col *ngFor="let date of next_3_date.date">{{ date }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </div>
+    </ng-container>
   </div>
-  <!--   <ion-row class="month">
-   
-    <ion-col>{{(month+1)}}월</ion-col>
-  
-  </ion-row>
-  <ion-row class="calendar-row">
-    <ion-col *ngFor="let date of empty_arr"></ion-col>
-    <ion-col *ngFor="let date of date_arr, let i = index;">{{i+1}}</ion-col>
-  </ion-row>
- 
-<ion-row class="month">
- 
-  <ion-col>{{(month+2)}}월</ion-col>
-
-</ion-row>
-<ion-row class="calendar-row">
-  <ion-col *ngFor="let date of empty_arr"></ion-col>
-  <ion-col *ngFor="let date of date_arr, let i = index;">{{i+1}}</ion-col>
-</ion-row> -->
 </ion-content>

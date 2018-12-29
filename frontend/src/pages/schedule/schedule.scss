@@ -1,71 +1,103 @@
 page-schedule {
-    .header {
-        .list-ios{
-            margin: 0;
-        }
-        .list-header-md {
-            margin-bottom: 0;
-        }
+  .header {
+    .list-ios {
+      margin: 0;
     }
-    .item{
-        padding: 0;
+
+    .list-header-md {
+      margin-bottom: 0;
     }
-    .label{
-        margin-right:0;
-    }
+  }
+
+  .item {
+    padding: 0;
+  }
+
+  .label {
+    margin-right: 0;
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calendar-row {
     .col {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      flex: 0 0 14.28571%;
+      width: 14.28571%;
+      max-width: 14.28571%;
     }
+  }
+
+  .date {
+    padding: .9rem 0;
+
+    font: 1rem;
+    font-weight: $font-weight-thin;
+
+    ion-col {
+      padding: 0;
+
+      &:first-child {
+        color: color($colors, primary);
+      }
+
+      &:last-child {
+        color: color($colors, primary);
+      }
+    }
+  }
+
+  .date-list {
+    margin: 0;
+  }
+
+  .swiper-slide {
+    align-items: flex-start;
+    border-top: .1rem solid color($colors, secondary);
+    align-items: stretch;
+
+    .grid {
+      align-items: stretch;
+      justify-content: stretch;
+    }
+
+    .month {
+      font-size: $font-size-l;
+      color: color($colors, primary);
+      padding: 1rem;
+    }
+
     .calendar-row {
-        .col {
-            flex: 0 0 14.28571%;
-            width: 14.28571%;
-            max-width: 14.28571%;
-        }
+        flex-grow: 1;
+      ion-col {
+        font-size: $font-size-n;
+      }
     }
-    .date{
-        padding: .9rem 0;
-        
-        font: 1rem;
-        font-weight: $font-weight-thin;
-        ion-col{
-            padding: 0;
-            &:first-child{
-                color: color($colors, primary);
-            }
-            &:last-child{
-                color: color($colors, primary);
-            }
-        }
+  }
+
+  .item-md {
+    background: color($colors, secondary);
+  }
+
+  .dot {
+    background: color($colors, gray);
+    border-radius: 50%;
+    width: .6rem;
+    height: .6rem;
+    position: absolute;
+    top: calc(50% + 1.3rem);
+  }
+
+  .visible {
+    &.swiper-wrapper {
+      visibility: hidden;
+
+      &[style] {
+        visibility: visible;
+      }
     }
-    .month{
-        font-size: $font-size-l;
-        color: color($colors,primary);
-        padding: 1rem;
-    }
-    
-    .date-list {
-        margin: 0;
-    }
-    .swiper-slide {
-        align-items: flex-start;
-    }
-    .item-md{
-        background: color($colors,secondary);
-    }
-    .calendar-row{
-        ion-col{
-            font-size: $font-size-n;
-        }
-    }
-    .dot{
-        background: color($colors,gray);
-        border-radius: 50%;
-        width: .6rem;
-        height: .6rem;
-        position: absolute;
-        top: 90%;
-    }
+  }
 }

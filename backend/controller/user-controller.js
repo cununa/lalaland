@@ -11,9 +11,19 @@ const getToken = (user) => jwt.sign({ id: this.id }, config.app.secret)
 
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
+    console.log(req.body)
+    console.log(user)
     if (user && req.body.password === user.password) {
-      res.json({ token: getToken(user) })
-    } else throw 'login error'
+      res.json({ 
+        accessToken: getToken(user),
+        email: user.email,
+        name: user.name,
+        phone: user.phone
+      })
+    } else {
+        // throw 'login error'
+        res.json({code:1000, message: '아이디 또는 비밀번호를 확인하세요.'})
+    }
   }
   
   exports.join = async (req, res, next) => {
