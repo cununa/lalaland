@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, MenuController, Events } from 'ion
 import axios from 'axios';
 import moment from 'moment';
 import { ModalCtrl, User, Connect } from '../../providers/cat/cat'; // 인증(로그인) 처리를 위해선 User를 넣어주어야 함
+import { NoteProvider } from '../../providers/NoteProvider';
+import { TitleCasePipe } from '@angular/common';
 
 /**
  * Generated class for the CustomerNotePage page.
@@ -34,11 +36,10 @@ export class CustomerNotePage {
     public menuCtrl: MenuController,
     public user: User,
     private connect: Connect,
-    public events: Events
+    public events: Events,
+    public note: NoteProvider
   ) {
-    this.events.subscribe('note:noteRemoved', (removedNoteId: string) => {
-      this.notes = this.notes.filter((note) => note._id !== removedNoteId)
-    })
+    this.notes= this.note.notes;
   }
 
   ionViewDidLoad() {
@@ -51,6 +52,9 @@ export class CustomerNotePage {
     }
     // ----------------------------------------------------------------
   }
+  ionViewWillEnter() {
+    this.notes= this.note.notes;
+  }
   
   openModalWrite(){
     let modal = this.modalCtrl.createWithCallBack(
@@ -59,14 +63,14 @@ export class CustomerNotePage {
 
   async getList() {
     const result = await this.connect.run({route: 'note', method: 'get'});
-    this.notes = result;
+    this.note.initNotesFromServer(result);
   }
 
   newNoteCreated(newNote: INote) {
     if (typeof newNote === "undefined") {
       return;
     }
-    this.notes.push(newNote)
+    this.note.addNote(newNote)
   }
 
 

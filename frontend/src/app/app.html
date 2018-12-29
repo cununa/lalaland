@@ -28,7 +28,7 @@
         </button>
         <button ion-item (click)="navPush('customer-note')" class="ready-active" [class.active]="active == 'customer-note'">
           <span class="text">메모</span>
-          <span class="no">6</span>
+          <span class="no">{{notesCount}}</span>
         </button>
         <button ion-item (click)="navPush('rental-space')" class="ready-active" [class.active]="active == 'rental-space'">
             <span class="text">공간안내</span>

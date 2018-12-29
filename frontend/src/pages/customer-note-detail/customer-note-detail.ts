@@ -1,3 +1,4 @@
+import { NoteProvider } from './../../providers/NoteProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Events  } from 'ionic-angular';
 import axios from 'axios';
@@ -36,7 +37,8 @@ export class CustomerNoteDetailPage {
     public menuCtrl: MenuController,
     public user: User,
     public connect: Connect,
-    public events: Events
+    public events: Events,
+    public note: NoteProvider
   ) {
     this.userName = this.user.name;
     this.item = this.navParams.data;
@@ -58,8 +60,9 @@ export class CustomerNoteDetailPage {
 
   async removeNote() {
     const result = await this.connect.run({route: `note/${this.item._id}`, method: 'delete'})
+    console.log("remov eNote?? result", result);
     if (result.n === 1 && result.ok === 1) {
-      this.events.publish("note:noteRemoved", this.item._id)
+      this.note.removeNote(this.item._id);
     } else {
       console.log("Note 삭제하는데 실패.")
     }
@@ -68,6 +71,7 @@ export class CustomerNoteDetailPage {
 
   async updateNote(updatedNote) {
     this.item = updatedNote;
+    this.note.updateNote(updatedNote);
   }
 
 }

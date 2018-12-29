@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { ModalCtrl, Utils, Connect, User, Device, ToastCtrl, AlertCtrl } from '../providers/cat/cat';
 import { HttpModule } from '@angular/http';
+import { NoteProvider } from '../providers/NoteProvider';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpModule } from '@angular/http';
     User,
     Device,
     ToastCtrl,
-    AlertCtrl
+    AlertCtrl,
+    NoteProvider
   ]
 })
 export class AppModule {}
