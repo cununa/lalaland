@@ -24,39 +24,26 @@
         </div>
       </ion-item>
       <ion-item>
-        <div><span>담당</span>김민수</div>
+        <div><span>담당자</span>김민수</div>
       </ion-item>
       <ion-item>
-        <div>
-          <span>예약</span>
-          <div> 
-            에어전시프로드, 박용식 실장
-           <br>
-           010-6516-6521
-          </div>
-         
-        </div>
-        <ion-icon name="ios-call-outline"></ion-icon>
+        <div><span>예약자명</span>에어전시프로드, 박용식 실장</div>
       </ion-item>
       <ion-item>
-        <div>
-          <span>회사</span>
-        </div>
-        <div></div>
+        <div><span>전화번호</span>010-6516-6521</div><ion-icon name="ios-call"></ion-icon>
       </ion-item>
       <ion-item>
-        <div>
-          <span>고객</span>
-          한컴
-        </div>
-        <ion-icon name="ios-call"></ion-icon>
+        <div><span>회사명</span> 생각을걷다</div>
       </ion-item>
-     
-     
-      
+      <ion-item>
+        <div><span>고객명</span>한컴</div>
+      </ion-item>
+      <ion-item>
+        <div><span>전화번호</span>010-6516-6521</div><ion-icon name="ios-call"></ion-icon>
+      </ion-item>
   </ion-list>
   <div class="deposit-btn">
-    <button ion-button class="normal-btn primary-btn">계약금 입금 완료</button>
+    <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">계약금 입금 완료</button>
   </div>
  
   <div class="text-box">
