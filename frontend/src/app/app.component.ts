@@ -11,7 +11,7 @@ import { Connect, User } from '../providers/cat/cat';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'main';
+  rootPage:any = 'login';
   active = 'schedule';
   userName = '';
   notesCount = 0;
