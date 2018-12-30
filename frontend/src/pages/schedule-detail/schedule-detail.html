@@ -13,33 +13,33 @@
 <ion-content  #content>
   <ion-list>
     <ion-list-header>
-        2018년 11월 23일
+        {{reservation.startDate}}
     </ion-list-header>
       <ion-item class="first-item">
         <div class="img-line">
-          <div><strong> 웰스 정수기 </strong>12:00AM - 12:00AM</div>
+          <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
         </div>
         <div class="box">
-          <h3 lang="en">LS</h3>
+          <h3 lang="en">{{reservation.space}}</h3>
         </div>
       </ion-item>
       <ion-item>
-        <div><span>담당자</span>김민수</div>
+        <div><span>담당자</span>구지영</div>
       </ion-item>
       <ion-item>
-        <div><span>예약자명</span>에어전시프로드, 박용식 실장</div>
+        <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
       </ion-item>
       <ion-item>
-        <div><span>전화번호</span>010-6516-6521</div><ion-icon name="ios-call"></ion-icon>
+        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><ion-icon name="ios-call"></ion-icon>
       </ion-item>
       <ion-item>
-        <div><span>회사명</span> 생각을걷다</div>
+        <div><span>회사명</span>{{reservation.company}}</div>
       </ion-item>
       <ion-item>
-        <div><span>고객명</span>한컴</div>
+        <div><span>고객명</span>{{reservation.customerName}}</div>
       </ion-item>
       <ion-item>
-        <div><span>전화번호</span>010-6516-6521</div><ion-icon name="ios-call"></ion-icon>
+        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><ion-icon name="ios-call"></ion-icon>
       </ion-item>
   </ion-list>
   <div class="deposit-btn">

@@ -9,6 +9,7 @@ import { ModalCtrl, Utils, Connect, User, Device, ToastCtrl, AlertCtrl } from '.
 import { HttpModule } from '@angular/http';
 import { NoteProvider } from '../providers/NoteProvider';
 import { CustomerProvider } from '../providers/CustomerProvider';
+import { ReservationProvider } from '../providers/ReservationProvider';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CustomerProvider } from '../providers/CustomerProvider';
     ToastCtrl,
     AlertCtrl,
     NoteProvider,
-    CustomerProvider
+    CustomerProvider,
+    ReservationProvider
   ]
 })
 export class AppModule {}

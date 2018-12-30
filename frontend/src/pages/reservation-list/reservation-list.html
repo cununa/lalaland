@@ -10,21 +10,21 @@
         </ion-toolbar>
 </ion-header>
 <ion-content padding #content>
-  <ion-list>
+  <ion-list *ngFor="let reservation of reservations">
       <ion-list-header>
-          2019년 12월 19일
+          {{reservation.startDate}}
       </ion-list-header>
-        <ion-item navPush="schedule-detail">
+        <ion-item navPush="schedule-detail" [navParams]='reservation' >
             <div class="time">
-                <div>12:00AM</div>
-                <div>12:00AM</div>
+                <div>{{reservation.startTime}}</div>
+                <div>{{reservation.endTime}}</div>
             </div>
             <div class="item-content">
-                <div><span lang="en">LS</span> 에뛰드 촬영</div> 
-                <div>생각을 걷다, 윤모모</div>
+                <div><span lang="en">{{reservation.space}}</span>{{reservation.title}}</div> 
+                <div>{{reservation.content}}</div>
             </div>
         </ion-item>
-        <ion-list-header>
+        <!-- <ion-list-header>
             2019년 12월 19일
         </ion-list-header>
           <ion-item navPush="schedule-detail">
@@ -49,6 +49,6 @@
                   <div><span lang="en">LS</span> 네이버 내부 행사</div> 
                   <div>온페이퍼 대행사, 김성화</div>
               </div>
-          </ion-item>
+          </ion-item> -->
     </ion-list>
 </ion-content>

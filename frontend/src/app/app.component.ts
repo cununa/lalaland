@@ -5,6 +5,7 @@ import { Platform, App, IonicApp, Events, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Connect, User } from '../providers/cat/cat';
+import { ReservationProvider } from '../providers/ReservationProvider';
 
 @Component({
   selector: 'app',
@@ -16,6 +17,7 @@ export class MyApp {
   userName = '';
   notesCount = 0;
   customersCount = 0;
+  reservationsCount = 0;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -27,12 +29,14 @@ export class MyApp {
     private changeDetector: ChangeDetectorRef,
     private appCtrl: App,
     private user: User,
-    private note: NoteProvider,
-    private customer: CustomerProvider
+    private noteProvider: NoteProvider,
+    private customerProvider: CustomerProvider,
+    private reservationProvider: ReservationProvider
   ) {
       this.connect.url = 'http://localhost:8080' // 'https://lalaland-2019.appspot.com';
-      this.notesCount = this.note.notes.length;
-      this.customersCount = this.customer.customers.length;
+      this.notesCount = this.noteProvider.notes.length;
+      this.customersCount = this.customerProvider.customers.length;
+      this.reservationsCount = this.reservationProvider.reservations.length;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -69,9 +73,17 @@ export class MyApp {
         console.log("this.user?", this.user);
         this.userName = this.user.name;
         this.notesCount = this.user.notesCount;
+        this.reservationsCount = this.user.reservationsCount;
+        this.customersCount = this.user.customersCount;
       });
       events.subscribe('note:noteChanged', () => {
-        this.notesCount = this.note.notes.length
+        this.notesCount = this.noteProvider.notes.length
+      })
+      events.subscribe('reservation:reservationAdded', (reservationsCount) => {
+        this.reservationsCount = reservationsCount
+      })
+      events.subscribe('customer:customerAdded', (customersCount) => {
+        this.customersCount = customersCount
       })
     });
   }

@@ -19,13 +19,13 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
 })
 export class CustomerListPage {
   customers = []
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController, public customer: CustomerProvider) {
-    this.customers = this.customer.customers;
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController, public customerProvider: CustomerProvider) {
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerListPage');
-    this.customers = this.customer.customers;
+    await this.customerProvider.getCustomers();
+    this.customers = this.customerProvider.customers;
   }
 
 }

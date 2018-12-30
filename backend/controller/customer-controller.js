@@ -2,18 +2,10 @@
 
 const customerModel = require('../model/customer-model')
 
-exports.createCustomer = async (req, res) => {
-    const { company, name, email, phone } = req.body
-    const data = {
-        name, email, phone, company
-    }
-    const customer = await customerModel.create(data)
-    res.json(customer)
-}
-
 exports.getCustomer = async (req, res) => {
-    const customer = await customerModel.find()
-    res.json(customer)
+    const { _id } = req.user;
+    const customers = await customerModel.find({ userId: _id });
+    res.json(customers)
 }
 
 exports.updateCustomer = async (req, res) => {

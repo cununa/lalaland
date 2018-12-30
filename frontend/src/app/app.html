@@ -16,7 +16,7 @@
         </button>
         <button ion-item (click)="navPush('reservation-list')" class="ready-active" [class.active]="active == 'reservation-list'">
           <span class="text">예약완료</span>
-          <span class="no">567</span>
+          <span class="no">{{reservationsCount}}</span>
         </button>
         <button ion-item (click)="navPush('cancel-list')" class="ready-active" [class.active]="active == 'cancel-list'">
           <span class="text">예약취소</span>

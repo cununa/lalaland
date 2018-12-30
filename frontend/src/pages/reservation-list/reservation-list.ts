@@ -1,5 +1,7 @@
+import { IReservation } from './../../providers/ReservationProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,MenuController} from 'ionic-angular';
+import { ReservationProvider } from '../../providers/ReservationProvider';
 
 /**
  * Generated class for the ReservationListPage page.
@@ -17,12 +19,14 @@ import { IonicPage, NavController, NavParams ,MenuController} from 'ionic-angula
   templateUrl: 'reservation-list.html',
 })
 export class ReservationListPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController) {
+  reservations: IReservation[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private reservationProvider: ReservationProvider) {
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log('ionViewDidLoad ReservationListPage');
+    await this.reservationProvider.getReservations()
+    this.reservations = this.reservationProvider.reservations;
   }
 
 }
