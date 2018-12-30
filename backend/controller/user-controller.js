@@ -52,6 +52,7 @@ exports.login = async (req, res) => {
         name: result.name,
         phone: result.phone,
         email: result.email,
+        notesCount: 0,
         accessToken: assignToken(result)
     }
 

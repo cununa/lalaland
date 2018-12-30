@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , MenuController, Events } from 'ionic-angular';
 import { ToastCtrl, Connect, User} from '../../providers/cat/cat';
 /**
  * Generated class for the AdminPage page.
@@ -25,7 +25,7 @@ export class AdminPage {
     doubleCheckPassword: ''
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private toast: ToastCtrl, private user: User, private connect: Connect) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private toast: ToastCtrl, private user: User, private connect: Connect, private events: Events) {
   }
 
   ionViewDidLoad() {
@@ -56,6 +56,7 @@ export class AdminPage {
         break;
       default:
         this.user.set(result);
+        this.events.publish("user:loggedIn")
         this.navCtrl.setRoot('schedule', {}, {
           animate: true
         });
