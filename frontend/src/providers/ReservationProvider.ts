@@ -1,13 +1,12 @@
 import { Connect } from "./cat/cat";
 import { Injectable } from "@angular/core";
-import { INote } from "../pages/customer-note/customer-note";
 import { Events } from "ionic-angular";
 import { CustomerProvider } from "./CustomerProvider";
 
 export interface IReservation {
   _id?: string;
-  title: string,
-  content: string,
+  title: string;
+  content: string;
   reservationHolderName: string;
   reservationHolderPhone: string;
   isCustomerInfoSameAsReservationHolder: boolean;
@@ -22,25 +21,36 @@ export interface IReservation {
   endTime: any;
   withdrawDate: any;
   withdrawTime: any;
+  isRemovedReservation: boolean;
 }
 
 @Injectable()
 export class ReservationProvider {
   reservations: IReservation[] = [];
 
-  constructor(private events: Events, private connect: Connect, private customerProvider: CustomerProvider) {
+  constructor(
+    private events: Events,
+    private connect: Connect,
+    private customerProvider: CustomerProvider
+  ) {
     this.initEvents();
   }
 
   private initEvents() {}
 
   async getReservations() {
-    const result = await this.connect.run({ route: "reservation", method: "get"})
+    const result = await this.connect.run({
+      route: "reservation",
+      method: "get"
+    });
     this.reservations = result;
   }
 
   async getCustomerReservations(customerId) {
-    const result = await this.connect.run({ route: `reservation/${customerId}`, method: "get"})
+    const result = await this.connect.run({
+      route: `reservation/${customerId}`,
+      method: "get"
+    });
     return result;
   }
 
@@ -72,7 +82,8 @@ export class ReservationProvider {
         withdrawDate,
         withdrawTime,
         customersCount,
-        reservationsCount
+        reservationsCount,
+        isRemovedReservation
       } = result;
 
       this.reservations.push({
@@ -92,16 +103,59 @@ export class ReservationProvider {
         endDate,
         endTime,
         withdrawDate,
-        withdrawTime
+        withdrawTime,
+        isRemovedReservation
       });
 
       this.events.publish("reservation:reservationAdded", reservationsCount);
-      this.customerProvider.customers.push({ _id: customerId, name: customerName, phone: customerPhone, company });
+      this.customerProvider.customers.push({
+        _id: customerId,
+        name: customerName,
+        phone: customerPhone,
+        company
+      });
       this.events.publish("customer:customerAdded", customersCount);
     }
   }
 
-  removeReservation() { }
+  async removeReservation(reservationId: string) {
+    const result = await this.connect.run({
+      route: `reservation/${reservationId}`,
+      method: "delete"
+    });
+    if (result.code && result.message) {
+      console.error("removeReservation 삭제하는데 실패.");
+    } else {
+      this.reservations = this.reservations.map(
+        (reservation: IReservation) => {
+            if (reservation._id === reservationId) {
+                reservation.isRemovedReservation = true;
+                return reservation
+            }
+            return reservation
+        } 
+      );
 
-  updateReservation() { }
+      this.events.publish(
+        "reservation:reservationRemoved",
+        result
+      );
+    }
+  }
+
+
+
+  async removeRemovedReservation(reservationId: string) {
+    const result = await this.connect.run({route: `removed-reservation/${reservationId}`, method: 'delete'})
+    if (result.n === 1 && result.ok === 1) {
+      this.reservations = this.reservations.filter(reservation => reservation._id !== reservationId)
+      this.events.publish(
+        "reservation:reservationRemoved",
+        result.removedReservationsCount
+      );
+    } else {
+      console.log("removeRemovedReservation 삭제하는데 실패.")
+    }
+  }
+  updateReservation() {}
 }

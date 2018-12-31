@@ -57,12 +57,14 @@ exports.createReservation = async (req, res) => {
     withdrawDate,
     withdrawTime,
     userId: _id,
-    customerId
+    customerId,
+    isRemovedReservation: false
   };
   const reservationResult = await reservationModel.create(data);
   const customersCount = await customerModel.countDocuments({ userId: _id });
   const reservationsCount = await reservationModel.countDocuments({
-    userId: _id
+    userId: _id,
+    isRemovedReservation: false
   });
 
   const finalResultData = {
@@ -85,7 +87,8 @@ exports.createReservation = async (req, res) => {
     userId: reservationResult.userId,
     customerId,
     reservationsCount,
-    customersCount
+    customersCount,
+    isRemovedReservation: false
   };
 
   res.json(finalResultData);
@@ -93,7 +96,9 @@ exports.createReservation = async (req, res) => {
 
 exports.getReservation = async (req, res) => {
   const { _id } = req.user;
-  const reservations = await reservationModel.find({ userId: _id });
+  const reservations = await reservationModel.find({
+    userId: _id
+  });
   res.json(reservations);
 };
 
@@ -102,58 +107,82 @@ exports.getCustomerReservation = async (req, res) => {
   const { customerId } = req.params;
   const customerReservations = await reservationModel.find({
     userId: _id,
-    customerId
+    customerId,
+    isRemovedReservation: false
   });
   res.json(customerReservations);
 };
 
 exports.updateReservation = async (req, res) => {
-//   console.log("updateReservation body", req.body);
-//   const {
-//     title,
-//     content,
-//     reservationId,
-//     reservationHolderName,
-//     reservationHolderPhone,
-//     isCustomerInfoSameAsReservationHolder,
-//     space,
-//     company,
-//     customerName,
-//     customerPhone,
-//     startDate,
-//     startTime,
-//     endDate,
-//     endTime,
-//     withdrawDate,
-//     withdrawTime
-//   } = req.body;
-//   const result = await reservationModel.findOneAndUpdate(
-//     { _id: reservationId },
-//     {
-//       title,
-//       content,
-//       reservationHolderName,
-//       reservationHolderPhone,
-//       isCustomerInfoSameAsReservationHolder,
-//       space,
-//       company,
-//       customerName,
-//       customerPhone,
-//       startDate,
-//       startTime,
-//       endDate,
-//       endTime,
-//       withdrawDate,
-//       withdrawTime
-//     },
-//     { upsert: true, new: true }
-//   );
-//   res.json(result);
+  //   console.log("updateReservation body", req.body);
+  //   const {
+  //     title,
+  //     content,
+  //     reservationId,
+  //     reservationHolderName,
+  //     reservationHolderPhone,
+  //     isCustomerInfoSameAsReservationHolder,
+  //     space,
+  //     company,
+  //     customerName,
+  //     customerPhone,
+  //     startDate,
+  //     startTime,
+  //     endDate,
+  //     endTime,
+  //     withdrawDate,
+  //     withdrawTime
+  //   } = req.body;
+  //   const result = await reservationModel.findOneAndUpdate(
+  //     { _id: reservationId },
+  //     {
+  //       title,
+  //       content,
+  //       reservationHolderName,
+  //       reservationHolderPhone,
+  //       isCustomerInfoSameAsReservationHolder,
+  //       space,
+  //       company,
+  //       customerName,
+  //       customerPhone,
+  //       startDate,
+  //       startTime,
+  //       endDate,
+  //       endTime,
+  //       withdrawDate,
+  //       withdrawTime
+  //     },
+  //     { upsert: true, new: true }
+  //   );
+  //   res.json(result);
 };
 
 exports.deleteReservation = async (req, res) => {
-//   console.log("deleteReservation body", req.params);
-//   const { id } = req.params;
-//   const result = await reservationModel.deleteOne({ _id: id });
-//   res.json(result);
+  const { _id } = req.user;
+  const { reservationId } = req.params;
+  const deleteResult = await reservationModel.findOneAndUpdate(
+    { _id: reservationId },
+    { isRemovedReservation: true }
+  );
+  const removedReservationsCount = await reservationModel.countDocuments({
+    userId: _id,
+    isRemovedReservation: true
+  });
+  res.json(removedReservationsCount);
+};
+
+exports.deleteRemovedReservation = async (req, res) => {
+  const { _id }= req.user
+  const { reservationId } = req.params;
+  const deleteResult = await reservationModel.deleteOne({ _id: reservationId });
+  const removedReservationsCount = await reservationModel.countDocuments({
+    userId: _id,
+    isRemovedReservation: true
+  });
+  const data = {
+      n: deleteResult.n,
+      ok: deleteResult.ok,
+      removedReservationsCount
+  }
+  res.json(data);
 };

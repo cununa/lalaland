@@ -36,6 +36,7 @@ export class ScheduleReservationPage {
     endTime: '',
     withdrawDate: '',
     withdrawTime: '',
+    isRemovedReservation: false
   }
 
   is_reservation: boolean = false;

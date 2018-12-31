@@ -19,7 +19,7 @@ const assignToken = (userData) => {
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
     if (user && req.body.password === user.password) {
-        const reservationResult = await reservationModel.find({ userId: user._id})
+        const reservationResult = await reservationModel.find({ userId: user._id });
         const noteResult = await noteModel.find({ userId: user._id})
         const customerResult = await customerModel.find({ userId: user._id})
         res.json({ 
@@ -28,7 +28,8 @@ exports.login = async (req, res) => {
             name: user.name,
             phone: user.phone,
             notesCount: noteResult.length,
-            reservationsCount: reservationResult.length,
+            reservationsCount: reservationResult.filter((reservation) => reservation.isRemovedReservation === false).length,
+            removedReservationsCount: reservationResult.filter((reservation) => reservation.isRemovedReservation === true).length,
             customersCount: customerResult.length
         })
     } else {
@@ -60,6 +61,7 @@ exports.login = async (req, res) => {
         email: result.email,
         notesCount: 0,
         reservationsCount: 0,
+        removedReservationsCount: 0,
         customersCount: 0,
         accessToken: assignToken(result)
     }

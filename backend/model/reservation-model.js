@@ -21,6 +21,7 @@ const reservationSchema = new mongoose.Schema({
   withdrawDate:{type : String, required: true},
   withdrawTime:{type : String, required: true},
   userId: {type : String, required: true},
+  isRemovedReservation: {type : Boolean, required: true},
 }, {
   collection: collectionName
 })

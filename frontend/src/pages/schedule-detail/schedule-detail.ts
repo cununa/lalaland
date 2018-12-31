@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,MenuController, ActionSheetController  } from 'ionic-angular';
-import { IReservation } from '../../providers/ReservationProvider';
+import { IReservation, ReservationProvider } from '../../providers/ReservationProvider';
 
 /**
  * Generated class for the ScheduleDetailPage page.
@@ -36,13 +36,15 @@ export class ScheduleDetailPage {
     endTime: '',
     withdrawDate: '',
     withdrawTime: '',
+    isRemovedReservation: false
   };
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
-    public menuCtrl: MenuController) {
-  }
+    public menuCtrl: MenuController,
+    private reservationProvider: ReservationProvider
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleDetailPage');
@@ -86,4 +88,13 @@ export class ScheduleDetailPage {
     actionSheet.present();
   }
 
+  async removeSchedule() {
+    this.reservationProvider.removeReservation(this.reservation._id);
+    this.navCtrl.pop();
+  }
+
+  async removeRemovedSchedule() {
+    this.reservationProvider.removeRemovedReservation(this.reservation._id);
+    this.navCtrl.pop();
+  }
 }
