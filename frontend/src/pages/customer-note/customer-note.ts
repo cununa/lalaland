@@ -75,6 +75,7 @@ export class CustomerNotePage {
   }
 
   newNoteCreated(newNote: INote) {
+    console.log(newNote);
     if (typeof newNote === "undefined") {
       return;
     }

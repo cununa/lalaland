@@ -70,6 +70,6 @@ export class ScheduleListPage {
     }).present();
   }
   openDetail(reservation) {
-    this.modalCtrl.create('schedule-detail', reservation).present();
+    this.navCtrl.push('schedule-detail', reservation);
   }
 }

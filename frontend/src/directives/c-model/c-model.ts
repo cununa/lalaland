@@ -22,6 +22,7 @@ export class CModelDirective {
       ev.target.value = ev.target.value.replace(/[^0-9]/g, '');
       break;
     }
-    this.model.viewToModelUpdate(ev.target.value);
+    //this.model.viewToModelUpdate(ev.target.value);
+    this.model.reset(ev.target.value);
   }
 }

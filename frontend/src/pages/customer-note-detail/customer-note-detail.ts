@@ -45,7 +45,7 @@ export class CustomerNoteDetailPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomerNoteDetailPage', this);
+    
   }
 
   openUpdateNoteModal(){
