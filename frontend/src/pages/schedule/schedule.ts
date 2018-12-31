@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController, ActionSheetController } from 'ionic-angular';
 import Swiper from 'swiper';
-import { Utils, Connect } from '../../providers/cat/cat';
+import { Utils, Connect, ModalCtrl } from '../../providers/cat/cat';
+import { ReservationProvider } from '../../providers/ReservationProvider';
 
 /**
  * Generated class for the HomePage page.
@@ -67,15 +68,15 @@ export class SchedulePage {
     prev_date: []
   }
 
-  r_index = 0;
-
   today = {
     year: 0,
     month: 0,
     date: 0
   }
 
-  dates_arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  dates_arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  
+  reserve_list = [];
 
   constructor(
     public utils: Utils,
@@ -84,28 +85,50 @@ export class SchedulePage {
     private alertCtrl: AlertController,
     public actionSheetCtrl: ActionSheetController,
     public menuCtrl: MenuController,
-    private connect: Connect
+    private connect: Connect,
+    private reservation: ReservationProvider,
+    private modalCtrl: ModalCtrl
     ) {
     this.today = this.cutDate(this.utils.today());
 
-    this.prev_3_date = this.calcMonth(this.cutDate(this.utils.today({month: -3})));
-    this.prev_2_date = this.calcMonth(this.cutDate(this.utils.today({month: -2})));
-    this.prev_date = this.calcMonth(this.cutDate(this.utils.today({month: -1})));
+    this.prev_3_date = this.calcMonth(this.cutDate(this.utils.today({month: -3}, true)));
+    this.prev_2_date = this.calcMonth(this.cutDate(this.utils.today({month: -2}, true)));
+    this.prev_date = this.calcMonth(this.cutDate(this.utils.today({month: -1}, true)));
     this.active_date = this.calcMonth(this.cutDate(this.utils.today()));
-    this.next_date = this.calcMonth(this.cutDate(this.utils.today({month: 1})));
-    this.next_2_date = this.calcMonth(this.cutDate(this.utils.today({month: 2})));
-    this.next_3_date = this.calcMonth(this.cutDate(this.utils.today({month: 3})));
+    this.next_date = this.calcMonth(this.cutDate(this.utils.today({month: 1}, true)));
+    this.next_2_date = this.calcMonth(this.cutDate(this.utils.today({month: 2}, true)));
+    this.next_3_date = this.calcMonth(this.cutDate(this.utils.today({month: 3}, true)));
   }
   ionViewDidLoad() {
     this.refresh();
   }
   async refresh() {
     this.is_loaded = false;
-    await this.connect.timeout(700);
+    await this.reservation.getReservations();
+    let r_arr = [];
+    //리스트가 있으면 회색 점
+    //finalPayment 가 있으면 빨강 점
+    this.reservation.reservations.map((x:any) => x.startDateObj = this.utils.cutDate(x.startDate));
+    this.reserve_list = this.reservation.reservations;
+    console.log(this.reserve_list);
     this.is_loaded = true;
     setTimeout(() => {
       this.makeSlide();
     }, 0);
+  }
+  activeDate(ym, d) {
+    let arr = [];
+    for(let i = 0; i < this.reserve_list.length; i++) {
+      if((ym.year == this.reserve_list[i].startDateObj.year && ym.month == this.reserve_list[i].startDateObj.month && d == this.reserve_list[i].startDateObj.date)
+        && !this.reserve_list[i].isRemovedReservation) {
+        if(this.reserve_list[i].finalPayment) {
+          arr.push('red');
+        } else  {
+          arr.push('gray');
+        }
+      }
+    }
+    return arr;
   }
   makeSlide() {
     let swiper = new Swiper(this.swiper.nativeElement, {
@@ -175,13 +198,13 @@ export class SchedulePage {
     return {
       year: Number(str.substring(0, 4)),
       month: Number(str.substring(5, 7)) - 1,
-      date: Number(str.substring(8, 10)) - 1
+      date: Number(str.substring(8, 10))
     }
   }
   mergeDate(obj) {
-    return obj.year + '-' + this.utils.toXX(obj.month + 1) + '-' + this.utils.toXX(obj.date + 1);
+    return obj.year + '-' + this.utils.toXX(obj.month + 1) + '-' + this.utils.toXX(obj.date);
   }
-  prevMonth(date_obj){
+  prevMonth(date_obj) {
     if(date_obj.month == 0) {
       date_obj.month = 11;
       date_obj.year --;
@@ -209,7 +232,13 @@ export class SchedulePage {
 //바로 예약페이지를 거치지 않고 하단에 엑션 시트를 고쳐야 해서 수정했는데
 //수정을 잘 한건지 모르겠습니다 ㅜㅜ
   presentActionSheet(date, active_date) {
-    let actionSheet = this.actionSheetCtrl.create({
+    this.modalCtrl.create('schedule-list', {
+      date: date,
+      active_date: active_date
+    }, {
+      cssClass: 'type-action-sheet'
+    }).present();
+    /* let actionSheet = this.actionSheetCtrl.create({
       title: '예약 가능한 스튜디오',
       buttons: [{
           text: 'LaLaLand Studio',
@@ -254,6 +283,6 @@ export class SchedulePage {
       ]
     });
 
-    actionSheet.present();
+    actionSheet.present(); */
   }
 }

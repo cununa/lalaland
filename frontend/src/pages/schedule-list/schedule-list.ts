@@ -1,15 +1,21 @@
-import { Component, Input } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-
-/**
- * Generated class for the ScheduleListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {
+  Component
+} from '@angular/core';
+import {
+  IonicPage,
+  NavController,
+  NavParams
+} from 'ionic-angular';
+import {
+  ReservationProvider,
+  IReservation
+} from '../../providers/ReservationProvider';
+import {
+  Utils, ModalCtrl
+} from '../../providers/cat/cat';
 
 @IonicPage({
-  name : 'schedule-list',
+  name: 'schedule-list',
   segment: 'schedule-list'
 })
 @Component({
@@ -17,12 +23,53 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
   templateUrl: 'schedule-list.html',
 })
 export class ScheduleListPage {
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams , public menuCtrl: MenuController) {
-  }
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ScheduleListPage');
+
+  reservations: IReservation[] = [];
+  ym = {
+    year: 0,
+    month: 0
+  };
+  d = 0;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private reservationProvider: ReservationProvider,
+    private utils: Utils,
+    private modalCtrl: ModalCtrl
+  ) {
+    this.ym = this.navParams.data.active_date;
+    this.d = this.navParams.data.date;
+
   }
 
+  ionViewDidLoad() {
+    this.getList();
+  }
+  async getList() {
+    await this.reservationProvider.getReservations();
+    this.reservations = this.reservationProvider.reservations;
+  }
+  activeDate(reservation) {
+    let date = this.utils.mergeDate({
+      year: this.ym.year,
+      month: this.ym.month,
+      date: this.d
+    });
+    if (reservation.startDate == date) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  addPlan(space) {
+    this.modalCtrl.create('schedule-reservation', {
+      space: space,
+      date: this.d,//클릭한 날짜
+      active_date: this.ym//클릭한 월
+    }).present();
+  }
+  openDetail(reservation) {
+    this.modalCtrl.create('schedule-detail', reservation).present();
+  }
 }

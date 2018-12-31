@@ -38,14 +38,15 @@ export class CancelListPage {
   ) {
     this.events.subscribe('reservation:reservationRemoved', () => {
       console.log("CancelListPage")
-      this.reservations = this.reservationProvider.reservations
-    })
-
+      this.reservations = this.reservationProvider.reservations;
+    });
   }
+
 
   async ionViewDidLoad() {
     console.log("ionViewDidLoad CancelListPage");
     await this.reservationProvider.getReservations();
     this.reservations = this.reservationProvider.reservations;
   }
+
 }

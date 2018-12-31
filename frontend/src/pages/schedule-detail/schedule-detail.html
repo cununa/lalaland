@@ -1,57 +1,65 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button left  menuToggle>
-        <ion-icon name="ios-menu" ></ion-icon>
-      </button>
-      <ion-title><h1>일정 상세보기</h1></ion-title>
-      <button ion-button right>
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <button ion-button left navPop>
+      <ion-icon name="ios-arrow-back"></ion-icon>
+    </button>
+    <ion-title>
+      <h1>일정 상세보기</h1>
+    </ion-title>
+    <button ion-button right>
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content  #content>
+<ion-content #content>
   <ion-list>
     <ion-list-header>
-        {{reservation.startDate}}
+      {{reservation.startDate}}
     </ion-list-header>
-      <ion-item class="first-item">
-        <div class="img-line">
-          <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
-        </div>
-        <div class="box">
-          <h3 lang="en">{{reservation.space}}</h3>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div><span>담당자</span>구지영</div>
-      </ion-item>
-      <ion-item>
-        <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
-      </ion-item>
-      <ion-item>
-        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><ion-icon name="ios-call"></ion-icon>
-      </ion-item>
-      <ion-item>
-        <div><span>회사명</span>{{reservation.company}}</div>
-      </ion-item>
-      <ion-item>
-        <div><span>고객명</span>{{reservation.customerName}}</div>
-      </ion-item>
-      <ion-item>
-        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><ion-icon name="ios-call"></ion-icon>
-      </ion-item>
+    <ion-item class="first-item">
+      <div class="img-line">
+        <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
+      </div>
+      <div class="box">
+        <h3 lang="en">{{reservation.space}}</h3>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div><span>담당자</span>구지영</div>
+    </ion-item>
+    <ion-item>
+      <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
+    </ion-item>
+    <ion-item>
+      <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div>
+      <ion-icon name="ios-call"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <div><span>회사명</span>{{reservation.company}}</div>
+    </ion-item>
+    <ion-item>
+      <div><span>고객명</span>{{reservation.customerName}}</div>
+    </ion-item>
+    <ion-item>
+      <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div>
+      <ion-icon name="ios-call"></ion-icon>
+    </ion-item>
   </ion-list>
   <div class="deposit-btn">
     <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">입금 단계 선택 하기</button>
   </div>
- 
+
   <div class="text-box">
-    <span>{{reservation.downPayment ? "계약금, ": ""}}{{reservation.intermediatePayment ? "중도금, " : ""}}{{reservation.finalPayment ? "최종 " : ""}}{{reservation.downPayment || reservation.intermediatePayment || reservation.finalPayment ? "입금 완료" : ""}}</span>
+    <span>{{reservation.downPayment ? "계약금, ": ""}}{{reservation.intermediatePayment ? "중도금, " :
+      ""}}{{reservation.finalPayment ? "최종 " : ""}}{{reservation.downPayment || reservation.intermediatePayment ||
+      reservation.finalPayment ? "입금 완료" : ""}}</span>
   </div>
 </ion-content>
 <ion-footer>
-    <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation">일정수정</button> 
-    <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation;else cancelListButton" (click)='removeSchedule()'>일정삭제</button>
-    <ng-template #cancelListButton><button ion-button class="normal-btn dark-btn" (click)='removeRemovedSchedule()' #cancelListButton>일정삭제</button></ng-template>
+  <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation">일정수정</button>
+  <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation;else cancelListButton"
+    (click)='removeSchedule()'>일정삭제</button>
+  <ng-template #cancelListButton><button ion-button class="normal-btn dark-btn" (click)='removeRemovedSchedule()'
+      #cancelListButton>일정삭제</button></ng-template>
 </ion-footer>
