@@ -22,6 +22,9 @@ const reservationSchema = new mongoose.Schema({
   withdrawTime:{type : String, required: true},
   userId: {type : String, required: true},
   isRemovedReservation: {type : Boolean, required: true},
+  downPayment: {type : Boolean, required: true},
+  intermediatePayment: {type : Boolean, required: true},
+  finalPayment: {type : Boolean, required: true},
 }, {
   collection: collectionName
 })

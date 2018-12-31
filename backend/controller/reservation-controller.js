@@ -58,7 +58,10 @@ exports.createReservation = async (req, res) => {
     withdrawTime,
     userId: _id,
     customerId,
-    isRemovedReservation: false
+    isRemovedReservation: false,
+    downPayment: false,
+    intermediatePayment: false,
+    finalPayment: false
   };
   const reservationResult = await reservationModel.create(data);
   const customersCount = await customerModel.countDocuments({ userId: _id });
@@ -88,7 +91,10 @@ exports.createReservation = async (req, res) => {
     customerId,
     reservationsCount,
     customersCount,
-    isRemovedReservation: false
+    isRemovedReservation: false,
+    downPayment: false,
+    intermediatePayment: false,
+    finalPayment: false
   };
 
   res.json(finalResultData);
@@ -157,6 +163,24 @@ exports.updateReservation = async (req, res) => {
   //   res.json(result);
 };
 
+exports.updatePaymentPhase = async (req, res) => {
+  const {
+    reservationId,
+    downPayment,
+    intermediatePayment,
+    finalPayment
+  } = req.body;
+  const updateResult = await reservationModel.findOneAndUpdate(
+    { _id: reservationId },
+    {
+      downPayment: downPayment === "true" ? true : false,
+      intermediatePayment: intermediatePayment === "true" ? true : false,
+      finalPayment: finalPayment === "true" ? true : false
+    }
+  );
+  res.json({ downPayment, intermediatePayment, finalPayment });
+};
+
 exports.deleteReservation = async (req, res) => {
   const { _id } = req.user;
   const { reservationId } = req.params;
@@ -172,7 +196,7 @@ exports.deleteReservation = async (req, res) => {
 };
 
 exports.deleteRemovedReservation = async (req, res) => {
-  const { _id }= req.user
+  const { _id } = req.user;
   const { reservationId } = req.params;
   const deleteResult = await reservationModel.deleteOne({ _id: reservationId });
   const removedReservationsCount = await reservationModel.countDocuments({
@@ -180,9 +204,9 @@ exports.deleteRemovedReservation = async (req, res) => {
     isRemovedReservation: true
   });
   const data = {
-      n: deleteResult.n,
-      ok: deleteResult.ok,
-      removedReservationsCount
-  }
+    n: deleteResult.n,
+    ok: deleteResult.ok,
+    removedReservationsCount
+  };
   res.json(data);
 };

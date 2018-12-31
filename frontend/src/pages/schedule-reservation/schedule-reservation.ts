@@ -36,7 +36,10 @@ export class ScheduleReservationPage {
     endTime: '',
     withdrawDate: '',
     withdrawTime: '',
-    isRemovedReservation: false
+    isRemovedReservation: false,
+    intermediatePayment: false,
+    downPayment: false,
+    finalPayment: false
   }
 
   is_reservation: boolean = false;

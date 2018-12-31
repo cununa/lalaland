@@ -27,6 +27,7 @@ api.put('/reservation', wrap(reservationController.createReservation))
 api.get('/reservation', wrap(reservationController.getReservation))
 api.get('/reservation/:customerId', wrap(reservationController.getCustomerReservation))
 api.post('/reservation', wrap(reservationController.updateReservation))
+api.post('/update-reservation-payment', wrap(reservationController.updatePaymentPhase))
 api.delete('/reservation/:reservationId', wrap(reservationController.deleteReservation))
 api.delete('/removed-reservation/:reservationId', wrap(reservationController.deleteRemovedReservation))
 

@@ -22,6 +22,9 @@ export interface IReservation {
   withdrawDate: any;
   withdrawTime: any;
   isRemovedReservation: boolean;
+  downPayment: boolean;
+  intermediatePayment: boolean;
+  finalPayment: boolean;
 }
 
 @Injectable()
@@ -83,7 +86,10 @@ export class ReservationProvider {
         withdrawTime,
         customersCount,
         reservationsCount,
-        isRemovedReservation
+        isRemovedReservation,
+        downPayment,
+        intermediatePayment,
+        finalPayment
       } = result;
 
       this.reservations.push({
@@ -104,7 +110,10 @@ export class ReservationProvider {
         endTime,
         withdrawDate,
         withdrawTime,
-        isRemovedReservation
+        isRemovedReservation,
+        downPayment,
+        intermediatePayment,
+        finalPayment
       });
 
       this.events.publish("reservation:reservationAdded", reservationsCount);
@@ -126,36 +135,60 @@ export class ReservationProvider {
     if (result.code && result.message) {
       console.error("removeReservation 삭제하는데 실패.");
     } else {
-      this.reservations = this.reservations.map(
-        (reservation: IReservation) => {
-            if (reservation._id === reservationId) {
-                reservation.isRemovedReservation = true;
-                return reservation
-            }
-            return reservation
-        } 
-      );
+      this.reservations = this.reservations.map((reservation: IReservation) => {
+        if (reservation._id === reservationId) {
+          reservation.isRemovedReservation = true;
+          return reservation;
+        }
+        return reservation;
+      });
 
-      this.events.publish(
-        "reservation:reservationRemoved",
-        result
-      );
+      this.events.publish("reservation:reservationRemoved", result);
     }
   }
 
-
-
   async removeRemovedReservation(reservationId: string) {
-    const result = await this.connect.run({route: `removed-reservation/${reservationId}`, method: 'delete'})
+    const result = await this.connect.run({
+      route: `removed-reservation/${reservationId}`,
+      method: "delete"
+    });
     if (result.n === 1 && result.ok === 1) {
-      this.reservations = this.reservations.filter(reservation => reservation._id !== reservationId)
+      this.reservations = this.reservations.filter(
+        reservation => reservation._id !== reservationId
+      );
       this.events.publish(
         "reservation:reservationRemoved",
         result.removedReservationsCount
       );
     } else {
-      console.log("removeRemovedReservation 삭제하는데 실패.")
+      console.log("removeRemovedReservation 삭제하는데 실패.");
     }
   }
   updateReservation() {}
+
+  async updatePaymentPhase(paymentPhases) {
+    const result = await this.connect.run(
+      {
+        route: `update-reservation-payment`,
+        method: "post"
+      },
+      paymentPhases
+    );
+
+    if (result.code && result.message) {
+      console.error("updatePaymentPhase 업데이트 하는데 실패.");
+    } else {
+      this.reservations = this.reservations.map((reservation: IReservation) => {
+        if (reservation._id === paymentPhases.reservationId) {
+          reservation.downPayment = result.downpayment === 'true' ? true : false;
+          reservation.intermediatePayment = result.intermediatePayment === 'true' ? true : false;
+          reservation.finalPayment = result.finalPayment === 'true' ? true : false;
+          return reservation;
+        }
+        return reservation;
+      });
+
+      return { downPayment: result.downPayment === 'true' ? true : false, intermediatePayment: result.intermediatePayment === 'true' ? true : false, finalPayment: result.finalPayment === 'true' ? true : false}
+    }
+  }
 }

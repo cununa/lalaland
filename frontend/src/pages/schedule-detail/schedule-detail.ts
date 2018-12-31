@@ -36,7 +36,10 @@ export class ScheduleDetailPage {
     endTime: '',
     withdrawDate: '',
     withdrawTime: '',
-    isRemovedReservation: false
+    isRemovedReservation: false,
+    downPayment: false,
+    intermediatePayment: false,
+    finalPayment: false
   };
   constructor(
     public navCtrl: NavController,
@@ -56,23 +59,53 @@ export class ScheduleDetailPage {
       title: '입금 상태 확인',
       buttons: [{
           text: '계약금 입금완료',
-          role: 'paymentStart',//임시로 이름 지었습니다
-          handler: () => {
-            console.log('paymentStart clicked');
+          role: 'downPayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('downPayment 계약금 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: true,
+              intermediatePayment: this.reservation.intermediatePayment,
+              finalPayment: this.reservation.finalPayment
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
           }
         },
         {
           text: '중도금 입금완료',
-          role: 'paymentPart',//임시로 이름 지었습니다
-          handler: () => {
-            console.log('paymentPart clicked');
+          role: 'intermediatePayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('intermediatePayment 중도금 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: this.reservation.downPayment,
+              intermediatePayment: true,
+              finalPayment: this.reservation.finalPayment
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
           }
         },
         {
           text: '최종 입금완료',
-          role: 'paymentEnd or Last',//임시로 이름 지었습니다
-          handler: () => {
-            console.log('paymentEnd clicked');
+          role: 'finalPayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('finalPayment 최종 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: this.reservation.downPayment,
+              intermediatePayment: this.reservation.intermediatePayment,
+              finalPayment: true
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
           }
         },
         {
