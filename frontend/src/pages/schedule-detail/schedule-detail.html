@@ -17,34 +17,57 @@
     <ion-list-header>
       {{reservation.startDate}}
     </ion-list-header>
-    <ion-item class="first-item">
-      <div class="img-line">
-        <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
-      </div>
-      <div class="box">
-        <h3 lang="en">{{reservation.space}}</h3>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div><span>담당자</span>구지영</div>
-    </ion-item>
-    <ion-item>
-      <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
-    </ion-item>
-    <ion-item>
-      <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div>
-      <ion-icon name="ios-call"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <div><span>회사명</span>{{reservation.company}}</div>
-    </ion-item>
-    <ion-item>
-      <div><span>고객명</span>{{reservation.customerName}}</div>
-    </ion-item>
-    <ion-item>
-      <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div>
-      <ion-icon name="ios-call"></ion-icon>
-    </ion-item>
+    <!-- row 형태로 정리한거 -->
+    <!-- <ion-row>
+      <ion-col>
+        <ion-item>
+          <div class="img-line">
+            <div><strong>{{reservation.title}}</strong><br>
+            시작 {{reservation.startTime}}<br>
+            종료 {{reservation.endTime}}<br>
+            철수 {{reservation.withdrawTime}}
+          </div>
+          </div>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <div class="box">
+            <h3 lang="en">{{reservation.space}}</h3>
+          </div>
+        </ion-item>
+      </ion-col>
+      </ion-row> -->
+      <ion-item class="first-item">
+        <div class="img-line">
+          <div><strong>{{reservation.title}}</strong><br>
+          시작 {{reservation.startTime}}<br>
+          종료 {{reservation.endTime}}<br>
+          철수 {{reservation.withdrawTime}}
+        </div>
+        </div>
+        <div class="box">
+          <h3 lang="en">{{reservation.space}}</h3>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div><span>담당자</span>구지영</div>
+      </ion-item>
+      <ion-item>
+        <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
+      </ion-item>
+      <ion-item>
+        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><ion-icon name="ios-call"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <div><span>회사명</span>{{reservation.company}}</div>
+      </ion-item>
+      <ion-item>
+        <div><span>고객명</span>{{reservation.customerName}}</div>
+      </ion-item>
+      <ion-item>
+        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><ion-icon name="ios-call"></ion-icon>
+      </ion-item>
   </ion-list>
   <div class="deposit-btn">
     <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">입금 단계 선택 하기</button>
