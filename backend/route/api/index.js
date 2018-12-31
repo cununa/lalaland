@@ -3,6 +3,7 @@ const userController = require('../../controller/user-controller')
 const customerController = require('../../controller/customer-controller')
 const noteController = require('../../controller/note-controller')
 const authController = require('../../controller/auth-controller')
+const reservationController = require('../../controller/reservation-controller')
 const api = require('express').Router()
 
 
@@ -21,8 +22,16 @@ api.get('/user', wrap(userController.getUser))
 api.post('/user', wrap(userController.updateUser))
 api.delete('/user', wrap(userController.deleteUser))
 
+//=================  reservation  ======================
+api.put('/reservation', wrap(reservationController.createReservation))
+api.get('/reservation', wrap(reservationController.getReservation))
+api.get('/reservation/:customerId', wrap(reservationController.getCustomerReservation))
+api.post('/reservation', wrap(reservationController.updateReservation))
+api.post('/update-reservation-payment', wrap(reservationController.updatePaymentPhase))
+api.delete('/reservation/:reservationId', wrap(reservationController.deleteReservation))
+api.delete('/removed-reservation/:reservationId', wrap(reservationController.deleteRemovedReservation))
+
 //=================  customer  ======================
-api.put('/customer', wrap(customerController.createCustomer))
 api.get('/customer', wrap(customerController.getCustomer))
 api.post('/customer', wrap(customerController.updateCustomer))
 api.delete('/customer', wrap(customerController.deleteCustomer))

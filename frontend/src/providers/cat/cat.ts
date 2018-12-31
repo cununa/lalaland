@@ -456,7 +456,9 @@ export class User {
   email: '';
   phone: '';
   notesCount: 0;
-
+  reservationsCount: 0;
+  removedReservationsCount: 0;
+  customersCount: 0;
   constructor(
     // private device: Device
   ) {
@@ -494,6 +496,9 @@ export class User {
     this.email = data.email;
     this.phone = data.phone;
     this.notesCount = data.notesCount;
+    this.reservationsCount = data.reservationsCount;
+    this.removedReservationsCount = data.removedReservationsCount;
+    this.customersCount = data.customersCount;
   }
   clear() {
     window.sessionStorage.clear();

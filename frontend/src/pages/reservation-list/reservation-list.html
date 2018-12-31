@@ -1,30 +1,31 @@
 <ion-header>
-        <ion-toolbar>
-          <button ion-button left  menuToggle>
-            <ion-icon name="ios-menu" ></ion-icon>
-          </button>
-          <ion-title><h1>예약완료 리스트</h1></ion-title>
-          <button ion-button end right>
-            <ion-icon name="search"></ion-icon>
-          </button>
-        </ion-toolbar>
+  <ion-toolbar>
+    <button ion-button left menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title><h1>예약완료 리스트</h1></ion-title>
+    <button ion-button end right><ion-icon name="search"></ion-icon></button>
+  </ion-toolbar>
 </ion-header>
 <ion-content padding #content>
-  <ion-list>
-      <ion-list-header>
-          2019년 12월 19일
-      </ion-list-header>
-        <ion-item navPush="schedule-detail">
-            <div class="time">
-                <div>12:00AM</div>
-                <div>12:00AM</div>
-            </div>
-            <div class="item-content">
-                <div><span lang="en">LS</span> 에뛰드 촬영</div> 
-                <div>생각을 걷다, 윤모모</div>
-            </div>
-        </ion-item>
-        <ion-list-header>
+  <div *ngFor="let reservation of reservations">
+    <ion-list *ngIf="!reservation.isRemovedReservation">
+      <ion-list-header> {{ reservation.startDate }} </ion-list-header>
+      <ion-item navPush="schedule-detail" [navParams]="reservation">
+        <div class="time">
+          <div>{{ reservation.startTime }}</div>
+          <div>{{ reservation.endTime }}</div>
+        </div>
+        <div class="item-content">
+          <div>
+            <span lang="en">{{ reservation.space }}</span
+            >{{ reservation.title }}
+          </div>
+          <div>{{ reservation.content }}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <!-- <ion-list-header>
             2019년 12월 19일
         </ion-list-header>
           <ion-item navPush="schedule-detail">
@@ -49,6 +50,6 @@
                   <div><span lang="en">LS</span> 네이버 내부 행사</div> 
                   <div>온페이퍼 대행사, 김성화</div>
               </div>
-          </ion-item>
-    </ion-list>
+          </ion-item> -->
+        </div>
 </ion-content>

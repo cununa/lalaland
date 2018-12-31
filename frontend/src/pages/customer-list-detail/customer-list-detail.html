@@ -1,47 +1,43 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button left  navPop>
-        <ion-icon name="ios-arrow-back" ></ion-icon>
-      </button>
-      <ion-title><h1>고객 상세보기</h1></ion-title>
-      <button ion-button right>
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-toolbar>
-  </ion-header>
-
+  <ion-toolbar>
+    <button ion-button left navPop>
+      <ion-icon name="ios-arrow-back"></ion-icon>
+    </button>
+    <ion-title><h1>고객 상세보기</h1></ion-title>
+    <button ion-button right><ion-icon name="search"></ion-icon></button>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content #content>
   <ion-list>
-    <ion-list-header>
-        고객정보
-    </ion-list-header>
+    <ion-list-header> 고객정보 </ion-list-header>
     <ion-item class="name-info">
-      <div>{{company}}</div>
-      <div><strong>{{name}}</strong></div>
-    </ion-item>
-    <ion-item class="num-line">
-      <div>{{phone}}</div>
-      <div class="icon">
-          <ion-icon name="ios-call"></ion-icon>
+      <div>{{ company }}</div>
+      <div>
+        <strong>{{ name }}</strong>
       </div>
     </ion-item>
-    
-      <ion-list-header>
-          2019년 12월 19일
-      </ion-list-header>
-        <ion-item class="history">
-            <div class="time">
-                <div>12:00AM</div>
-                <div>12:00AM</div>
-            </div>
-            <div class="item-content">
-                <div><span lang="en">LS</span> 네이버 내부 행사</div> 
-                <div>온페이퍼 대행사, 김성화</div>
-            </div>
-        </ion-item>
+    <ion-item class="num-line">
+      <div>{{ phone }}</div>
+      <div class="icon"><ion-icon name="ios-call"></ion-icon></div>
+    </ion-item>
+    <ion-list *ngFor="let customerReservation of customerReservations">
+      <ion-list-header>{{ customerReservation.startDate }}</ion-list-header>
+      <ion-item class="history" navPush="schedule-detail" [navParams]='customerReservation'>
+        <div class="time">
+          <div>{{ customerReservation.startTime }}</div>
+          <div>{{ customerReservation.endDate }}</div>
+        </div>
+        <div class="item-content">
+          <div>
+            <span lang="en">{{ customerReservation.space }}</span
+            >{{ customerReservation.title }}
+          </div>
+          <div>{{ customerReservation.content }}</div>
+        </div>
+      </ion-item>
+    </ion-list>
   </ion-list>
-  
 </ion-content>
 <ion-footer>
   <button ion-button class="normal-btn  dark-btn">고객 수정</button>
