@@ -15,9 +15,34 @@
     <ion-list-header>
         {{reservation.startDate}}
     </ion-list-header>
+    <!-- row 형태로 정리한거 -->
+    <!-- <ion-row>
+      <ion-col>
+        <ion-item>
+          <div class="img-line">
+            <div><strong>{{reservation.title}}</strong><br>
+            시작 {{reservation.startTime}}<br>
+            종료 {{reservation.endTime}}<br>
+            철수 {{reservation.withdrawTime}}
+          </div>
+          </div>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <div class="box">
+            <h3 lang="en">{{reservation.space}}</h3>
+          </div>
+        </ion-item>
+      </ion-col>
+      </ion-row> -->
       <ion-item class="first-item">
         <div class="img-line">
-          <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
+          <div><strong>{{reservation.title}}</strong><br>
+          시작 {{reservation.startTime}}<br>
+          종료 {{reservation.endTime}}<br>
+          철수 {{reservation.withdrawTime}}
+        </div>
         </div>
         <div class="box">
           <h3 lang="en">{{reservation.space}}</h3>
