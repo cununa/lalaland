@@ -57,7 +57,7 @@
         <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
       </ion-item>
       <ion-item>
-        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><ion-icon name="ios-call"></ion-icon>
+        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><a ion-button clear [href]="'tel:' + reservation.reservationHolderPhone"><ion-icon name="ios-call"></ion-icon></a>
       </ion-item>
       <ion-item>
         <div><span>회사명</span>{{reservation.company}}</div>
