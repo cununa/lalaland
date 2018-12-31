@@ -21,8 +21,12 @@
     <ion-row>
           <ion-col>
               <ion-item>
-                <ion-label class="schedule-title">에뛰드 촬영</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label class="colorThird">제목</ion-label>
+                <ion-input type="text" [(ngModel)]="form.title"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label class="colorThird">내용</ion-label>
+                <ion-input type="text" [(ngModel)]="form.content"></ion-input>
               </ion-item>
           </ion-col>
         </ion-row>
@@ -31,7 +35,7 @@
         <ion-item>
             <div class="floor">
                 장소
-                <select name="floor" id="selctFloor">
+                <select name="floor" id="selctFloor" [(ngModel)]="form.space">
                   <option value="ls" lang="en">LS</option>
                   <option value="llt" lang="en">LLT</option>
                   <option value="sv" lang="en">SV</option>
@@ -54,7 +58,7 @@
         <ion-col>
             <ion-item>
                 <ion-label class="colorThird">예약자명</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="form.reservationHolderName"></ion-input>
               </ion-item>
         </ion-col>
       </ion-row>
@@ -62,8 +66,8 @@
       <ion-row>
         <ion-col>
             <ion-item>
-              <ion-label class="colorThird">전화번호</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-label class="colorThird">예약자 전화번호</ion-label>
+              <ion-input type="text" [(ngModel)]="form.reservationHolderPhone"></ion-input>
             </ion-item>
         </ion-col>
       </ion-row>
@@ -73,13 +77,13 @@
           <input type="checkbox" id="info" >
         <label for="info"></label> -->
         <ion-label for="info">고객정보 예약자 정보 동일시 체크</ion-label>
-        <ion-checkbox id="info"></ion-checkbox>
+        <ion-checkbox id="info" [(ngModel)]="form.isCustomerInfoSameAsReservationHolder"></ion-checkbox>
       </ion-item>
       <ion-row>
           <ion-col>
               <ion-item>
                 <ion-label class="colorThird">회사명</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="form.company"></ion-input>
               </ion-item>
           </ion-col>
         </ion-row>
@@ -87,15 +91,15 @@
             <ion-col>
                 <ion-item>
                   <ion-label class="colorThird">고객명</ion-label>
-                  <ion-input type="text"></ion-input>
+                  <ion-input type="text" [(ngModel)]="form.customerName"></ion-input>
                 </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
               <ion-col>
                   <ion-item>
-                    <ion-label class="colorThird">전화번호</ion-label>
-                    <ion-input type="text"></ion-input>
+                    <ion-label class="colorThird">고객 전화번호</ion-label>
+                    <ion-input type="text" [(ngModel)]="form.customerPhone"></ion-input>
                   </ion-item>
               </ion-col>
             </ion-row>
@@ -106,12 +110,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">시작</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.start.date"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.startDate"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.start.time"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.startTime"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -119,12 +123,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">종료</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.end.date"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.endDate"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.end.time"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.endTime"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -132,12 +136,12 @@
       <ion-col>
         <ion-item>
           <ion-label class="settime">철수</ion-label>
-          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.lastend.date"></ion-datetime>
+          <ion-datetime displayFormat="YYYY.MM.DD" [(ngModel)]="form.withdrawDate"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.lastend.time"></ion-datetime>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="form.withdrawTime"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>

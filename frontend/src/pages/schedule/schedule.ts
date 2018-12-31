@@ -216,6 +216,7 @@ export class SchedulePage {
           role: 'LaLaLand Studio',
           handler: () => {
             this.navCtrl.push('schedule-reservation', {
+              space: "ls",
               date: date,//클릭한 날짜
               active_date: active_date//클릭한 월
             });
@@ -226,6 +227,7 @@ export class SchedulePage {
           role: 'LaLaLand Looftop',
           handler: () => {
             this.navCtrl.push('schedule-reservation', {
+              space: "llt",
               date: date,//클릭한 날짜
               active_date: active_date//클릭한 월
             });
@@ -236,6 +238,7 @@ export class SchedulePage {
           role: 'Shackespeare Vacation',
           handler: () => {
             this.navCtrl.push('schedule-reservation', {
+              space: "sv",
               date: date,//클릭한 날짜
               active_date: active_date//클릭한 월
             });
