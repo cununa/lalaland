@@ -50,12 +50,12 @@ export class CustomerNoteDetailPage {
 
   openUpdateNoteModal(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', { noteId: this.item._id, method: 'updateNote'}, { cssClass: 'long-modal'}, this.updateNote.bind(this)).present();
+      'popup-note', { noteId: this.item._id, method: 'updateNote'}, { cssClass: 'long-modal'}, this.updateNote.bind(this)).present();
   }
 
   openModalDel(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', {}, { cssClass: 'long-modal'}, this.removeNote.bind(this)).present();
+      'popup-note', {}, { cssClass: 'long-modal'}, this.removeNote.bind(this)).present();
   }
 
   async removeNote() {

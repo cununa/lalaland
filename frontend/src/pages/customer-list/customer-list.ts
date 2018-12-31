@@ -1,6 +1,7 @@
 import { CustomerProvider } from './../../providers/CustomerProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angular';
+import { AlertCtrl } from '../../providers/cat/cat';
 
 /**
  * Generated class for the CustomerListPage page.
@@ -19,13 +20,18 @@ import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angul
 })
 export class CustomerListPage {
   customers = []
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public menuCtrl: MenuController, public customerProvider: CustomerProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams ,
+    public menuCtrl: MenuController, 
+    private alertCtrl: AlertCtrl,
+    public customerProvider: CustomerProvider) {
   }
 
   async ionViewDidLoad() {
     console.log('ionViewDidLoad CustomerListPage');
     await this.customerProvider.getCustomers();
     this.customers = this.customerProvider.customers;
+    console.log('customer')
   }
-
 }
