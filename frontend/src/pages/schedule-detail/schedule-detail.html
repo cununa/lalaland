@@ -66,7 +66,7 @@
         <div><span>고객명</span>{{reservation.customerName}}</div>
       </ion-item>
       <ion-item>
-        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><ion-icon name="ios-call"></ion-icon>
+        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><a ion-button clear [href]="'tel:' + reservation.reservationHolderPhone"><ion-icon name="ios-call"></ion-icon></a>
       </ion-item>
   </ion-list>
   <div class="deposit-btn">

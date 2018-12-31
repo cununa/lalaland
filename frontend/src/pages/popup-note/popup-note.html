@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-row class="input-group">
+  <input class="popinfo" placeholder="제목을 입력하세요" type="text" [(ngModel)]=data.title value="{{data.title}}">
+  </ion-row>
+  <ion-row class="textarea-group">
+  <textarea class="popcontent " placeholder="메모 내용을 입력하세요" type="text" [(ngModel)]=data.content>{{data.content}}</textarea>
+  </ion-row>
+    <ion-row>
+        <ion-col class="popbox left" col-6><button ion-button color="dark" clear block (click)="goBack()">취소</button></ion-col>
+        <ion-col class="popbox right" col-6><button ion-button color="dark" clear block (click)="save()">저장</button></ion-col>
+  </ion-row>
+  </ion-content>

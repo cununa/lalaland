@@ -66,7 +66,7 @@ export class CustomerNotePage {
   
   openModalWrite(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-customer', { method: "createNote"}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
+      'popup-note', { method: "createNote"}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
   }
 
   async getList() {
