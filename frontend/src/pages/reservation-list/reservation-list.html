@@ -8,9 +8,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding #content>
-  <div *ngFor="let reservation of reservations">
+  <div *ngFor="let reservation of reservations; let i = index;">
     <ion-list *ngIf="!reservation.isRemovedReservation">
-      <ion-list-header> {{ reservation.startDate }} </ion-list-header>
+      <ion-list-header *ngIf="i === 0"> {{ reservation.startDate }} </ion-list-header>
+      <ion-list-header *ngIf="i !== 0 && reservations[i-1].startDate !== reservation.startDate"> {{ reservation.startDate }} </ion-list-header>
       <ion-item navPush="schedule-detail" [navParams]="reservation">
         <div class="time">
           <div>{{ reservation.startTime }}</div>
