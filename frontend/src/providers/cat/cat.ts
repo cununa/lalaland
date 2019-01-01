@@ -179,8 +179,11 @@ export class Utils {
     year: 0,
     month: 0,
     date: 0
-  }) {
+  }, staticmonth = false) {
     let date = new Date();
+    if(staticmonth) {
+      date.setDate(15);
+    }
     if (obj.year) {
       date.setFullYear(date.getFullYear() + obj.year);
     }
@@ -191,6 +194,17 @@ export class Utils {
       date.setDate(date.getDate() + obj.date);
     }
     return date.getFullYear() + '-' + this.toXX(date.getMonth() + 1) + '-' + this.toXX(date.getDate());
+  }
+
+  cutDate(str) {
+    return {
+      year: Number(str.substring(0, 4)),
+      month: Number(str.substring(5, 7)) - 1,
+      date: Number(str.substring(8, 10))
+    }
+  }
+  mergeDate(obj) {
+    return obj.year + '-' + this.toXX(obj.month + 1) + '-' + this.toXX(obj.date);
   }
 
   dateCompare(date1: string, date2: string) {

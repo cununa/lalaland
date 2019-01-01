@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <button ion-button left menuToggle>
-      <ion-icon name="ios-menu"></ion-icon>
+    <button ion-button left navPop>
+      <ion-icon name="ios-arrow-back"></ion-icon>
     </button>
     <ion-title>
       <h1>일정예약</h1>
@@ -19,93 +19,93 @@
       일정 정보
     </ion-list-header> -->
     <ion-row>
-          <ion-col>
-              <ion-item>
-                <ion-label class="colorThird">제목</ion-label>
-                <ion-input type="text" [(ngModel)]="form.title"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label class="colorThird">내용</ion-label>
-                <ion-input type="text" [(ngModel)]="form.content"></ion-input>
-              </ion-item>
-          </ion-col>
-        </ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">제목</ion-label>
+          <ion-input type="text" [(ngModel)]="form.title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="colorThird">내용</ion-label>
+          <ion-input type="text" [(ngModel)]="form.content"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-            <div class="floor">
-                장소
-                <select name="floor" id="selctFloor" [(ngModel)]="form.space">
-                  <option value="ls" lang="en">LS</option>
-                  <option value="llt" lang="en">LLT</option>
-                  <option value="sv" lang="en">SV</option>
-                </select>
-              </div>
+          <div class="floor">
+            장소
+            <select name="floor" id="selctFloor" [(ngModel)]="form.space">
+              <option value="ls" lang="en">LS</option>
+              <option value="llt" lang="en">LLT</option>
+              <option value="sv" lang="en">SV</option>
+            </select>
+          </div>
         </ion-item>
       </ion-col>
       <ion-col>
         <ion-item>
-            <div class="manager">
-                <div>담당 <span>구지영</span></div>
-              </div>
+          <div class="manager">
+            <div>담당 <span>구지영</span></div>
+          </div>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-list-header>
-        예약자 정보
-      </ion-list-header>
-      <ion-row>
-        <ion-col>
-            <ion-item>
-                <ion-label class="colorThird">예약자명</ion-label>
-                <ion-input type="text" [(ngModel)]="form.reservationHolderName"></ion-input>
-              </ion-item>
-        </ion-col>
-      </ion-row>
-    
-      <ion-row>
-        <ion-col>
-            <ion-item>
-              <ion-label class="colorThird">예약자 전화번호</ion-label>
-              <ion-input type="text" [(ngModel)]="form.reservationHolderPhone"></ion-input>
-            </ion-item>
-        </ion-col>
-      </ion-row>
-      
-      <ion-item>
-        <!-- <span> 고객정보 예약자와 동일</span>
+      예약자 정보
+    </ion-list-header>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">예약자명</ion-label>
+          <ion-input type="text" [(ngModel)]="form.reservationHolderName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">예약자 전화번호</ion-label>
+          <ion-input type="tel" filter="number" max="20" [(ngModel)]="form.reservationHolderPhone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-item>
+      <!-- <span> 고객정보 예약자와 동일</span>
           <input type="checkbox" id="info" >
         <label for="info"></label> -->
-        <ion-label for="info">고객정보 예약자 정보 동일시 체크</ion-label>
-        <ion-checkbox id="info" [(ngModel)]="form.isCustomerInfoSameAsReservationHolder"></ion-checkbox>
-      </ion-item>
-      <ion-row>
-          <ion-col>
-              <ion-item>
-                <ion-label class="colorThird">회사명</ion-label>
-                <ion-input type="text" [(ngModel)]="form.company"></ion-input>
-              </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <ion-item>
-                  <ion-label class="colorThird">고객명</ion-label>
-                  <ion-input type="text" [(ngModel)]="form.customerName"></ion-input>
-                </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                  <ion-item>
-                    <ion-label class="colorThird">고객 전화번호</ion-label>
-                    <ion-input type="text" [(ngModel)]="form.customerPhone"></ion-input>
-                  </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-list-header>
-                일정 정보
-              </ion-list-header>
+      <ion-label for="info">고객정보 예약자 정보 동일시 체크</ion-label>
+      <ion-checkbox id="info" [(ngModel)]="form.isCustomerInfoSameAsReservationHolder"></ion-checkbox>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">회사명</ion-label>
+          <ion-input type="text" [(ngModel)]="form.company"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">고객명</ion-label>
+          <ion-input type="text" [(ngModel)]="form.customerName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">고객 전화번호</ion-label>
+          <ion-input type="text" filter="number" max="20" [(ngModel)]="form.customerPhone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-list-header>
+      일정 정보
+    </ion-list-header>
     <ion-row>
       <ion-col>
         <ion-item>

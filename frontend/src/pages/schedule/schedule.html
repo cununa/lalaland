@@ -50,7 +50,9 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of prev_3_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of prev_3_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(prev_3_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -63,7 +65,9 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of prev_2_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of prev_2_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(prev_2_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -76,7 +80,9 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of prev_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of prev_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(prev_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -90,7 +96,9 @@
               <ion-col *ngFor="let date of active_date.prev_date"></ion-col>
               <!-- <ion-col *ngFor="let date of active_date.date" (click)="openDetail(date, active_date)">{{ date }} -->
               <ion-col *ngFor="let date of active_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(active_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -103,7 +111,9 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of next_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of next_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(next_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -116,7 +126,9 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of next_2_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of next_2_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div class="dot">
+                  <div *ngFor="let dot of activeDate(next_2_date, date)" [ngClass]="dot"></div>
+                </div>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -129,7 +141,7 @@
             <ion-row class="calendar-row">
               <ion-col *ngFor="let date of next_3_date.prev_date"></ion-col>
               <ion-col *ngFor="let date of next_3_date.date" (click)="presentActionSheet(date, active_date)">{{ date }}
-                <div class="dot"></div>
+                <div *ngFor="let dot of activeDate(next_3_date, date)" [ngClass]="dot"></div>
               </ion-col>
             </ion-row>
           </ion-grid>

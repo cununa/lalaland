@@ -62,12 +62,13 @@ page-schedule {
     .grid {
       align-items: stretch;
       justify-content: stretch;
+      padding-bottom: 1.4rem;
     }
 
     .month {
       font-size: $font-size-l;
       color: color($colors, primary);
-      padding: 1rem;
+      padding: .8rem 0 .2rem;
     }
 
     .calendar-row {
@@ -83,12 +84,27 @@ page-schedule {
   }
 
   .dot {
-    background: color($colors, gray);
-    border-radius: 50%;
-    width: .6rem;
-    height: .6rem;
     position: absolute;
-    top: calc(50% + 1.3rem);
+    top: calc(50% + .4rem);
+
+    .gray {
+      display: inline-block;
+      width: .4rem;
+      height: .4rem;
+      background: color($colors, third);
+      border-radius: 50%;
+      line-height: 1.1em;
+      margin: 0 .1rem;
+    }
+    .red {
+      display: inline-block;
+      width: .4rem;
+      height: .4rem;
+      background: color($colors, danger);
+      border-radius: 50%;
+      line-height: 1.1em;
+      margin: 0 .1rem;
+    }
   }
 
   .visible {

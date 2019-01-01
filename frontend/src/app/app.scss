@@ -1,200 +1,268 @@
-
 // init
-body{
-    font-size: 10px;
-    font-family: 'Noto Sans KR', sans-serif;
-    div,p,span,h1,h2,h3,h4 {
-        :lang(en){
-            font-family: futura-pt, sans-serif;
-        }
+body {
+  font-size: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  div,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4 {
+    :lang(en) {
+      font-family: futura-pt, sans-serif;
     }
+  }
 }
-ion-app.md{
-    font-family: 'Noto Sans KR', sans-serif;
-    div,p,span,h1,h2,h3,h4 {
-        :lang(en){
-            font-family: futura-pt, sans-serif;
-        }
+
+ion-app.md {
+  font-family: 'Noto Sans KR', sans-serif;
+
+  div,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4 {
+    :lang(en) {
+      font-family: futura-pt, sans-serif;
     }
+  }
 }
-ion-app.ios{
-    font-family: 'Noto Sans KR', sans-serif;
-    div,p,span,h1,h2,h3,h4 {
-        :lang(en){
-            font-family: futura-pt, sans-serif;
-        }
+
+ion-app.ios {
+  font-family: 'Noto Sans KR', sans-serif;
+
+  div,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4 {
+    :lang(en) {
+      font-family: futura-pt, sans-serif;
     }
+  }
 }
-.header::after{
-    background: none;
+
+.header::after {
+  background: none;
 }
-.item-md{
-    padding: 0 1.6rem;
+
+.item-md {
+  padding: 0 1.6rem;
 }
-.item-inner{
-    padding: 0 !important;
+
+.item-inner {
+  padding: 0 !important;
 }
+
 // init end
 
-ion-header{
-    .date-list{
-        background: color($colors,light);
+ion-header {
+  .date-list {
+    background: color($colors, light);
+  }
+
+  .toolbar-background-md {
+    background: none;
+  }
+
+  .toolbar-md {
+    padding: 0 16px;
+  }
+
+  .button-md {
+    margin: 0;
+    padding: 0;
+  }
+
+  .toolbar-content {
+    display: flex;
+  }
+
+  .bar-button-md {
+    margin: 0;
+    padding: 0;
+  }
+
+  .button-inner {
+    width: unset;
+  }
+
+  .bar-button-menutoggle-md ion-icon {
+    padding: 0;
+  }
+
+  .bar-button-menutoggle-md {
+    min-width: unset;
+  }
+
+  background: color($colors, danger);
+
+  // background: color($colors,secondary);
+  ion-title {
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    color: color($colors, light);
+    font-size: $font-size-l;
+    font-weight: $font-weight-thin;
+  }
+
+  button {
+    border: 0;
+    background: none !important;
+    box-shadow: none !important;
+
+    ion-icon {
+      color: color($colors, light);
+      font-size: $font-size-xl;
     }
-    .toolbar-background-md{
-        background: none;
+
+    .ion-md-search {
+      color: color($colors, danger);
     }
-    .toolbar-md{
-        padding: 0 16px;
-    }
-    .button-md{
-        margin: 0;
-        padding: 0;
-    }
-    .toolbar-content{
-       display: flex;
-    }
-    .bar-button-md{
-        margin: 0;
-        padding: 0;
-    }
-    .button-inner{
-        width: unset;
-    }
-    .bar-button-menutoggle-md ion-icon{
-        padding: 0;
-    }
-    .bar-button-menutoggle-md{
-        min-width: unset;
-    }
-    background: color($colors,danger);
-    // background: color($colors,secondary);
-    ion-title{
-        text-align: center;
-    }
-    h1{
-        margin: 0;
-        color:color($colors,light);
-        font-size : $font-size-l;
-        font-weight: $font-weight-thin;
-    }
-    button{
-        border: 0;
-        background: none !important;
-        box-shadow: none !important;
-        ion-icon{
-            color:color($colors,light);
-            font-size: $font-size-xl;
-        }
-        .ion-md-search{
-            color:color($colors,danger);
-        }
-    }
+  }
 }
+
 //ion-header
-.list-header-md{
-    border: none;
+.list-header-md {
+  border: none;
 }
-.button-md{
-    box-shadow: none;
+
+.button-md {
+  box-shadow: none;
 }
-ion-content{
-    .container{
-        padding: 1.6rem;
-        width: 100%;
-        height: 100%;
-    }
-    // init
-    ul,ol{
-        margin: 0;
-        padding-left: 2rem;
-    }
-   
+
+ion-content {
+  .container {
+    padding: 1.6rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  // init
+  ul,
+  ol {
+    margin: 0;
+    padding-left: 2rem;
+  }
+
+  padding: 0 !important;
+
+  .scroll-content {
     padding: 0 !important;
-    .scroll-content{
-        padding: 0 !important;
+  }
+
+  .list-header-md {
+    margin-bottom: 0;
+  }
+
+  .list-ios>.item-block:last-child,
+  .list-ios>.item-wrapper:last-child .item-block {
+    border: unset;
+  }
+
+  // 
+  .normal-btn {
+    width: 90%;
+    margin: 1rem auto;
+    border-radius: unset;
+    ;
+    padding: 1rem 0;
+    height: unset;
+
+    .button-inner {
+      padding: 1rem 0;
     }
-    .list-header-md{
-        margin-bottom: 0;
+  }
+
+  .item-inner {
+    border: unset !important;
+  }
+
+  ion-list {
+    width: 100%;
+    padding: 0 0 1rem 0;
+
+    // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
+    ion-list-header {
+      background: color($colors, secondary) !important;
+      font-size: $font-size-n !important;
+      font-weight: $font-weight-thin;
+      border: unset !important;
+      color: color($colors, danger) !important;
     }
-    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
-        border: unset ;
-    }
-    // 
-    .normal-btn{
-        width: 90%;
-        margin: 1rem auto;
-        border-radius: unset;;
-        padding: 1rem 0;
-        height: unset;
-        .button-inner{
-            padding: 1rem 0;
-        }
-    }
-    
-    .item-inner{
-        border: unset !important;
-    }
-    
-    ion-list{
-        width: 100%;
-        padding:0 0 1rem 0;
-        // border-bottom: 1px solid color($colors, dark); // 영역이 어디까지 잡혀있는지 보여줌
-        ion-list-header{
-            background: color($colors, secondary) !important;
-            font-size: $font-size-n !important;
-            font-weight: $font-weight-thin;
-            border: unset !important;
-            color : color($colors,danger) !important;
-        }
-        // 아이콘 
-    }       
+
+    // 아이콘 
+  }
 }
+
 //ion-content
 
-ion-footer{
-    display: flex;
-    background: color($colors, secondary);
-    bottom: 0;
-    // padding: 0 1.5rem;
-    .button-md:hover:not(.disable-hover){
-        background: color($colors ,danger);
+ion-footer {
+  display: flex;
+  background: color($colors, secondary);
+  bottom: 0;
+
+  // padding: 0 1.5rem;
+  .button-md:hover:not(.disable-hover) {
+    background: color($colors, danger);
+  }
+
+  button {
+
+    border-top: .1rem solid color($colors, danger);
+
+    &:hover:not(.disable-hover) {
+      background: color($colors, danger);
     }
-    button{
-        
-        border-top: .1rem solid color($colors, danger);
-        &:hover:not(.disable-hover){
-            background: color($colors ,danger);
-        }
+  }
+
+  .normal-btn {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    margin: 0;
+    border-radius: unset;
+    ;
+
+    &.btn-margin {
+      padding: 0 1rem;
+      margin: 1rem .2rem;
     }
-    .normal-btn{
-        width: 100%;
-        height: 100%;
-        padding: 1rem 0;
-        margin: 0;
-        border-radius: unset;;
-        &.btn-margin{
-            padding: 0 1rem;
-            margin: 1rem .2rem;
-        }
-        .button-inner{padding: 1rem 0;}
+
+    .button-inner {
+      padding: 1rem 0;
     }
-    &:before{
-        background-image: none !important;
-    }
+  }
+
+  &:before {
+    background-image: none !important;
+  }
 }
+
 // ion-icon
-.ion-ios-call{
-    color : color($colors,danger);
-    font-size: $font-size-l;
+.ion-ios-call {
+  color: color($colors, danger);
+  font-size: $font-size-l;
 }
-.ion-ios-arrow-forward-outline{
-    color: color($colors,danger);
-    font-size: 2.2rem;
-    text-align: right;
+
+.ion-ios-arrow-forward-outline {
+  color: color($colors, danger);
+  font-size: 2.2rem;
+  text-align: right;
 }
-.ion-md-search{
-    color: colors($colors,danger);
-    width: 22px;
+
+.ion-md-search {
+  color: colors($colors, danger);
+  width: 22px;
 }
 
 
@@ -202,304 +270,475 @@ ion-footer{
 
 
 // 버튼 모양
-.outline-dark-btn{
-    // border-top: 1px solid color($colors, dark);
-    background: color($colors , secondary);
-    color: color($colors ,dark);
-    font-weight: $font-weight-thin;
+.outline-dark-btn {
+  // border-top: 1px solid color($colors, dark);
+  background: color($colors, secondary);
+  color: color($colors, dark);
+  font-weight: $font-weight-thin;
 }
-.outline-light-btn{
-    outline: 1px solid color($colors, light);
-    background: color($colors , secondary);
-    color: color($colors , light);
-    font-weight: $font-weight-thin;
+
+.outline-light-btn {
+  outline: 1px solid color($colors, light);
+  background: color($colors, secondary);
+  color: color($colors, light);
+  font-weight: $font-weight-thin;
 }
-.outline-danger-btn{
-    outline: 1px solid color($colors, danger);
-    background: color($colors , secondary);
-    color: color($colors ,danger);
-    font-weight: $font-weight-thin;
+
+.outline-danger-btn {
+  outline: 1px solid color($colors, danger);
+  background: color($colors, secondary);
+  color: color($colors, danger);
+  font-weight: $font-weight-thin;
 }
-.light-btn{
-    background: color($colors, light);
-    color: color($colors, secondary);
-    font-weight: $font-weight-thin;
+
+.light-btn {
+  background: color($colors, light);
+  color: color($colors, secondary);
+  font-weight: $font-weight-thin;
 }
-.danger-btn{
-    background: color($colors , danger);
-    color: color($colors, secondary);
-    &:hover{
-        background: color($colors , gray);
-        color: color($colors, dark);
-        font-weight: $font-weight-thin;
-    }
-}
-.dark-btn{
-    background: color($colors , dark);
-    color: color($colors, secondary);
+
+.danger-btn {
+  background: color($colors, danger);
+  color: color($colors, secondary);
+
+  &:hover {
+    background: color($colors, gray);
+    color: color($colors, dark);
     font-weight: $font-weight-thin;
+  }
+}
+
+.dark-btn {
+  background: color($colors, dark);
+  color: color($colors, secondary);
+  font-weight: $font-weight-thin;
 }
 
 
 
 // menu
-.item-inner{
-    min-height:2rem;
+.item-inner {
+  min-height: 2rem;
 }
-.label-md{
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.profile{
-    padding: 5rem 0 2rem;;
 
+.label-md {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.profile {
+  padding: 5rem 0 2rem;
+  ;
+
+  margin: auto;
+  text-align: center;
+
+  .card-img {
     margin: auto;
-    text-align: center;
-    .card-img{
-        margin: auto;
-        width: 10rem;
-        height: 10rem;
-        border-radius: 100%;
-        background: color($colors,danger);
-    }
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    background: color($colors, danger);
+  }
 }
-.close-btn{
-    position: absolute;
-    top: .5rem;
-    right: 1rem;
-    font-size: $font-size-xl;
-}
-.menu-top-m{
 
-    p{
-        margin: 2rem 0 0 0 ;
+.close-btn {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  font-size: $font-size-xl;
+}
+
+.menu-top-m {
+
+  p {
+    margin: 2rem 0 0 0;
+  }
+
+  button {
+    padding: .5rem 0;
+    display: flex;
+    padding-left: 2rem;
+
+    span {
+      &:first-child {
+        flex: 7;
+      }
     }
-    button{
-        padding: .5rem 0 ;
-        display: flex;
-        padding-left: 2rem;
-        span{
-            &:first-child{
-                flex: 7;
-            }
-        }
-    } 
+  }
 }
 
 //modal
 .small-modal {
-    ion-backdrop {
-        visibility: visible;
-    }
-    .modal-wrapper {
-        left: calc(50% - 150px);
-        top: calc(50% - 62px);
-        //부모의 50%에서 나의 50%를 빼면 중앙정렬
-        width: 300px;
-        height: 124px;
-        z-index: 3;
-        position: relative;
-    }
+  ion-backdrop {
+    visibility: visible;
+  }
+
+  .modal-wrapper {
+    left: calc(50% - 150px);
+    top: calc(50% - 62px);
+    //부모의 50%에서 나의 50%를 빼면 중앙정렬
+    width: 300px;
+    height: 124px;
+    z-index: 3;
+    position: relative;
+  }
 }
+
 .long-modal {
-    ion-backdrop {
-        visibility: visible;
-    }
-    .modal-wrapper {
-        left: calc(50% - 150px);
-        top: calc(50% - 110px);
-        //부모의 50%에서 나의 50%를 빼면 중앙정렬
-        width: 300px;
-        height: 220px;
-        z-index: 3;
-        position: relative;
-    }
+  ion-backdrop {
+    visibility: visible;
+  }
+
+  .modal-wrapper {
+    left: calc(50% - 150px);
+    top: calc(50% - 110px);
+    //부모의 50%에서 나의 50%를 빼면 중앙정렬
+    width: 300px;
+    height: 220px;
+    z-index: 3;
+    position: relative;
+  }
 }
 
-.textarea-group{
-    margin-bottom: 1rem;
-    font-size: $font-size-n;
-    textarea{
-        box-shadow: none;
-        border: 0;
-        border-bottom: .1rem solid color($colors, danger);
-        text-align: center;
-        max-width: 26rem;
-        width: 85%;
-        padding: .6rem;
-        resize: none;
+.textarea-group {
+  margin-bottom: 1rem;
+  font-size: $font-size-n;
 
-        &:focus{
-            border: .1rem solid color($colors, danger);
-        }
+  textarea {
+    box-shadow: none;
+    border: 0;
+    border-bottom: .1rem solid color($colors, danger);
+    text-align: center;
+    max-width: 26rem;
+    width: 85%;
+    padding: .6rem;
+    resize: none;
 
-        $placeholder-color:color($colors, danger);
-        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: $placeholder-color;
-            opacity: 1; /* Firefox */
-        }
-        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: $placeholder-color;
-        }
-        &::-ms-input-placeholder { /* Microsoft Edge */
-            color: $placeholder-color;
-        }
-
-        &[readonly] {
-            border-bottom: .1rem solid color($colors, danger);
-            $placeholder-color:color($colors, danger);
-            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: $placeholder-color;
-                opacity: 1; /* Firefox */
-            }
-            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $placeholder-color;
-            }
-            &::-ms-input-placeholder { /* Microsoft Edge */
-                color: $placeholder-color;
-            }
-        }
-    }  
-}
-.input-group{
-    margin-bottom: 1rem;
-    font-size: $font-size-n;
-    input{
-        box-shadow: none;
-        border: 0;
-        border-bottom: .1rem solid color($colors, danger);
-        text-align: center;
-        max-width: 26rem;
-        width: 85%;
-        padding: .6rem;
-        
-        &:focus{
-            border-bottom: .1rem solid color($colors, danger);
-        }
-
-        $placeholder-color:color($colors, danger);
-        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: $placeholder-color;
-            opacity: 1; /* Firefox */
-        }
-        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: $placeholder-color;
-        }
-        &::-ms-input-placeholder { /* Microsoft Edge */
-            color: $placeholder-color;
-        }
-
-        &[readonly] {
-            border-bottom: .1rem solid color($colors, danger);
-            $placeholder-color:color($colors, danger);
-            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: $placeholder-color;
-                opacity: 1; /* Firefox */
-            }
-            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $placeholder-color;
-            }
-            &::-ms-input-placeholder { /* Microsoft Edge */
-                color: $placeholder-color;
-            }
-        }
+    &:focus {
+      border: .1rem solid color($colors, danger);
     }
-    caption {
-        display: block;
-        font-size: $font-size-s;
-        margin-top: .4rem;
+
+    $placeholder-color:color($colors, danger);
+
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $placeholder-color;
+      opacity: 1;
+      /* Firefox */
     }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $placeholder-color;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: $placeholder-color;
+    }
+
+    &[readonly] {
+      border-bottom: .1rem solid color($colors, danger);
+      $placeholder-color: color($colors, danger);
+
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $placeholder-color;
+        opacity: 1;
+        /* Firefox */
+      }
+
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $placeholder-color;
+      }
+
+      &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $placeholder-color;
+      }
+    }
+  }
 }
+
+.input-group {
+  margin-bottom: 1rem;
+  font-size: $font-size-n;
+
+  input {
+    box-shadow: none;
+    border: 0;
+    border-bottom: .1rem solid color($colors, danger);
+    text-align: center;
+    max-width: 26rem;
+    width: 85%;
+    padding: .6rem;
+
+    &:focus {
+      border-bottom: .1rem solid color($colors, danger);
+    }
+
+    $placeholder-color:color($colors, danger);
+
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $placeholder-color;
+      opacity: 1;
+      /* Firefox */
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $placeholder-color;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: $placeholder-color;
+    }
+
+    &[readonly] {
+      border-bottom: .1rem solid color($colors, danger);
+      $placeholder-color: color($colors, danger);
+
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $placeholder-color;
+        opacity: 1;
+        /* Firefox */
+      }
+
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $placeholder-color;
+      }
+
+      &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $placeholder-color;
+      }
+    }
+  }
+
+  caption {
+    display: block;
+    font-size: $font-size-s;
+    margin-top: .4rem;
+  }
+}
+
 .ready-active {
+  overflow: visible;
+  color: color($colors, dark) !important;
+
+  .item-inner {
     overflow: visible;
-    color: color($colors, dark) !important;
-    .item-inner {
-        overflow: visible;
+  }
+
+  .input-wrapper {
+    overflow: visible;
+  }
+
+  .label {
+    overflow: visible;
+    position: relative;
+    font-size: $font-size-n;
+    color: color($colors, dark);
+    font-weight: $font-weight-bold;
+
+    span {
+      position: relative;
+
+      &::before {
+        content: '';
+        background-color: color($colors, danger);
+        position: absolute;
+        top: calc(50% - .5rem);
+        left: - .5rem;
+        width: calc(100% + 1rem);
+        height: 1rem;
+        z-index: -1;
+        transition: transform .4s;
+        transform: translate3d(-30rem, 0, 0);
+      }
     }
-    .input-wrapper {
-        overflow: visible;
+
+    &::after {
+      content: ">";
+      position: relative;
+      left: 1rem;
+      top: -.1rem;
+      font-size: .7em;
+      color: #000000;
     }
-    .label {
-        overflow: visible;
-        position: relative;
-        font-size: $font-size-n;
-        color: color($colors, dark);
-        font-weight: $font-weight-bold;
-        span {
-            position: relative;
-            &::before {
-                content: '';
-                background-color: color($colors, danger);
-                position: absolute;
-                top: calc(50% - .5rem);
-                left: - .5rem;
-                width: calc(100% + 1rem);
-                height: 1rem;
-                z-index: -1;
-                transition: transform .4s;
-                transform: translate3d(-30rem, 0, 0);
-            }
-        }
-        &::after {
-            content: ">";
-            position: relative;
-            left: 1rem;
-            top: -.1rem;
-            font-size: .7em;
-            color: #000000;
-        }
-        .no{
-            flex: 3;
-            padding-left: .5rem;
-            color: color($colors,danger)
-        }
+
+    .no {
+      flex: 3;
+      padding-left: .5rem;
+      color: color($colors, danger)
     }
+  }
 }
+
 .ready-active.active {
-    .label {
-        color: color($colors, dark);
-        font-weight: $font-weight-bold;
-        overflow: visible;
+  .label {
+    color: color($colors, dark);
+    font-weight: $font-weight-bold;
+    overflow: visible;
 
-        .text {
-            position: relative;
-            &::before {
-                content: '';
-                background-color: color($colors, danger);
-                position: absolute;
-                top: calc(50% - .5rem);
-                left: - .5rem;
-                width: calc(100% + 1rem);
-                height: 1rem;
-                z-index: -1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
+    .text {
+      position: relative;
 
+      &::before {
+        content: '';
+        background-color: color($colors, danger);
+        position: absolute;
+        top: calc(50% - .5rem);
+        left: - .5rem;
+        width: calc(100% + 1rem);
+        height: 1rem;
+        z-index: -1;
+        transform: translate3d(0, 0, 0);
+      }
     }
+
+  }
+}
+
+//modal types
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.type-action-sheet {
+  ion-backdrop {
+    visibility: visible;
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    contain: content;
+  }
+
+  .ion-page {
+    position: relative;
+    height: auto;
+    contain: content;
+    background-color: white;
+  }
+}
+
+//modal types
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.type-action-sheet {
+  ion-backdrop {
+    visibility: visible;
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    contain: content;
+  }
+
+  .ion-page {
+    position: relative;
+    height: auto;
+    contain: content;
+    background-color: white;
+  }
+}
+
+//modal types
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.type-action-sheet {
+  ion-backdrop {
+    visibility: visible;
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    contain: content;
+  }
+
+  .ion-page {
+    position: relative;
+    height: auto;
+    contain: content;
+    background-color: white;
+  }
 }
 
 //god loader
 .animated-background {
-    animation-duration: 1.25s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeHolderShimmer;
-    animation-timing-function: linear;
-    background: #F6F6F6;
-    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
-    background-size: 800px 104px;
-    position: relative;
-    color: transparent !important;
-    border: transparent !important;
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #F6F6F6;
+  background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+  background-size: 800px 104px;
+  position: relative;
+  color: transparent !important;
+  border: transparent !important;
 }
 
 @keyframes placeHolderShimmer {
-    from {
-        background-position: -468px 0;
-    }
+  from {
+    background-position: -468px 0;
+  }
 
     to {
         background-position: 468px 0;
     }
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+    border-bottom-color: #999;
+    -webkit-box-shadow: inset 0 0px 0 0 #999;
+    box-shadow: inset 0 0px 0 0 #999;
+}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+    border-bottom-color: #999;
+    -webkit-box-shadow: inset 0 0px 0 0 #999;
+    box-shadow: inset 0 0px 0 0 #999;
+}
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: #ed6ea7;
+  -webkit-box-shadow: inset 0 -1px 0 0 #ed6ea7;
+  box-shadow: inset 0 0px 0 0 #ed6ea7;
 }

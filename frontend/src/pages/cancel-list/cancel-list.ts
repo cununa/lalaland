@@ -42,9 +42,11 @@ export class CancelListPage {
     })
   }
 
+
   async ionViewDidLoad() {
     console.log("ionViewDidLoad CancelListPage");
     await this.reservationProvider.getReservations();
     this.removedReservations = this.reservationProvider.reservations.filter(reservation => reservation.isRemovedReservation === true);
   }
+
 }

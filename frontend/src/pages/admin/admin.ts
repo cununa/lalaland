@@ -56,7 +56,7 @@ export class AdminPage {
         break;
       default:
         this.user.set(result);
-        this.events.publish("user:loggedIn")
+        this.events.publish("user:loggedIn");
         this.navCtrl.setRoot('schedule', {}, {
           animate: true
         });

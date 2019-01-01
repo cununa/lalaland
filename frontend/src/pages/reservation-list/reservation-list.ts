@@ -26,6 +26,9 @@ import { ReservationProvider } from "../../providers/ReservationProvider";
 })
 export class ReservationListPage {
   reservations: IReservation[] = [];
+
+  event_1 = null;
+
   constructor(
     private events: Events,
     public navCtrl: NavController,
@@ -33,15 +36,18 @@ export class ReservationListPage {
     public menuCtrl: MenuController,
     private reservationProvider: ReservationProvider
   ) {
-    this.events.subscribe('reservation:reservationRemoved', () => {
-      console.log("ReservationListPage", this.reservationProvider.reservations)
-      this.reservations = this.reservationProvider.reservations
-    })
   }
 
   async ionViewDidLoad() {
-    console.log("ionViewDidLoad ReservationListPage");
+    this.event_1 = this.getList.bind(this);
+    this.events.subscribe('reservation:reservationRemoved', this.event_1);
     await this.reservationProvider.getReservations();
+    this.reservations = this.reservationProvider.reservations;
+  }
+  ionViewWillUnload(){
+    this.events.unsubscribe('reservation:reservationRemoved', this.event_1);
+  }
+  getList() {
     this.reservations = this.reservationProvider.reservations;
   }
 }
