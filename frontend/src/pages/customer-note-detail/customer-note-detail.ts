@@ -60,7 +60,6 @@ export class CustomerNoteDetailPage {
 
   async removeNote() {
     const result = await this.connect.run({route: `note/${this.item._id}`, method: 'delete'})
-    console.log("remov eNote?? result", result);
     if (result.n === 1 && result.ok === 1) {
       this.note.removeNote(this.item._id);
     } else {

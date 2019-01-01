@@ -7,24 +7,31 @@ const config = require('config')
 const jwt = require('jsonwebtoken')
 const userModel = require('../model/user-model')
 const noteModel = require('../model/note-model')
+const reservationModel = require('../model/reservation-model')
+const customerModel = require('../model/customer-model')
 
 const assignToken = (userData) => {
     const { _id, email, name, phone } = userData; 
     const jwtToken = jwt.sign({ _id, email, name, phone }, config.app.secret)
     return jwtToken
 }
-
+exports.assignToken = assignToken;
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
     if (user && req.body.password === user.password) {
-        const result = await noteModel.find({ userId: user._id})
-      res.json({ 
-        accessToken: assignToken(user),
-        email: user.email,
-        name: user.name,
-        phone: user.phone,
-        notesCount: result.length
-      })
+        const reservationResult = await reservationModel.find({ userId: user._id });
+        const noteResult = await noteModel.find({ userId: user._id})
+        const customerResult = await customerModel.find({ userId: user._id})
+        res.json({ 
+            accessToken: assignToken(user),
+            email: user.email,
+            name: user.name,
+            phone: user.phone,
+            notesCount: noteResult.length,
+            reservationsCount: reservationResult.filter((reservation) => reservation.isRemovedReservation === false).length,
+            removedReservationsCount: reservationResult.filter((reservation) => reservation.isRemovedReservation === true).length,
+            customersCount: customerResult.length
+        })
     } else {
         // throw 'login error'
         res.json({code:1000, message: '아이디 또는 비밀번호를 확인하세요.'})
@@ -52,6 +59,10 @@ exports.login = async (req, res) => {
         name: result.name,
         phone: result.phone,
         email: result.email,
+        notesCount: 0,
+        reservationsCount: 0,
+        removedReservationsCount: 0,
+        customersCount: 0,
         accessToken: assignToken(result)
     }
 

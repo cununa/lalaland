@@ -16,13 +16,11 @@
         <div>
           <input type="text" class="secondary-btn normal-btn" placeholder="Name" [(ngModel)]="form.name"> 
           <input type="text" class="secondary-btn normal-btn" placeholder="MobilePhone Number" [(ngModel)]="form.phone"> 
-          <input type="email" class="secondary-btn normal-btn" placeholder="Email" [(ngModel)]="form.email"> 
-          <input type="password" class="secondary-btn normal-btn" placeholder="password" [(ngModel)]="form.password">
-          <input type="password" class="secondary-btn normal-btn" placeholder="check your password" [(ngModel)]="form.doubleCheckPassword">
+          <input type="email" class="secondary-btn normal-btn" placeholder="이메일 회원가입" [(ngModel)]="form.email"> 
+          <input type="password" class="secondary-btn normal-btn" placeholder="패스워드" [(ngModel)]="form.password">
+          <input type="password" class="secondary-btn normal-btn" placeholder="패스워드 확인" [(ngModel)]="form.doubleCheckPassword">
+          <button class="normal-btn dark-btn" ion-button (click)="submit()">확인</button>
         </div>
       </div>       
   </div>
   </ion-content>
-  <ion-footer>
-      <button ion-button class="normal-btn dark-btn" (click)="submit()">확인</button>
-  </ion-footer>

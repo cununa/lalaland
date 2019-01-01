@@ -13,57 +13,45 @@
 <ion-content  #content>
   <ion-list>
     <ion-list-header>
-        2018년 11월 23일
+        {{reservation.startDate}}
     </ion-list-header>
       <ion-item class="first-item">
         <div class="img-line">
-          <div><strong> 웰스 정수기 </strong>12:00AM - 12:00AM</div>
+          <div><strong>{{reservation.title}}</strong>{{reservation.startTime}} - {{reservation.withdrawTime}}</div>
         </div>
         <div class="box">
-          <h3 lang="en">LS</h3>
+          <h3 lang="en">{{reservation.space}}</h3>
         </div>
       </ion-item>
       <ion-item>
-        <div><span>담당</span>김민수</div>
+        <div><span>담당자</span>구지영</div>
       </ion-item>
       <ion-item>
-        <div>
-          <span>예약</span>
-          <div> 
-            에어전시프로드, 박용식 실장
-           <br>
-           010-6516-6521
-          </div>
-         
-        </div>
-        <ion-icon name="ios-call-outline"></ion-icon>
+        <div><span>예약자명</span>{{reservation.company}}, {{reservation.reservationHolderName}}</div>
       </ion-item>
       <ion-item>
-        <div>
-          <span>회사</span>
-        </div>
-        <div></div>
+        <div><span>전화번호</span>{{reservation.reservationHolderPhone}}</div><ion-icon name="ios-call"></ion-icon>
       </ion-item>
       <ion-item>
-        <div>
-          <span>고객</span>
-          한컴
-        </div>
-        <ion-icon name="ios-call"></ion-icon>
+        <div><span>회사명</span>{{reservation.company}}</div>
       </ion-item>
-     
-     
-      
+      <ion-item>
+        <div><span>고객명</span>{{reservation.customerName}}</div>
+      </ion-item>
+      <ion-item>
+        <div><span>고객 전화번호</span>{{reservation.customerPhone}}</div><ion-icon name="ios-call"></ion-icon>
+      </ion-item>
   </ion-list>
   <div class="deposit-btn">
-    <button ion-button class="normal-btn primary-btn">계약금 입금 완료</button>
+    <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">입금 단계 선택 하기</button>
   </div>
  
   <div class="text-box">
-    <span>최종입금이 완료되었습니다</span>
+    <span>{{reservation.downPayment ? "계약금, ": ""}}{{reservation.intermediatePayment ? "중도금, " : ""}}{{reservation.finalPayment ? "최종 " : ""}}{{reservation.downPayment || reservation.intermediatePayment || reservation.finalPayment ? "입금 완료" : ""}}</span>
   </div>
 </ion-content>
 <ion-footer>
-    <button ion-button class="normal-btn dark-btn">일정수정</button>
-    <button ion-button class="normal-btn dark-btn">일정삭제</button>
+    <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation">일정수정</button> 
+    <button ion-button class="normal-btn dark-btn" *ngIf="!reservation.isRemovedReservation;else cancelListButton" (click)='removeSchedule()'>일정삭제</button>
+    <ng-template #cancelListButton><button ion-button class="normal-btn dark-btn" (click)='removeRemovedSchedule()' #cancelListButton>일정삭제</button></ng-template>
 </ion-footer>

@@ -14,7 +14,7 @@ import {
   App,
   AlertController,
   ModalController,
-  Events
+  Events,
 } from "ionic-angular";
 
 import 'rxjs/add/operator/timeout';
@@ -456,7 +456,9 @@ export class User {
   email: '';
   phone: '';
   notesCount: 0;
-
+  reservationsCount: 0;
+  removedReservationsCount: 0;
+  customersCount: 0;
   constructor(
     // private device: Device
   ) {
@@ -494,6 +496,9 @@ export class User {
     this.email = data.email;
     this.phone = data.phone;
     this.notesCount = data.notesCount;
+    this.reservationsCount = data.reservationsCount;
+    this.removedReservationsCount = data.removedReservationsCount;
+    this.customersCount = data.customersCount;
   }
   clear() {
     window.sessionStorage.clear();
@@ -579,8 +584,9 @@ export class Connect {
             //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
             break;
           default: 
-            console.error("에러남", error)
-            break;
+            // 이런곳들에서 login 페이지 같은대로 보내야 하는데... 아니면 new Error로 아예
+            console.error("http 에러남", error);
+            return { error }
         }
       });  
     } else {
@@ -596,7 +602,7 @@ export class Connect {
             break;
           default: 
             console.error("에러남", error)
-            break;
+            return { error }
         }
       });
     }

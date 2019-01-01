@@ -1,5 +1,15 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angular';
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController,
+  Events
+} from "ionic-angular";
+import {
+  IReservation,
+  ReservationProvider
+} from "../../providers/ReservationProvider";
 
 /**
  * Generated class for the CancelListPage page.
@@ -9,20 +19,32 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
  */
 
 @IonicPage({
-  name : "cancel-list",
-  segment : "cancel-list"
+  name: "cancel-list",
+  segment: "cancel-list"
 })
 @Component({
-  selector: 'page-cancel-list',
-  templateUrl: 'cancel-list.html',
+  selector: "page-cancel-list",
+  templateUrl: "cancel-list.html"
 })
 export class CancelListPage {
+  removedReservations: IReservation[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+  constructor(
+    private events: Events,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController,
+    private reservationProvider: ReservationProvider
+  ) {
+    this.events.subscribe('reservation:reservationRemoved', () => {
+      console.log("CancelListPage");
+      this.removedReservations = this.reservationProvider.reservations.filter(reservation => reservation.isRemovedReservation === true);
+    })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CancelListPage');
+  async ionViewDidLoad() {
+    console.log("ionViewDidLoad CancelListPage");
+    await this.reservationProvider.getReservations();
+    this.removedReservations = this.reservationProvider.reservations.filter(reservation => reservation.isRemovedReservation === true);
   }
-
 }

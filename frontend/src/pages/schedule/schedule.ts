@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController, ActionSheetController } from 'ionic-angular';
 import Swiper from 'swiper';
 import { Utils, Connect } from '../../providers/cat/cat';
 
@@ -82,6 +82,7 @@ export class SchedulePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private alertCtrl: AlertController,
+    public actionSheetCtrl: ActionSheetController,
     public menuCtrl: MenuController,
     private connect: Connect
     ) {
@@ -198,10 +199,61 @@ export class SchedulePage {
     }
     return date_obj;
   }
+ 
   openDetail(date, active_date) {
     this.navCtrl.push('schedule-reservation', {
       date: date,//클릭한 날짜
       active_date: active_date//클릭한 월
     });
+  }
+//바로 예약페이지를 거치지 않고 하단에 엑션 시트를 고쳐야 해서 수정했는데
+//수정을 잘 한건지 모르겠습니다 ㅜㅜ
+  presentActionSheet(date, active_date) {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: '예약 가능한 스튜디오',
+      buttons: [{
+          text: 'LaLaLand Studio',
+          role: 'LaLaLand Studio',
+          handler: () => {
+            this.navCtrl.push('schedule-reservation', {
+              space: "ls",
+              date: date,//클릭한 날짜
+              active_date: active_date//클릭한 월
+            });
+          }
+        },
+        {
+          text: 'LaLaLand Looftop',
+          role: 'LaLaLand Looftop',
+          handler: () => {
+            this.navCtrl.push('schedule-reservation', {
+              space: "llt",
+              date: date,//클릭한 날짜
+              active_date: active_date//클릭한 월
+            });
+          }
+        },
+        {
+          text: 'Shackespeare Vacation',
+          role: 'Shackespeare Vacation',
+          handler: () => {
+            this.navCtrl.push('schedule-reservation', {
+              space: "sv",
+              date: date,//클릭한 날짜
+              active_date: active_date//클릭한 월
+            });
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
   }
 }

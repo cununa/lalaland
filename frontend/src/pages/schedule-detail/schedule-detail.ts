@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,MenuController, ActionSheetController  } from 'ionic-angular';
+import { IReservation, ReservationProvider } from '../../providers/ReservationProvider';
 
 /**
  * Generated class for the ScheduleDetailPage page.
@@ -17,12 +18,116 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
   templateUrl: 'schedule-detail.html',
 })
 export class ScheduleDetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController) {
-  }
+  reservation: IReservation = {
+    _id: '',
+    title: '',
+    content: '',
+    reservationHolderName: '',
+    reservationHolderPhone: '',
+    isCustomerInfoSameAsReservationHolder: false,
+    space: '',
+    company: '',
+    customerId: '',
+    customerName: '',
+    customerPhone: '',
+    startDate: '',
+    startTime: '',
+    endDate: '',
+    endTime: '',
+    withdrawDate: '',
+    withdrawTime: '',
+    isRemovedReservation: false,
+    downPayment: false,
+    intermediatePayment: false,
+    finalPayment: false
+  };
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController,
+    public menuCtrl: MenuController,
+    private reservationProvider: ReservationProvider
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleDetailPage');
+    this.reservation = this.navParams.data
   }
 
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: '입금 상태 확인',
+      buttons: [{
+          text: '계약금 입금완료',
+          role: 'downPayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('downPayment 계약금 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: true,
+              intermediatePayment: this.reservation.intermediatePayment,
+              finalPayment: this.reservation.finalPayment
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
+          }
+        },
+        {
+          text: '중도금 입금완료',
+          role: 'intermediatePayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('intermediatePayment 중도금 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: this.reservation.downPayment,
+              intermediatePayment: true,
+              finalPayment: this.reservation.finalPayment
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
+          }
+        },
+        {
+          text: '최종 입금완료',
+          role: 'finalPayment',//임시로 이름 지었습니다
+          handler: async () => {
+            console.log('finalPayment 최종 clicked');
+            const phases = {
+              reservationId: this.reservation._id,
+              downPayment: this.reservation.downPayment,
+              intermediatePayment: this.reservation.intermediatePayment,
+              finalPayment: true
+            }
+            const result = await this.reservationProvider.updatePaymentPhase(phases)
+            this.reservation.downPayment = result.downPayment
+            this.reservation.intermediatePayment = result.intermediatePayment
+            this.reservation.finalPayment = result.finalPayment
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
+  }
+
+  async removeSchedule() {
+    this.reservationProvider.removeReservation(this.reservation._id);
+    this.navCtrl.pop();
+  }
+
+  async removeRemovedSchedule() {
+    this.reservationProvider.removeRemovedReservation(this.reservation._id);
+    this.navCtrl.pop();
+  }
 }
