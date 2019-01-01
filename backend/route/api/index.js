@@ -12,6 +12,7 @@ const api = require('express').Router()
 //===================  auth  ========================
 api.post('/join', wrap(userController.join))
 api.post('/login', wrap(userController.login))
+api.get('/check-auth', authController.auth, authController.jwtOnlyLogin)
 
 // 회원가입, 로그인 이외에는 모두 authController를 거치는 구조 입니다.
 api.use(authController.auth)

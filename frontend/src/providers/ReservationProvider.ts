@@ -46,6 +46,10 @@ export class ReservationProvider {
       route: "reservation",
       method: "get"
     });
+
+    if (result.error) {
+      return;
+    }
     this.reservations = result;
   }
 

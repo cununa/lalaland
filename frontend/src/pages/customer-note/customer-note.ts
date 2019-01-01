@@ -71,6 +71,9 @@ export class CustomerNotePage {
 
   async getList() {
     const result = await this.connect.run({route: 'note', method: 'get'});
+    if (result.error) {
+      return;
+    }
     this.note.initNotesFromServer(result);
   }
 

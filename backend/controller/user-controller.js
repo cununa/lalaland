@@ -15,7 +15,7 @@ const assignToken = (userData) => {
     const jwtToken = jwt.sign({ _id, email, name, phone }, config.app.secret)
     return jwtToken
 }
-
+exports.assignToken = assignToken;
 exports.login = async (req, res) => {
     const user = await userModel.findOne({ email: req.body.email })
     if (user && req.body.password === user.password) {

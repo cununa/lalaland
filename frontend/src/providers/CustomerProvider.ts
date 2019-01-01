@@ -16,6 +16,9 @@ export class CustomerProvider {
 
     async getCustomers() {
         const result = await this.connect.run({ route: "customer", method: "get"})
+        if (result.error) {
+            return;
+        }
         this.customers = result;
     }
 }
