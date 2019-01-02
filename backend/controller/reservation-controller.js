@@ -98,6 +98,7 @@ exports.createReservation = async (req, res) => {
     finalPayment: false
   };
 
+  
   res.json(finalResultData);
 };
 
@@ -179,8 +180,8 @@ exports.getCustomerReservation = async (req, res) => {
     reservation.company = company
     return reservation
   })
-
-  res.json(refinedcustomerReservations);
+  const customer = await customerModel.find({ userId: _id });
+  res.json({ customer, reservations: refinedcustomerReservations });
 };
 
 exports.updateReservation = async (req, res) => {
