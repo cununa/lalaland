@@ -34,7 +34,7 @@ export class MyApp {
     private customerProvider: CustomerProvider,
     private reservationProvider: ReservationProvider
   ) {
-    this.connect.url = "http://localhost:8080"; //'https://lalaland-2019.appspot.com';
+    this.connect.url = 'https://lalaland-2019.appspot.com';//'http://localhost:8080'; 
     this.notesCount = this.noteProvider.notes.length;
     this.customersCount = this.customerProvider.customers.length;
     this.reservationsCount = this.reservationProvider.reservations.filter(

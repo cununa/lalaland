@@ -1,12 +1,12 @@
 <ion-content>
   <ion-row class="input-group">
-  <input class="popinfo" placeholder="회사명" type="text" [(ngModel)]=data.company value="{{data.company}}">
+  <input class="popinfo mt-1" placeholder="회사명을 기입하세요" type="text" [(ngModel)]=data.company value="{{data.company}}">
   </ion-row>
   <ion-row class="input-group">
-    <input class="popinfo" placeholder="고객명" type="text" [(ngModel)]=data.customer value="{{data.customer}}">
+    <input class="popinfo" placeholder="고객명을 기입하세요" type="text" [(ngModel)]=data.customer value="{{data.customer}}">
     </ion-row>
-    <ion-row class="input-group">
-      <input class="popinfo" placeholder="고객 전화번호" type="text" [(ngModel)]=data.phone value="{{data.phone}}">
+    <ion-row class="input-group mb-1">
+      <input class="popinfo" placeholder="고객 전화번호를 기입하세요" type="text" [(ngModel)]=data.phone value="{{data.phone}}">
       </ion-row>
     <ion-row>
         <ion-col class="popbox left" col-6><button ion-button color="dark" clear block (click)="goBack()">취소</button></ion-col>
