@@ -6,9 +6,16 @@ page-popup-customer {
     .input-group{
         padding: 1rem 0 !important;
         margin: 0;
-
+    }
+    .mt-1{
+        margin-top: 1rem !important;
+        padding-top: 0rem;
+    }
+    .mb-1{
+        margin-bottom: 0.6rem;
     }
     .popinfo{
+        padding: 1rem 0 !important;
         text-align: center;
         margin: auto;
         line-height: 3rem;

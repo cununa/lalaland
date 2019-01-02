@@ -27,7 +27,7 @@ import {
   templateUrl: "cancel-list.html"
 })
 export class CancelListPage {
-  reservations: IReservation[] = [];
+  removedReservations: IReservation[] = [];
 
   constructor(
     private events: Events,
@@ -37,16 +37,16 @@ export class CancelListPage {
     private reservationProvider: ReservationProvider
   ) {
     this.events.subscribe('reservation:reservationRemoved', () => {
-      console.log("CancelListPage")
-      this.reservations = this.reservationProvider.reservations;
-    });
+      console.log("CancelListPage");
+      this.removedReservations = this.reservationProvider.reservations.filter(reservation => reservation.isRemovedReservation === true);
+    })
   }
 
 
   async ionViewDidLoad() {
     console.log("ionViewDidLoad CancelListPage");
     await this.reservationProvider.getReservations();
-    this.reservations = this.reservationProvider.reservations;
+    this.removedReservations = this.reservationProvider.reservations.filter(reservation => reservation.isRemovedReservation === true);
   }
 
 }

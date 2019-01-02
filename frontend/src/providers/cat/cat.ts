@@ -14,7 +14,7 @@ import {
   App,
   AlertController,
   ModalController,
-  Events
+  Events,
 } from "ionic-angular";
 
 import 'rxjs/add/operator/timeout';
@@ -598,8 +598,9 @@ export class Connect {
             //this.toast.present('[' + error.status + ']' + error.statusText + '\n' + error._body);
             break;
           default: 
-            console.error("에러남", error)
-            break;
+            // 이런곳들에서 login 페이지 같은대로 보내야 하는데... 아니면 new Error로 아예
+            console.error("http 에러남", error);
+            return { error }
         }
       });  
     } else {
@@ -615,7 +616,7 @@ export class Connect {
             break;
           default: 
             console.error("에러남", error)
-            break;
+            return { error }
         }
       });
     }

@@ -1,12 +1,12 @@
+import { LoginPage } from './../pages/login/login';
 import { CustomerProvider } from "./../providers/CustomerProvider";
 import { NoteProvider } from "./../providers/NoteProvider";
-import { Component, ChangeDetectorRef } from "@angular/core";
+import { Component, ChangeDetectorRef, ViewChild } from "@angular/core";
 import { Platform, App, IonicApp, Events, MenuController } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { Connect, User } from "../providers/cat/cat";
 import { ReservationProvider } from "../providers/ReservationProvider";
-
 @Component({
   selector: "app",
   templateUrl: "app.html"
@@ -24,7 +24,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     ionicApp: IonicApp,
-    events: Events,
+    private events: Events,
     private connect: Connect,
     private menuCtrl: MenuController,
     private changeDetector: ChangeDetectorRef,
@@ -34,7 +34,7 @@ export class MyApp {
     private customerProvider: CustomerProvider,
     private reservationProvider: ReservationProvider
   ) {
-    this.connect.url = "http://localhost:8080"; //'https://lalaland-2019.appspot.com';
+    this.connect.url = 'https://lalaland-2019.appspot.com';//'http://localhost:8080'; 
     this.notesCount = this.noteProvider.notes.length;
     this.customersCount = this.customerProvider.customers.length;
     this.reservationsCount = this.reservationProvider.reservations.filter(
@@ -43,7 +43,7 @@ export class MyApp {
     this.removedReservationsCount = this.reservationProvider.reservations.filter(
       reservation => reservation.isRemovedReservation === false
     ).length;
-    platform.ready().then(() => {
+    platform.ready().then( async () => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
@@ -101,6 +101,18 @@ export class MyApp {
       events.subscribe("customer:customerAdded", customersCount => {
         this.customersCount = customersCount;
       });
+
+      try {
+        const result = await this.connect.run({route: 'check-auth', method: 'get'});
+        if (result.error) {
+          // 아니면 여기에서도 라도 login 페이지로 보내야하는데..
+          return;
+        }
+        this.user.set(result);
+        this.events.publish("user:loggedIn");
+      } catch (error) {
+        console.error('error', error);
+      }
     });
   }
 

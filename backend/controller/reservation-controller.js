@@ -81,9 +81,9 @@ exports.createReservation = async (req, res) => {
     company,
     customerName,
     customerPhone,
-    startDate,
-    startTime,
-    endDate,
+    startDate, 
+    startTime, 
+    endDate, 
     endTime,
     withdrawDate,
     withdrawTime,
@@ -104,7 +104,7 @@ exports.getReservation = async (req, res) => {
   const { _id } = req.user;
   const reservations = await reservationModel.find({
     userId: _id
-  });
+  }).sort({ startDate: 1, startTime: 1 });
   res.json(reservations);
 };
 
