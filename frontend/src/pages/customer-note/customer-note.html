@@ -12,10 +12,11 @@
 
 <ion-content #content>
   <ion-list>
-    <ion-item navPush="customer-note-detail" [navParams]='note' *ngFor="let note of notes">
-      <div>{{note.createdAt}}</div>
+    <ion-item *ngFor="let note of notes"
+    (click)="openDetail(note)">
+      <div>{{utils.fixDate(note.createdAt)}}</div>
       <div>{{note.title}}</div>
-      <div>{{note.content}}</div>
+      <!-- <div>{{note.content}}</div> -->
       <div><ion-icon name="ios-arrow-forward-outline"></ion-icon> </div>
     </ion-item>
   </ion-list>

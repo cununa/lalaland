@@ -206,7 +206,10 @@ export class Utils {
   mergeDate(obj) {
     return obj.year + '-' + this.toXX(obj.month + 1) + '-' + this.toXX(obj.date);
   }
-
+  fixDate(date) {
+    const d = new Date(date);
+    return d.getFullYear() + '.' + this.toXX(d.getMonth()+1) + '.' + this.toXX(d.getDate());
+  }
   dateCompare(date1: string, date2: string) {
     //console.log(date1.replace(/-/g, ''));
     //console.log(date2.replace(/-/g, ''));

@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Events } from 'ionic-angular';
-import axios from 'axios';
-import moment from 'moment';
-import { ModalCtrl, User, Connect } from '../../providers/cat/cat'; // 인증(로그인) 처리를 위해선 User를 넣어주어야 함
+import { ModalCtrl, User, Connect, Utils } from '../../providers/cat/cat'; // 인증(로그인) 처리를 위해선 User를 넣어주어야 함
 import { NoteProvider } from '../../providers/NoteProvider';
-import { TitleCasePipe } from '@angular/common';
 
 /**
  * Generated class for the CustomerNotePage page.
@@ -32,12 +29,13 @@ export class CustomerNotePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public utils: Utils,
     private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다 
     public menuCtrl: MenuController,
     public user: User,
     private connect: Connect,
     public events: Events,
-    public note: NoteProvider
+    public note: NoteProvider,
   ) {
     this.notes= this.note.notes;
     this.events.subscribe('note:noteChanged', () => {
@@ -57,7 +55,7 @@ export class CustomerNotePage {
   }
 
   ionViewDidEnter() {
-    this.notes= this.note.notes;
+    this.notes = this.note.notes;
   }
 
   ionViewWillEnter() {
@@ -67,6 +65,10 @@ export class CustomerNotePage {
   openModalWrite(){
     let modal = this.modalCtrl.createWithCallBack(
       'popup-note', { method: "createNote"}, { cssClass: 'long-modal'}, this.newNoteCreated.bind(this)).present();
+  }
+
+  openDetail(note) {
+    this.modalCtrl.create('customer-note-detail', note).present();
   }
 
   async getList() {
@@ -84,6 +86,4 @@ export class CustomerNotePage {
     }
     this.note.addNote(newNote)
   }
-
-
 }

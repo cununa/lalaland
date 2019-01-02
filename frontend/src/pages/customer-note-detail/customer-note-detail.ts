@@ -1,9 +1,7 @@
 import { NoteProvider } from './../../providers/NoteProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Events  } from 'ionic-angular';
-import axios from 'axios';
-import moment from 'moment';
-import { ModalCtrl, User, Connect } from '../../providers/cat/cat';
+import { ModalCtrl, User, Connect, Utils } from '../../providers/cat/cat';
 /**
  * Generated class for the CustomerNoteDetailPage page.
  *
@@ -31,6 +29,7 @@ export class CustomerNoteDetailPage {
   }
 
   constructor(
+    public utils: Utils,
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalCtrl,//모달 컨트롤러 아니고 모달 콘트롤쓴다
@@ -50,12 +49,7 @@ export class CustomerNoteDetailPage {
 
   openUpdateNoteModal(){
     let modal = this.modalCtrl.createWithCallBack(
-      'popup-note', { noteId: this.item._id, method: 'updateNote'}, { cssClass: 'long-modal'}, this.updateNote.bind(this)).present();
-  }
-
-  openModalDel(){
-    let modal = this.modalCtrl.createWithCallBack(
-      'popup-note', {}, { cssClass: 'long-modal'}, this.removeNote.bind(this)).present();
+      'popup-note', { noteId: this.item._id, method: 'updateNote', data: this.item}, { cssClass: 'long-modal'}, this.updateNote.bind(this)).present();
   }
 
   async removeNote() {
@@ -69,8 +63,10 @@ export class CustomerNoteDetailPage {
   }
 
   async updateNote(updatedNote) {
-    this.item = updatedNote;
-    this.note.updateNote(updatedNote);
+    if(updatedNote) {
+      this.item = updatedNote;
+      this.note.updateNote(updatedNote);
+    }
   }
 
 }

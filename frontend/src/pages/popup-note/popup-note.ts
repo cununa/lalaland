@@ -38,9 +38,10 @@ export class PopupNotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PopupCustomerPage');
-    const { noteId, method } = this.navParams.data
+    const { noteId, method, data } = this.navParams.data;
     this.method = method;
     this.noteId = noteId;
+    this.data = data;
   }
 
   goBack(){

@@ -82,8 +82,9 @@ export class CustomerListDetailPage {
         handler: async() => {
           console.log('remove');
           const result = await this.connect.run({ route: `customer/${this.customerId}`, method: 'delete'});
-          this.navCtrl.pop();
-          this.events.publish('customer:refresh');
+          this.navCtrl.pop().then(() => {
+            this.events.publish('customer:refresh');
+          });
         }
       }]
     }).present();
