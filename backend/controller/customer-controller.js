@@ -9,16 +9,15 @@ exports.getCustomer = async (req, res) => {
 }
 
 exports.updateCustomer = async (req, res) => {
-    const { id, name, email, phone, company } = req.body
+    const { _id, name, phone, company } = req.body
     let data = {}
     if (name) data.name = name
-    if (email) data.email = email
     if (phone) data.phone = phone
     if (company) data.company = company 
     // findOneAndUpdate 형식
     // findOneAndUpdate(검색조건, 수정할 data, 옵션)
     const customer = await customerModel.findOneAndUpdate(
-        { _id: id },
+        { _id },
         data,
         { upsert: true, new: true }
     )
@@ -26,7 +25,7 @@ exports.updateCustomer = async (req, res) => {
 }
 
 exports.deleteCustomer = async (req, res) => {
-    const { id } = req.query
+    const { id } = req.params
     const customer = await customerModel.deleteOne({ _id: id })
     // _id : mongoDB의 자동 생성 아이디
     // id : 사용자가 클라이언트에서 입력한 값 테스트시 id 사용

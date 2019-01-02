@@ -35,7 +35,7 @@ api.delete('/removed-reservation/:reservationId', wrap(reservationController.del
 //=================  customer  ======================
 api.get('/customer', wrap(customerController.getCustomer))
 api.post('/customer', wrap(customerController.updateCustomer))
-api.delete('/customer', wrap(customerController.deleteCustomer))
+api.delete('/customer/:id', wrap(customerController.deleteCustomer))
 
 //=================  note  =========================
 api.put('/note', wrap(noteController.createNote))
