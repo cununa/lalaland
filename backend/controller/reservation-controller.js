@@ -180,8 +180,10 @@ exports.getCustomerReservation = async (req, res) => {
     reservation.company = company
     return reservation
   })
-  const customer = await customerModel.find({ userId: _id });
-  res.json({ customer, reservations: refinedcustomerReservations });
+
+  const customer = await customerModel.find({ _id: customerId });
+  const data = { customer: customer[0], reservations: refinedcustomerReservations }
+  res.json(data);
 };
 
 exports.updateReservation = async (req, res) => {
