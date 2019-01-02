@@ -117,9 +117,9 @@ exports.getReservation = async (req, res) => {
 
     const refinedReservations = reservations.map((reservation) => {
       const { customerDetails } = reservation;
-        let customerName;
-        let customerPhone;
-        let company;
+      let customerName;
+      let customerPhone;
+      let company;
       if (customerDetails.length === 0) {
         // 고객은 삭제된 상태여서 정보가 없습니다.
         customerName = "삭제된 고객 입니다";  
@@ -159,9 +159,24 @@ exports.getCustomerReservation = async (req, res) => {
 
   const refinedcustomerReservations = customerReservations.map((reservation) => {
     const { customerDetails } = reservation;
-    reservation.customerName = customerDetails[0].name;
-    reservation.customerPhone = customerDetails[0].phone
-    reservation.company = customerDetails[0].company
+    let customerName;
+    let customerPhone;
+    let company;
+
+    if (customerDetails.length === 0) {
+      customerName = "삭제된 고객 입니다";  
+      customerPhone = "삭제된 고객 입니다";  
+      company = "삭제된 고객 입니다";  
+    } else {
+      customerName = customerDetails[0].name;  
+      customerPhone = customerDetails[0].phone;  
+      company = customerDetails[0].company;  
+    }
+
+    delete reservation.customerDetails;
+    reservation.customerName = customerName;
+    reservation.customerPhone = customerPhone
+    reservation.company = company
     return reservation
   })
 
