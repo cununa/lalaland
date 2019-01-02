@@ -10,10 +10,10 @@ const reservationSchema = new mongoose.Schema({
   reservationHolderPhone:{type : String, required: true},
   isCustomerInfoSameAsReservationHolder:{type : Boolean, required: true},
   space:{type : String, required: true},
-  company:{type : String, required: true},
-  customerId:{type : String, required: true},
-  customerName:{type : String, required: true},
-  customerPhone:{type : String, required: true},
+  // company:{type : String, required: true},
+  customerId:{type : mongoose.Schema.Types.ObjectId, required: true},
+  // customerName:{type : String, required: true},
+  // customerPhone:{type : String, required: true},
   startDate:{type : String, required: true},
   startTime:{type : String, required: true},
   endDate:{type : String, required: true},
@@ -30,3 +30,4 @@ const reservationSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('reservation', reservationSchema)
+// mongoose.Schema.Types.ObjectId

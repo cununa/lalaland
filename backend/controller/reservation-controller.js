@@ -2,6 +2,7 @@
 
 const reservationModel = require("../model/reservation-model");
 const customerModel = require("../model/customer-model");
+const ObjectID = require('mongodb').ObjectID
 
 exports.createReservation = async (req, res) => {
   const {
@@ -47,9 +48,9 @@ exports.createReservation = async (req, res) => {
     reservationHolderPhone,
     isCustomerInfoSameAsReservationHolder,
     space,
-    company,
-    customerName,
-    customerPhone,
+    // company,
+    // customerName,
+    // customerPhone,
     startDate,
     startTime,
     endDate,
@@ -57,7 +58,7 @@ exports.createReservation = async (req, res) => {
     withdrawDate,
     withdrawTime,
     userId: _id,
-    customerId,
+    customerId: new ObjectID(customerId),
     isRemovedReservation: false,
     downPayment: false,
     intermediatePayment: false,
@@ -102,10 +103,42 @@ exports.createReservation = async (req, res) => {
 
 exports.getReservation = async (req, res) => {
   const { _id } = req.user;
-  const reservations = await reservationModel.find({
-    userId: _id
-  }).sort({ startDate: 1, startTime: 1 });
-  res.json(reservations);
+  const reservations = await reservationModel.aggregate([
+    { $match : { userId: _id.toString() } },
+    { $lookup:
+       {
+         from: 'customer',
+         localField: 'customerId',
+         foreignField: '_id',
+         as: 'customerDetails'
+       }
+     }
+    ]).sort({ startDate: 1, startTime: 1 });
+
+    const refinedReservations = reservations.map((reservation) => {
+      const { customerDetails } = reservation;
+        let customerName;
+        let customerPhone;
+        let company;
+      if (customerDetails.length === 0) {
+        // 고객은 삭제된 상태여서 정보가 없습니다.
+        customerName = "삭제된 고객 입니다";  
+        customerPhone = "삭제된 고객 입니다";  
+        company = "삭제된 고객 입니다";  
+      } else {
+        customerName = customerDetails[0].name;  
+        customerPhone = customerDetails[0].phone;  
+        company = customerDetails[0].company;  
+      }
+      
+      delete reservation.customerDetails;
+      reservation.customerName = customerName;
+      reservation.customerPhone = customerPhone
+      reservation.company = company
+      return reservation
+    })
+  
+  res.json(refinedReservations);
 };
 
 exports.getCustomerReservation = async (req, res) => {
@@ -120,47 +153,74 @@ exports.getCustomerReservation = async (req, res) => {
 };
 
 exports.updateReservation = async (req, res) => {
-  //   console.log("updateReservation body", req.body);
-  //   const {
-  //     title,
-  //     content,
-  //     reservationId,
-  //     reservationHolderName,
-  //     reservationHolderPhone,
-  //     isCustomerInfoSameAsReservationHolder,
-  //     space,
-  //     company,
-  //     customerName,
-  //     customerPhone,
-  //     startDate,
-  //     startTime,
-  //     endDate,
-  //     endTime,
-  //     withdrawDate,
-  //     withdrawTime
-  //   } = req.body;
-  //   const result = await reservationModel.findOneAndUpdate(
-  //     { _id: reservationId },
-  //     {
-  //       title,
-  //       content,
-  //       reservationHolderName,
-  //       reservationHolderPhone,
-  //       isCustomerInfoSameAsReservationHolder,
-  //       space,
-  //       company,
-  //       customerName,
-  //       customerPhone,
-  //       startDate,
-  //       startTime,
-  //       endDate,
-  //       endTime,
-  //       withdrawDate,
-  //       withdrawTime
-  //     },
-  //     { upsert: true, new: true }
-  //   );
-  //   res.json(result);
+    const {
+        _id,
+      title,
+      content,
+      reservationHolderName,
+      reservationHolderPhone,
+      isCustomerInfoSameAsReservationHolder,
+      space,
+      customerId,
+      company,
+      customerName,
+      customerPhone,
+      startDate, 
+      startTime, 
+      endDate, 
+      endTime,
+      withdrawDate,
+      withdrawTime,
+    } = req.body;
+    const customerResult = await customerModel.findOneAndUpdate(
+      { _id: customerId },
+      {
+        name: customerName,
+        phone: customerPhone,
+        company
+      },
+      { upsert: true, new: true }
+  )
+    const reservationResult = await reservationModel.findOneAndUpdate(
+      { _id },
+      {
+        title,
+        content,
+        reservationHolderName,
+        reservationHolderPhone,
+        isCustomerInfoSameAsReservationHolder,
+        space,
+        startDate, 
+        startTime, 
+        endDate, 
+        endTime,
+        withdrawDate,
+        withdrawTime,
+      },
+      { upsert: true, new: true }
+    );
+
+    const finalResult = {
+      _id,
+      title: reservationResult.title,
+      content: reservationResult.content,
+      reservationHolderName: reservationResult.reservationHolderName,
+      reservationHolderPhone: reservationResult.reservationHolderPhone,
+      isCustomerInfoSameAsReservationHolder: reservationResult.isCustomerInfoSameAsReservationHolder,
+      space: reservationResult.space,
+      customerId,
+      company: customerResult.company,
+      customerName: customerResult.name,
+      customerPhone: customerResult.phone,
+      startDate: reservationResult.startDate, 
+      startTime: reservationResult.startTime, 
+      endDate: reservationResult.endDate, 
+      endTime: reservationResult.endTime,
+      withdrawDate: reservationResult.withdrawDate,
+      withdrawTime: reservationResult.withdrawTime,
+    }
+
+    res.json(finalResult);
 };
 
 exports.updatePaymentPhase = async (req, res) => {
