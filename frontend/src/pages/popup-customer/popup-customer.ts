@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import axios from 'axios';
 import { FormsModule } from '@angular/forms';
 import { userData } from '../../dummy'
@@ -28,25 +28,26 @@ interface INewNote {
 })
 export class PopupCustomerPage {
 
-  data: INewNote = { title: '', content: ''}
-  method: string = '';
-  noteId: string = '';
+  data = {
+    _id: '',
+    name: '',
+    phone: '',
+    company: ''
+  }
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private connect: Connect,
-    private toast: ToastCtrl
+    private toast: ToastCtrl,
+    private events: Events
   ) {
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PopupCustomerPage');
-    const { noteId, method } = this.navParams.data
-    this.method = method;
-    this.noteId = noteId;
+    this.data = this.navParams.data;
   }
 
   goBack(){
@@ -54,22 +55,8 @@ export class PopupCustomerPage {
   }
 
   async save(){
-    switch (this.method) {
-      case 'updateCustomer': return await this.updateCustomer();
-      default: 
-        console.log("인자 제대로 안줬음")
-        return;
-    }
-  }
-
-  async updateCustomer() {
-    const result = await this.connect.run({ route: 'customer', method: 'post'},  {...this.data, noteId: this.noteId})
-    if (result.code && result.message) {
-      this.navCtrl.pop();
-      this.toast.present(`에러: ${result.code}. 수정중 문제가 발생했습니다. 스크린샷으로 문의해주세요.`);
-    } else {
-      const { _id, title, content, createdAt } = result
-      this.viewCtrl.dismiss({ _id, title, content, createdAt})
-    }
+    const result = await this.connect.run({ route: 'customer', method: 'post'}, this.data);
+    this.events.publish('customer:refresh');
+    this.viewCtrl.dismiss();
   }
 }

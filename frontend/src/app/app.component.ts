@@ -105,11 +105,14 @@ export class MyApp {
       try {
         const result = await this.connect.run({route: 'check-auth', method: 'get'});
         if (result.error) {
-          // 아니면 여기에서도 라도 login 페이지로 보내야하는데..
-          return;
+          this.appCtrl.getRootNavs()[0].setRoot('login');
+        } else {
+          this.user.set(result);
+          this.events.publish("user:loggedIn");
+          if(location.href.indexOf('login') != -1) {
+            this.appCtrl.getRootNavs()[0].setRoot('schedule');
+          }
         }
-        this.user.set(result);
-        this.events.publish("user:loggedIn");
       } catch (error) {
         console.error('error', error);
       }

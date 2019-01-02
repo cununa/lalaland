@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,MenuController, Content, AlertController, ActionSheetController, Events } from 'ionic-angular';
 import Swiper from 'swiper';
 import { Utils, Connect, ModalCtrl } from '../../providers/cat/cat';
 import { ReservationProvider } from '../../providers/ReservationProvider';
@@ -78,6 +78,8 @@ export class SchedulePage {
   
   reserve_list = [];
 
+  event_refresh = null;
+
   constructor(
     public utils: Utils,
     public navCtrl: NavController,
@@ -87,7 +89,8 @@ export class SchedulePage {
     public menuCtrl: MenuController,
     private connect: Connect,
     private reservation: ReservationProvider,
-    private modalCtrl: ModalCtrl
+    private modalCtrl: ModalCtrl,
+    private events: Events
     ) {
     this.today = this.cutDate(this.utils.today());
 
@@ -100,7 +103,12 @@ export class SchedulePage {
     this.next_3_date = this.calcMonth(this.cutDate(this.utils.today({month: 3}, true)));
   }
   ionViewDidLoad() {
+    this.event_refresh = this.refresh.bind(this);
+    this.events.subscribe('schedule:refresh', this.event_refresh);
     this.refresh();
+  }
+  ionViewWillUnload(){
+    this.events.unsubscribe('schedule:refresh', this.event_refresh);
   }
   async refresh() {
     this.is_loaded = false;

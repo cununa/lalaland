@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,MenuController, ActionSheetController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,MenuController, ActionSheetController, Events  } from 'ionic-angular';
 import { IReservation, ReservationProvider } from '../../providers/ReservationProvider';
+import { ModalCtrl } from '../../providers/cat/cat';
 
 /**
  * Generated class for the ScheduleDetailPage page.
@@ -46,7 +47,9 @@ export class ScheduleDetailPage {
     public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
     public menuCtrl: MenuController,
-    private reservationProvider: ReservationProvider
+    private reservationProvider: ReservationProvider,
+    private modalCtrl: ModalCtrl,
+    private events: Events
   ) { }
 
   ionViewDidLoad() {
@@ -68,10 +71,11 @@ export class ScheduleDetailPage {
               intermediatePayment: this.reservation.intermediatePayment,
               finalPayment: this.reservation.finalPayment
             }
-            const result = await this.reservationProvider.updatePaymentPhase(phases)
-            this.reservation.downPayment = result.downPayment
-            this.reservation.intermediatePayment = result.intermediatePayment
-            this.reservation.finalPayment = result.finalPayment
+            const result = await this.reservationProvider.updatePaymentPhase(phases);
+            this.reservation.downPayment = result.downPayment;
+            this.reservation.intermediatePayment = result.intermediatePayment;
+            this.reservation.finalPayment = result.finalPayment;
+            this.events.publish('schedule:refresh');
           }
         },
         {
@@ -85,10 +89,11 @@ export class ScheduleDetailPage {
               intermediatePayment: true,
               finalPayment: this.reservation.finalPayment
             }
-            const result = await this.reservationProvider.updatePaymentPhase(phases)
-            this.reservation.downPayment = result.downPayment
-            this.reservation.intermediatePayment = result.intermediatePayment
-            this.reservation.finalPayment = result.finalPayment
+            const result = await this.reservationProvider.updatePaymentPhase(phases);
+            this.reservation.downPayment = result.downPayment;
+            this.reservation.intermediatePayment = result.intermediatePayment;
+            this.reservation.finalPayment = result.finalPayment;
+            this.events.publish('schedule:refresh');
           }
         },
         {
@@ -102,10 +107,11 @@ export class ScheduleDetailPage {
               intermediatePayment: this.reservation.intermediatePayment,
               finalPayment: true
             }
-            const result = await this.reservationProvider.updatePaymentPhase(phases)
-            this.reservation.downPayment = result.downPayment
-            this.reservation.intermediatePayment = result.intermediatePayment
-            this.reservation.finalPayment = result.finalPayment
+            const result = await this.reservationProvider.updatePaymentPhase(phases);
+            this.reservation.downPayment = result.downPayment;
+            this.reservation.intermediatePayment = result.intermediatePayment;
+            this.reservation.finalPayment = result.finalPayment;
+            this.events.publish('schedule:refresh');
           }
         },
         {
@@ -119,6 +125,12 @@ export class ScheduleDetailPage {
     });
 
     actionSheet.present();
+  }
+
+  editSchedule() {
+    this.modalCtrl.create('schedule-reservation', {
+      reservation: this.reservation
+    }).present();
   }
 
   async removeSchedule() {

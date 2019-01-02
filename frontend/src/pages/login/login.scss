@@ -12,8 +12,10 @@ page-login {
     //     }
         
     // }
-    .container{
+    .content {
         background: color($colors,primary);
+    }
+    .container{
         text-align: center;
         ion-row{
             ion-col{

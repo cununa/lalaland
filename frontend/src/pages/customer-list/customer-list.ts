@@ -1,6 +1,6 @@
 import { CustomerProvider } from './../../providers/CustomerProvider';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,MenuController, Events } from 'ionic-angular';
 import { AlertCtrl } from '../../providers/cat/cat';
 
 /**
@@ -19,19 +19,29 @@ import { AlertCtrl } from '../../providers/cat/cat';
   templateUrl: 'customer-list.html',
 })
 export class CustomerListPage {
-  customers = []
+  customers = [];
+
+  event_customer = null;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams ,
     public menuCtrl: MenuController, 
     private alertCtrl: AlertCtrl,
-    public customerProvider: CustomerProvider) {
+    public customerProvider: CustomerProvider,
+    private events: Events
+    ) {
   }
 
   async ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomerListPage');
+    this.event_customer = this.refresh.bind(this);
+    this.events.subscribe('customer:refresh', this.event_customer);
+    this.refresh();
+  }
+  ionViewWillUnload(){
+    this.events.unsubscribe('customer:refresh', this.event_customer);
+  }
+  async refresh() {
     await this.customerProvider.getCustomers();
     this.customers = this.customerProvider.customers;
-    console.log('customer')
   }
 }

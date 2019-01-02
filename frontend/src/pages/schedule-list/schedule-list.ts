@@ -47,7 +47,6 @@ export class ScheduleListPage {
     this.getList();
   }
   async getList() {
-    await this.reservationProvider.getReservations();
     this.reservations = this.reservationProvider.reservations;
   }
   activeDate(reservation) {
@@ -63,11 +62,11 @@ export class ScheduleListPage {
     }
   }
   addPlan(space) {
-    this.modalCtrl.create('schedule-reservation', {
+    this.navCtrl.push('schedule-reservation', {
       space: space,
       date: this.d,//클릭한 날짜
       active_date: this.ym//클릭한 월
-    }).present();
+    });
   }
   openDetail(reservation) {
     this.navCtrl.push('schedule-detail', reservation);

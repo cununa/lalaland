@@ -47,11 +47,11 @@ export class CNavDirective {
     const modal = this.ionicApp._modalPortal.getActive();
     if (modal) {
       modal.onWillDismiss(() => {
-        this.events.publish('home:openMain()');
+        this.events.publish('schedule:refresh()');
       });
       modal.dismiss();
     } else {
-      this.events.publish('home:openMain()');
+      this.events.publish('schedule:refresh()');
     }
   }
   openSearch() {
