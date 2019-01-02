@@ -144,12 +144,28 @@ exports.getReservation = async (req, res) => {
 exports.getCustomerReservation = async (req, res) => {
   const { _id } = req.user;
   const { customerId } = req.params;
-  const customerReservations = await reservationModel.find({
-    userId: _id,
-    customerId,
-    isRemovedReservation: false
-  });
-  res.json(customerReservations);
+
+  const customerReservations = await reservationModel.aggregate([
+    { $match : { userId: _id.toString(), customerId: ObjectID(customerId), isRemovedReservation: false }},
+    { $lookup:
+      {
+        from: 'customer',
+        localField: 'customerId',
+        foreignField: '_id',
+        as: 'customerDetails'
+      }
+    }
+  ]).sort({ startDate: 1, startTime: 1 });
+
+  const refinedcustomerReservations = customerReservations.map((reservation) => {
+    const { customerDetails } = reservation;
+    reservation.customerName = customerDetails[0].name;
+    reservation.customerPhone = customerDetails[0].phone
+    reservation.company = customerDetails[0].company
+    return reservation
+  })
+
+  res.json(refinedcustomerReservations);
 };
 
 exports.updateReservation = async (req, res) => {
