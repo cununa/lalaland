@@ -75,7 +75,6 @@ export class ScheduleReservationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleReservationPage');
-   
   }
 
   send(){
