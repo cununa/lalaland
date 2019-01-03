@@ -36,9 +36,9 @@
           <div class="floor">
             장소
             <select name="floor" id="selctFloor" [(ngModel)]="form.space">
-              <option value="ls" lang="en">LS</option>
-              <option value="llt" lang="en">LLT</option>
-              <option value="sv" lang="en">SV</option>
+              <option value="LS" lang="en">LS</option>
+              <option value="LLT" lang="en">LLT</option>
+              <option value="SV" lang="en">SV</option>
             </select>
           </div>
         </ion-item>
@@ -54,6 +54,15 @@
     <ion-list-header>
       예약자 정보
     </ion-list-header>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="colorThird">회사명</ion-label>
+          <ion-input type="text" [(ngModel)]="form.company"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
     <ion-row>
       <ion-col>
         <ion-item>
@@ -91,15 +100,7 @@
       <ion-col>
         <ion-item>
           <ion-label class="colorThird">고객 전화번호</ion-label>
-          <ion-input type="text" filter="number" max="20" [(ngModel)]="form.customerPhone" [disabled]="form.isCustomerInfoSameAsReservationHolder"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label class="colorThird">회사명</ion-label>
-          <ion-input type="text" [(ngModel)]="form.company"></ion-input>
+          <ion-input type="tel" filter="number" max="20" [(ngModel)]="form.customerPhone" [disabled]="form.isCustomerInfoSameAsReservationHolder"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
