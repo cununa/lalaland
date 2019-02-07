@@ -59,12 +59,12 @@ export class ScheduleDetailPage {
 
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
-      title: '입금 상태 확인',
+      title: '입금 확인',
       buttons: [{
-          text: '계약금 입금완료',
+          text: '선금 입금',
           role: 'downPayment',//임시로 이름 지었습니다
           handler: async () => {
-            console.log('downPayment 계약금 clicked');
+            console.log('downPayment 선금 clicked');
             const phases = {
               reservationId: this.reservation._id,
               downPayment: true,
@@ -79,7 +79,7 @@ export class ScheduleDetailPage {
           }
         },
         {
-          text: '중도금 입금완료',
+          text: '중도금 입금',
           role: 'intermediatePayment',//임시로 이름 지었습니다
           handler: async () => {
             console.log('intermediatePayment 중도금 clicked');
@@ -97,10 +97,10 @@ export class ScheduleDetailPage {
           }
         },
         {
-          text: '최종 입금완료',
+          text: '잔금 입금',
           role: 'finalPayment',//임시로 이름 지었습니다
           handler: async () => {
-            console.log('finalPayment 최종 clicked');
+            console.log('finalPayment 잔금 clicked');
             const phases = {
               reservationId: this.reservation._id,
               downPayment: this.reservation.downPayment,

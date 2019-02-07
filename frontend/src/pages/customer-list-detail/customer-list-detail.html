@@ -19,7 +19,7 @@
     </ion-item>
     <ion-item class="num-line">
       <div>{{ phone }}</div>
-      <div class="icon"><ion-icon name="ios-call"></ion-icon></div>
+      <a [href]="'tel:' + phone" class="icon"><ion-icon name="ios-call"></ion-icon></a>
     </ion-item>
     <ion-list *ngFor="let customerReservation of customerReservations">
       <ion-list-header>{{ customerReservation.startDate }}</ion-list-header>

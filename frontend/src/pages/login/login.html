@@ -10,12 +10,12 @@
       </ion-col>
     </ion-row>
     <div class="box">
+      <div>
+          <input type="email" class="secondary-btn normal-btn" placeholder="이메일 로그인" [(ngModel)]="form.email"> 
+          <input type="password" class="secondary-btn normal-btn" placeholder="패스워드" [(ngModel)]="form.password" (enter)="submit()">
+      </div>
       <div >
         관리자 전용입니다. <br> 로그인 바랍니다
-      </div>
-      <div>
-        <input type="email" class="secondary-btn normal-btn" placeholder="이메일 로그인" [(ngModel)]="form.email"> 
-        <input type="password" class="secondary-btn normal-btn" placeholder="패스워드" [(ngModel)]="form.password" (enter)="submit()">
       </div>
     </div>   
 </div>

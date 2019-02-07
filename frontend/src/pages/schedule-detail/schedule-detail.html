@@ -70,13 +70,13 @@
       </ion-item>
   </ion-list>
   <div class="deposit-btn">
-    <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">입금 단계 선택 하기</button>
+    <button ion-button class="normal-btn primary-btn" (click)="presentActionSheet()">입금 확인</button>
   </div>
 
   <div class="text-box">
-    <span>{{reservation.downPayment ? "계약금, ": ""}}{{reservation.intermediatePayment ? "중도금, " :
-      ""}}{{reservation.finalPayment ? "최종 " : ""}}{{reservation.downPayment || reservation.intermediatePayment ||
-      reservation.finalPayment ? "입금 완료" : ""}}</span>
+    <span>{{reservation.downPayment ? "선금 입금, ": ""}}{{reservation.intermediatePayment ? "중도금 입금, " :
+      ""}}{{reservation.finalPayment ? "잔금 입금 " : ""}}{{reservation.downPayment || reservation.intermediatePayment ||
+      reservation.finalPayment ? "결제 완료" : ""}}</span>
   </div>
 </ion-content>
 <ion-footer>

@@ -1,4 +1,8 @@
 page-login {
+    .container div:first-child {
+        padding: 0 0 5rem 0 !important;
+    }
+
     .ion-page{
         background: color($colors,primary);
     }
@@ -30,7 +34,7 @@ page-login {
             }
         }
         .box{
-            margin: 2rem 0 0 0;
+            margin: 1.5rem 0 0 0;
         }
         div{
             &:first-child{
