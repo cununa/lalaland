@@ -118,7 +118,6 @@ export class SchedulePage {
     //finalPayment 가 있으면 빨강 점
     this.reservation.reservations.map((x:any) => x.startDateObj = this.utils.cutDate(x.startDate));
     this.reserve_list = this.reservation.reservations;
-    console.log(this.reserve_list);
     this.is_loaded = true;
     setTimeout(() => {
       this.makeSlide();
@@ -127,6 +126,11 @@ export class SchedulePage {
   activeDate(ym, d) {
     let arr = [];
     for(let i = 0; i < this.reserve_list.length; i++) {
+      //서버가 데이터를 내려줄때 마지막 값의 스타트 오브젝트가 없어서 터지는데 일단 임시로 아래 코드로 수정해 놨습니다.
+      if(!this.reserve_list[i].startDateObj) {
+        this.reserve_list[i].startDateObj = this.utils.cutDate(this.reserve_list[i].startDate);
+      }
+      //여기까지 입니다
       if((ym.year == this.reserve_list[i].startDateObj.year && ym.month == this.reserve_list[i].startDateObj.month && d == this.reserve_list[i].startDateObj.date)
         && !this.reserve_list[i].isRemovedReservation) {
         if(this.reserve_list[i].finalPayment) {
