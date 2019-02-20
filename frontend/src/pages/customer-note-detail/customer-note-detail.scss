@@ -9,9 +9,13 @@ page-customer-note-detail {
             }
         }
     }
+.note-title{
+        text-align: left !important;
+}
   .note-detail{
       padding-left: 1.6rem;
       font-size: $font-size-n;
+      white-space: pre-wrap;
   }
   ion-content{
       position: relative;

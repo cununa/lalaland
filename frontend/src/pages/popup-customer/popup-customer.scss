@@ -16,7 +16,7 @@ page-popup-customer {
     }
     .popinfo{
         padding: 1rem 0 !important;
-        text-align: center;
+        text-align: left;
         margin: auto;
         line-height: 3rem;
         width: 25rem;
@@ -25,7 +25,7 @@ page-popup-customer {
         border-bottom: 0.1rem solid color($colors, gray);
     }
     .popcontent{
-        text-align: center;
+        text-align: left;
         margin: auto;
         margin-bottom: 0.5rem;
         line-height: 3rem;
